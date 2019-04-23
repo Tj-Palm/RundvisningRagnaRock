@@ -28,7 +28,6 @@ namespace RundvisningRagnaRock.Models
         public string PictureDirectory
         {
             get { return _pictureDirectory; }
-
         }
 
         public string Description
