@@ -8,7 +8,7 @@ namespace RundvisningRagnaRock.Models
 {
     class UDS
     {
-
+        private static int _idcount;
 
         private int _ID;
         private string _name;
@@ -16,8 +16,20 @@ namespace RundvisningRagnaRock.Models
         private string _location;
         private string _desctiption;
         private string _pictureDirectory;
-
         private string _soundFileDirectory;
+
+        public UDS( string name, string category, string location, string desctiption, string pictureDirectory, string soundFileDirectory)
+        {
+            _ID = _idcount + 1;
+            _idcount++;
+
+            _name = name;
+            _category = category;
+            _location = location;
+            _desctiption = desctiption;
+            _pictureDirectory = pictureDirectory;
+            _soundFileDirectory = soundFileDirectory;
+        }
 
         public string SoundFileDirectory
         {
@@ -57,10 +69,11 @@ namespace RundvisningRagnaRock.Models
         public int ID
         {
             get { return _ID; }
-            set { _ID = value; }
         }
 
-
-
+        public override string ToString()
+        {
+           return Name;
+        }
     }
 }
