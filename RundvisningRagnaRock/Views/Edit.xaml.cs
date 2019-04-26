@@ -24,7 +24,7 @@ namespace RundvisningRagnaRock.Views
     {
         public Edit()
         {
-            this.InitializeComponent();
+            //this.InitializeComponent();
         }
     }
 }
