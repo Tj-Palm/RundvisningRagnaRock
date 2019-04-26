@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -13,6 +14,17 @@ namespace RundvisningRagnaRock.ViewModels
     class EditViewModel : INotifyPropertyChanged
     {
 
+        ObservableCollection<string> buttons = new ObservableCollection<string>()
+        {
+            "Test1",
+            "Test2",
+            "Test3"
+        };
+
+        public ObservableCollection<string> Buttons
+        {
+            get { return buttons; }
+        }
 
 
 
