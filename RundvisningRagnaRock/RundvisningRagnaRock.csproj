@@ -121,11 +121,11 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\UDS.cs" />
-    <Compile Include="ModelViews\EditViewModel.cs" />
-    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Views\AddEditPage.xaml.cs">
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModelViews\EditViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Views\Edit.xaml.cs">
       <DependentUpon>Edit.xaml</DependentUpon>
     </Compile>
@@ -155,10 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\AddEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
