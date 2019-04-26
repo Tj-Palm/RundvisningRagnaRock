@@ -2,12 +2,15 @@
     x:Class="RundvisningRagnaRock.Views.Edit"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:RundvisningRagnaRock.Views"
+    xmlns:local="using:RundvisningRagnaRock.ModelViews"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <local:EditViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -48,28 +51,30 @@
                     <TextBlock Text="Holgers Guitar"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Category :"/>
-                    <TextBlock Text="Rock"/>
+                    <TextBlock Text="Category" Margin="0,0,20,0"/>
+                    <ComboBox ItemsSource="{Binding Buttons}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Location :"/>
                     <TextBlock Text="Rock section"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="400" Width="auto">
+                <StackPanel Orientation="Horizontal" >
                     <TextBlock Text="Description :"/>
-                    <TextBox Text="Denne guitar er flot"/>
+                    <TextBox Text="Denne guitar er flot" Width="800" Height="150"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Picture :"/>
-                    <TextBlock Text="Holgers Guitar"/>
+                    <TextBlock Text="picture directory"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name :"/>
-                    <TextBlock Text="Holgers Guitar"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name :"/>
-                    <TextBlock Text="Holgers Guitar"/>
+                    <TextBlock Text="Sound :"/>
+                    <TextBlock Text="Soundfile directory"/>
                 </StackPanel>
             </StackPanel>
 
