@@ -9,27 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="680" VerticalAlignment="Top" Width="623" Margin="440,179,0,0" Background="#FF00D1FF"/>
-        <StackPanel HorizontalAlignment="Left" Height="577" VerticalAlignment="Top" Width="385" Margin="675,276,0,0">
-            <TextBox Margin="106,39,162,0" Text="Number" Height="45" Background="{x:Null}" SelectionHighlightColorWhenNotFocused="#00000000" SelectionHighlightColor="#FFCC292D" BorderBrush="{x:Null}" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <Button Content="Add UDS" HorizontalAlignment="Stretch" Margin="72,166,72,0" VerticalAlignment="Stretch" Background="{x:Null}">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-            </Button>
-            <Button Content="Edit UDS" HorizontalAlignment="Stretch" Margin="72,41,72,0" VerticalAlignment="Stretch" Background="{x:Null}">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-            </Button>
-        </StackPanel>
-        <Rectangle HorizontalAlignment="Left" Height="57" Margin="903,309,0,0" VerticalAlignment="Top" Width="89" Stroke="Black"/>
-
+        
     </Grid>
 </Page>
