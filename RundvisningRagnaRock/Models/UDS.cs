@@ -8,6 +8,7 @@ namespace RundvisningRagnaRock.Models
 {
     class UDS
     {
+        // hello
         private static int _idcount;
 
         private int _ID;
