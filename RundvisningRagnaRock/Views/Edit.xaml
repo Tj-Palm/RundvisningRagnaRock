@@ -12,6 +12,27 @@
         <local:EditViewModel/>
     </Page.DataContext>
 
+    <Page.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+            <Setter Property="BorderBrush" Value="DimGray"/>
+            <Setter Property="Background" Value="SlateGray"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="CornerRadius" Value="10"></Setter>
+        </Style>
+        <Style x:Key="ListStyle" TargetType="StackPanel">
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        <Style x:Key="TilteStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="130"/>
+        </Style>
+
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -21,20 +42,26 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Buttons}">
+       
+        <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Buttons}"
+                   >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse Width="30" Height="30" Fill="Aqua" Margin="0,0,20,0"/>
-                        <Button Content="{Binding}"/>
-                    </StackPanel>
+                    <Button>
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="../Assets/g1.png" Height="20" />
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding}"></TextBlock>
+                        </StackPanel>
+                    </Button>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+      
+
 
         <Grid Grid.Column="2" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -42,16 +69,16 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="ID :"/>
-                <TextBlock Text="1000"/>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}" >
+                <TextBlock Text="ID :" Style="{StaticResource TilteStyle}"/>
+                <TextBlock Text="1000 "/>
             </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name :"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Name :" Style="{StaticResource TilteStyle}" />
                     <TextBlock Text="Holgers Guitar"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Category" Margin="0,0,20,0"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Category :" Style="{StaticResource TilteStyle}"/>
                     <ComboBox ItemsSource="{Binding Buttons}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -60,25 +87,30 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Location :"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Location :" Style="{StaticResource TilteStyle}"/>
                     <TextBlock Text="Rock section"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" >
-                    <TextBlock Text="Description :"/>
+                <StackPanel Orientation="Horizontal" Height="150" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Description :" Style="{StaticResource TilteStyle}"/>
                     <TextBox Text="Denne guitar er flot" Width="800" Height="150"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Picture :"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Picture :" Style="{StaticResource TilteStyle}"/>
                     <TextBlock Text="picture directory"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Sound :"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Sound :" Style="{StaticResource TilteStyle}"/>
                     <TextBlock Text="Soundfile directory"/>
                 </StackPanel>
             </StackPanel>
 
-
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button Style="{StaticResource ButtonStyle}"  Content="Update"/>
+                <Button Style="{StaticResource ButtonStyle}" Margin="0,0,20,0" Content="Open"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Save"/>
+            
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
