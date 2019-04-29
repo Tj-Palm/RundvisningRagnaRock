@@ -22,8 +22,8 @@
             </TextBox>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="231" VerticalAlignment="Top" Width="255" Margin="167,246,0,0">
-            <Button Content="Add UDS" HorizontalAlignment="Stretch" Margin="72,98,72,0" VerticalAlignment="Stretch"/>
-            <Button Content="Edit UDS" HorizontalAlignment="Stretch" Margin="72,31,72,0" VerticalAlignment="Stretch"/>
+            <Button Content="Add UDS" HorizontalAlignment="Stretch" Margin="72,98,72,0" VerticalAlignment="Stretch" Click="Button_Click"/>
+            <Button Content="Edit UDS" HorizontalAlignment="Stretch" Margin="72,31,72,0" VerticalAlignment="Stretch" Click="Button_Click_1"/>
         </StackPanel>
 
     </Grid>
