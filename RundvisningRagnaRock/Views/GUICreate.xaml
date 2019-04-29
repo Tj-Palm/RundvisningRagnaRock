@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <StackPanel Background="DarkSlateBlue" Grid.Row="1" Margin="10,0,618,275" RenderTransformOrigin="0.686,0.516" Grid.ColumnSpan="2" >
+        <StackPanel Background="Pink" Grid.Row="1" Margin="10,0,618,275" RenderTransformOrigin="0.686,0.516" Grid.ColumnSpan="2" >
             <StackPanel Margin="0,0,532,0">
                 <TextBlock Text="Create new UDS" FontSize="34" Height="38" Margin="0,0,-98,0"/>
             </StackPanel>
@@ -31,7 +31,7 @@
                 <TextBlock Text="Sound:" Margin="-10,12,16,16" Height="51" Width="43"/>
                 <TextBox   Width="200" Height="59" Margin="0,28,20,27"></TextBox>
                 <StackPanel Margin="20,10,38,2" Height="102" Width="102">
-                    <Button Background="LightSteelBlue" Margin="0,20,0,5" Width="68" Height="56">Add</Button>
+                    <Button Background="MediumPurple" Margin="0,20,0,5" Width="68" Height="56">Add</Button>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
