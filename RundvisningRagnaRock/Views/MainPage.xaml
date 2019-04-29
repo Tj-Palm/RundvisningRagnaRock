@@ -9,6 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        
+        <StackPanel>
+        <Button Content="AddEditPage" Click="Button_Click" ></Button>
+        <Button Content="Edit" Click="Button_Click_1"></Button>
+        <Button Content="GUICreate" Click="Button_Click_2"></Button>
+        </StackPanel>
     </Grid>
 </Page>

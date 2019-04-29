@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using RundvisningRagnaRock.Annotations;
+using RundvisningRagnaRock.Collections;
+using RundvisningRagnaRock.Models;
 
 
 namespace RundvisningRagnaRock.ViewModels
@@ -14,19 +16,30 @@ namespace RundvisningRagnaRock.ViewModels
     class EditViewModel : INotifyPropertyChanged
     {
 
-        ObservableCollection<string> buttons = new ObservableCollection<string>()
+        ObservableCollection<string> _udstillingsGenstande = new ObservableCollection<string>()
         {
-            "Test1",
-            "Test2",
-            "Test3"
+
         };
 
-        public ObservableCollection<string> Buttons
+        private UdsCollection UdstillingsColl;
+
+        public ObservableCollection<UDS> UdstillingsGenstande
         {
-            get { return buttons; }
+            get
+            {
+                ObservableCollection<UDS> collection = new ObservableCollection<UDS>(UdstillingsColl.UDScollection);
+                return collection;
+            }
+      
         }
 
-
+        public EditViewModel()
+        {
+           UdstillingsColl = new UdsCollection();
+           UdstillingsColl.Add(new UDS("Lemmings Guitar", "Guitar", "Fortet", "Denne guitar er super fed.","",""));
+           UdstillingsColl.Add(new UDS("Flemmings Guitar", "Guitar", "Settet", "Denne guitar er super super fed.", "", ""));
+           UdstillingsColl.Add(new UDS("Flubbers Guitar", "Guitar", "Beast", "Denne guitar er super super super fed.", "", ""));
+        }
 
         #region INotifyPropertyChanged implementation
 
