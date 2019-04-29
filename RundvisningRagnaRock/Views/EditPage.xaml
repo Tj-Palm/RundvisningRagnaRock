@@ -122,7 +122,7 @@
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Style="{StaticResource ButtonStyle}"  Content="Update"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Open"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Cancel"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Save"/>
 
             </StackPanel>
