@@ -13,24 +13,50 @@ namespace RundvisningRagnaRock.Collections
         #region Instancefields
 
         private List<UDS> _udsCollection;
+        private static UdsCollection _instance;
 
         #endregion
 
         #region Constructor
 
-        public UdsCollection()
+        private UdsCollection()
         {
         _udsCollection = new List<UDS>();
-          
         }
+
         #endregion
 
-        #region Methods
+        #region Singeltonprop
+
+        public static UdsCollection Instance
+        {
+            get
+            {
+                if (_instance == null )
+                {
+                    _instance = new UdsCollection();
+                    return _instance;
+                }
+                else
+                {
+                    return _instance;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Properties
+
         public List<UDS> UDScollection
         {
             get { return _udsCollection; }
             private set { _udsCollection = value; }
         }
+
+        #endregion
+        #region Methods
+
 
         public void Add(UDS uds)
         {

@@ -35,7 +35,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         public EditViewModel()
         {
-           UdstillingsColl = new UdsCollection();
+           UdstillingsColl = UdsCollection.Instance;
            UdstillingsColl.Add(new UDS("Lemmings Guitar", "Guitar", "Fortet", "Denne guitar er super fed.","",""));
            UdstillingsColl.Add(new UDS("Flemmings Guitar", "Guitar", "Settet", "Denne guitar er super super fed.", "", ""));
            UdstillingsColl.Add(new UDS("Flubbers Guitar", "Guitar", "Beast", "Denne guitar er super super super fed.", "", ""));
