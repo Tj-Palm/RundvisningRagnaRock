@@ -12,13 +12,13 @@ namespace RundvisningRagnaRock.Models
 
         private int _ID;
         private string _name;
-        private string _category;
+        private Category _category;
         private string _location;
         private string _desctiption;
         private string _pictureDirectory;
         private string _soundFileDirectory;
 
-        public UDS( string name, string category, string location, string desctiption, string pictureDirectory, string soundFileDirectory)
+        public UDS( string name, Category category, string location, string desctiption, string pictureDirectory, string soundFileDirectory)
         {
             _ID = _idcount + 1;
             _idcount++;
@@ -54,7 +54,7 @@ namespace RundvisningRagnaRock.Models
             set { _location = value; }
         }
 
-        public string Category
+        public Category Category
         {
             get { return _category; }
             set { _category = value; }
