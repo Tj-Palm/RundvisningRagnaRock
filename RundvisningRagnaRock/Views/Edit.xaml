@@ -16,12 +16,11 @@
     <Page.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="140"/>
-            <Setter Property="Margin" Value="20,0,20,10"/>
-            <Setter Property="BorderBrush" Value="DimGray"/>
-            <Setter Property="Background" Value="SlateGray"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="#FF999999"/>
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="CornerRadius" Value="10"></Setter>
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="Margin" Value="20,0,10,20"/>
         </Style>
         <Style x:Key="ListStyle" TargetType="StackPanel">
             <Setter Property="Height" Value="40"/>

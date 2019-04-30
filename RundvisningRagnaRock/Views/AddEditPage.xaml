@@ -5,8 +5,13 @@
     xmlns:local="using:RundvisningRagnaRock.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:RundvisningRagnaRock.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="565.611" Width="441.176">
+    
+    <Page.DataContext>
+        <viewModels:AddEditPageViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="289" Margin="81,81,0,0" Background="#FF06C5FD"/>

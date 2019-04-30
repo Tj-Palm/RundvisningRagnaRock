@@ -15,11 +15,7 @@ namespace RundvisningRagnaRock.ViewModels
 {
     class EditViewModel : INotifyPropertyChanged
     {
-
-        ObservableCollection<string> _udstillingsGenstande = new ObservableCollection<string>()
-        {
-
-        };
+        private ObservableCollection<string> _udstillingsGenstande = new ObservableCollection<string>();
 
         private UdsCollection UdstillingsColl;
 
