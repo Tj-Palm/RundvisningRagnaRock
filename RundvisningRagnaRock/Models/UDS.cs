@@ -8,17 +8,21 @@ namespace RundvisningRagnaRock.Models
 {
     public class UDS
     {
+        #region Instancefields
         private static int _idcount;
 
         private int _ID;
         private string _name;
-        private string _category;
+        private Category _category;
         private string _location;
         private string _desctiption;
         private string _pictureDirectory;
         private string _soundFileDirectory;
+        #endregion
 
-        public UDS( string name, string category, string location, string desctiption, string pictureDirectory, string soundFileDirectory)
+        #region Constructor
+
+         public UDS( string name, Category category, string location, string desctiption, string pictureDirectory, string soundFileDirectory)
         {
             _ID = _idcount + 1;
             _idcount++;
@@ -31,7 +35,11 @@ namespace RundvisningRagnaRock.Models
             _soundFileDirectory = soundFileDirectory;
         }
 
-        public string SoundFileDirectory
+        #endregion
+
+        #region Properties
+
+   public string SoundFileDirectory
         {
             get { return _soundFileDirectory; }
             set { _soundFileDirectory = value; }
@@ -54,7 +62,7 @@ namespace RundvisningRagnaRock.Models
             set { _location = value; }
         }
 
-        public string Category
+        public Category Category
         {
             get { return _category; }
             set { _category = value; }
@@ -71,9 +79,16 @@ namespace RundvisningRagnaRock.Models
             get { return _ID; }
         }
 
+
+        #endregion
+
+        #region Methods
         public override string ToString()
         {
            return Name;
         }
+
+        #endregion
+
     }
 }
