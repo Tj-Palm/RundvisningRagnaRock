@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RundvisningRagnaRock.Models
 {
-    class UDS
+    public class UDS
     {
         private static int _idcount;
 
