@@ -2,15 +2,14 @@
     x:Class="RundvisningRagnaRock.Views.GUICreate"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:RundvisningRagnaRock.Views"
+    xmlns:local="using:RundvisningRagnaRock.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="using:RundvisningRagnaRock.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
     <Page.DataContext>
-        <viewModels:GUICreateViewModel/>
+        <local:GUICreateViewModel/>
     </Page.DataContext>
 
     <Page.Resources>
@@ -60,17 +59,29 @@
             <StackPanel Margin="0,15,0,0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Name:" />
-                    <TextBox Style="{StaticResource TextboxStyle}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Name, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource TextblockStyle}" Text="Category:"  />
-                <TextBox Style="{StaticResource TextboxStyle}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Category, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextblockStyle}" Text="Location:" />
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Location, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextblockStyle}" Text="Description:" />
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Description, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextblockStyle}" Text="Picture:" />
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.PictureDirectory, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Sound:" />
-                    <TextBox Style="{StaticResource TextboxStyle}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.SoundFileDirectory, Mode=TwoWay}"/>
                 </StackPanel>
-                <Button HorizontalAlignment="Center" Style="{StaticResource ButtonStyle}">Add</Button>
+                <Button HorizontalAlignment="Center" Style="{StaticResource ButtonStyle}" Command="{Binding AddCommand}">Add</Button>
             </StackPanel>
         </StackPanel>
 
