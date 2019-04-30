@@ -78,8 +78,6 @@ namespace RundvisningRagnaRock.Models
         {
             get { return _ID; }
         }
-
-
         #endregion
 
         #region Methods

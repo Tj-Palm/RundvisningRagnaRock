@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RundvisningRagnaRock.Models
 {
-    class Category
+   public class Category
     {
         
         private static int _globalID = 999;

@@ -25,6 +25,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         private CategoriesCollection categories;
         private UdsCollection UdstillingsColl;
+        private UDS _SelectedUdstillingsGenstand;
 
         #endregion
 
@@ -35,20 +36,7 @@ namespace RundvisningRagnaRock.ViewModels
             categories = CategoriesCollection.Instance;
             UdstillingsColl = UdsCollection.Instance;
 
-
-
-
-
-            //TODO for testing. is to be deleted.
-
-            categories.AddCategory("Guitar", "test1");
-            categories.AddCategory("Trommer", "test2");
-            categories.AddCategory("Bas", "test3");
-            categories.AddCategory("sanger", "test4");
-
-            UdstillingsColl.Add(new UDS("Lemmings Guitar", null, "Fortet", "Denne guitar er super fed.", "", ""));
-            UdstillingsColl.Add(new UDS("Flemmings Guitar", null, "Settet", "Denne guitar er super super fed.", "", ""));
-            UdstillingsColl.Add(new UDS("Flubbers Guitar", null, "Beast", "Denne guitar er super super super fed.", "", ""));
+            SaveCommand = new RelayCommand(toSaveCommand);
         }
 
         #endregion
@@ -64,7 +52,6 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
         }
-
         public ObservableCollection<Category> Categories
         {
             get
@@ -75,22 +62,33 @@ namespace RundvisningRagnaRock.ViewModels
 
         }
 
+        public UDS SelectedUdstillingsGenstand
+        {
+            get { return _SelectedUdstillingsGenstand; }
+            set
+            {
+                _SelectedUdstillingsGenstand = value;
+                OnPropertyChanged();
+            
+            }
+        }
+
+        #endregion
+
+        #region RelayCommandProperties
+
         public RelayCommand SaveCommand { get; set; }
 
         #endregion
+
 
         #region Methods
 
         public void toSaveCommand()
         {
-            UdstillingsColl.Update();
+            UdstillingsColl.Update(SelectedUdstillingsGenstand);
         }
         #endregion
-
-
-
-
-
 
 
         #region INotifyPropertyChanged implementation

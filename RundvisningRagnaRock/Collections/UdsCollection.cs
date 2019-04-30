@@ -22,6 +22,12 @@ namespace RundvisningRagnaRock.Collections
         private UdsCollection()
         {
         _udsCollection = new List<UDS>();
+
+
+        //TODO for testing. delete
+        _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], "Fortet", "Denne guitar er super fed.", "", ""));
+        _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], "Settet", "Denne guitar er super super fed.", "", ""));
+        _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], "Beast", "Denne guitar er super super super fed.", "", ""));
         }
 
         #endregion
@@ -76,14 +82,25 @@ namespace RundvisningRagnaRock.Collections
         {
             if (uds != null)
             {
+                int index =0;
+                bool found =false;
+
                 foreach (var item in UDScollection)
                 {
                     if (item.ID == uds.ID)
                     {
-                        UDScollection[UDScollection.IndexOf(item)] = uds;
+                        index = UDScollection.IndexOf(item);
+                        found = true;
+                        //UDScollection[UDScollection.IndexOf(item)] = uds;
                     }
                 }
+
+                if(found)
+                    UDScollection[index] = uds;
             }
+
+
+
         }
         #endregion
 

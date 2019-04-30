@@ -7,7 +7,7 @@ using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.Collections
 {
-    class CategoriesCollection
+   public class CategoriesCollection
     {
 
         #region Singleton
@@ -33,6 +33,12 @@ namespace RundvisningRagnaRock.Collections
 
          _categoryCollection = new Dictionary<int, Category>();
 
+         //TODO for testing. testdata
+
+         AddCategory("Guitar", "test1");
+         AddCategory("Trommer", "test2");
+         AddCategory("Bas", "test3");
+         AddCategory("sanger", "test4");
         }
 
         private Dictionary<int,Category> _categoryCollection;
