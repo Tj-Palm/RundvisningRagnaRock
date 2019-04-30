@@ -8,31 +8,64 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="#FF999999"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+        <Style x:Key="TextboxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="TextblockStyle" TargetType="TextBlock">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
 
-        <StackPanel Background="Pink" Grid.Row="1" Margin="10,0,618,275" RenderTransformOrigin="0.686,0.516" Grid.ColumnSpan="2" >
-            <StackPanel Margin="0,0,532,0">
-                <TextBlock Text="Create new UDS" FontSize="34" Height="38" Margin="0,0,-98,0"/>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <StackPanel>
+                <TextBlock Style="{StaticResource TitleStyle}" Text="Create artifact"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="133" Margin="0,0,-42,0" RenderTransformOrigin="0.505,0.677">
-                <TextBlock Text="Name:" Margin="10,46,24,46" Height="36"/>
-                <TextBox   Height="63" Margin="0,26,16,25" Width="190"/>
-                <TextBlock Text="Category:"  Margin="0,32,16,31" Height="51" Width="65"/>
-                <TextBox   Width="200" Height="59" Margin="0,28,20,27"></TextBox>
-                <TextBlock Text="Sound:" Margin="-10,12,16,16" Height="51" Width="43"/>
-                <TextBox   Width="200" Height="59" Margin="0,28,20,27"></TextBox>
-                <StackPanel Margin="20,10,38,2" Height="102" Width="102">
-                    <Button Background="MediumPurple" Margin="0,20,0,5" Width="68" Height="56">Add</Button>
+            <StackPanel Margin="0,15,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextblockStyle}" Text="Name:" />
+                    <TextBox Style="{StaticResource TextboxStyle}"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource TextblockStyle}" Text="Category:"  />
+                <TextBox Style="{StaticResource TextboxStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextblockStyle}" Text="Sound:" />
+                    <TextBox Style="{StaticResource TextboxStyle}"/>
+                </StackPanel>
+                <Button HorizontalAlignment="Center" Style="{StaticResource ButtonStyle}">Add</Button>
             </StackPanel>
         </StackPanel>
 
