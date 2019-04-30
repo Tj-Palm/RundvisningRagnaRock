@@ -124,8 +124,10 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="ViewModels\AddEditPageViewModel.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />
     <Compile Include="Models\UDS.cs" />
+    <Compile Include="ViewModels\GUICreateViewModel.cs" />
     <Compile Include="Views\AddEditPage.xaml.cs">
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
