@@ -9,11 +9,40 @@ namespace RundvisningRagnaRock.Collections
 {
     class CategoriesCollection
     {
+
+        #region Singleton
+        private static CategoriesCollection _instance;
+
+        public static CategoriesCollection Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new CategoriesCollection();
+                    return _instance;
+                }
+
+                return _instance;
+            }
+        }
+        #endregion
+
+        private CategoriesCollection()
+        {
+
+         _categoryCollection = new Dictionary<int, Category>();
+
+        }
+
         private Dictionary<int,Category> _categoryCollection;
 
-        public Dictionary<int,Category> Categories
+        public List<Category> Categories
         {
-            get { return _categoryCollection; } 
+            get
+            {
+                return _categoryCollection.Values.ToList();
+            } 
         }
 
         public void AddCategory(string name, string icon)

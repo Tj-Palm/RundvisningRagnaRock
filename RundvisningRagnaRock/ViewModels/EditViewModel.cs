@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
+using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Models;
 
 
@@ -15,9 +16,44 @@ namespace RundvisningRagnaRock.ViewModels
 {
     class EditViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<string> _udstillingsGenstande = new ObservableCollection<string>();
 
+
+        #region Instance fields
+
+        private ObservableCollection<string> _udstillingsGenstande = new ObservableCollection<string>();
+        private ObservableCollection<Category> categoriesCollection = new ObservableCollection<Category>();
+
+        private CategoriesCollection categories;
         private UdsCollection UdstillingsColl;
+
+        #endregion
+
+        #region Constructor
+
+        public EditViewModel()
+        {
+            categories = CategoriesCollection.Instance;
+            UdstillingsColl = UdsCollection.Instance;
+
+
+
+
+
+            //TODO for testing. is to be deleted.
+
+            categories.AddCategory("Guitar", "test1");
+            categories.AddCategory("Trommer", "test2");
+            categories.AddCategory("Bas", "test3");
+            categories.AddCategory("sanger", "test4");
+
+            UdstillingsColl.Add(new UDS("Lemmings Guitar", null, "Fortet", "Denne guitar er super fed.", "", ""));
+            UdstillingsColl.Add(new UDS("Flemmings Guitar", null, "Settet", "Denne guitar er super super fed.", "", ""));
+            UdstillingsColl.Add(new UDS("Flubbers Guitar", null, "Beast", "Denne guitar er super super super fed.", "", ""));
+        }
+
+        #endregion
+
+        #region Properties
 
         public ObservableCollection<UDS> UdstillingsGenstande
         {
@@ -26,16 +62,36 @@ namespace RundvisningRagnaRock.ViewModels
                 ObservableCollection<UDS> collection = new ObservableCollection<UDS>(UdstillingsColl.UDScollection);
                 return collection;
             }
-      
+
         }
 
-        public EditViewModel()
+        public ObservableCollection<Category> Categories
         {
-           UdstillingsColl = UdsCollection.Instance;
-           UdstillingsColl.Add(new UDS("Lemmings Guitar", "Guitar", "Fortet", "Denne guitar er super fed.","",""));
-           UdstillingsColl.Add(new UDS("Flemmings Guitar", "Guitar", "Settet", "Denne guitar er super super fed.", "", ""));
-           UdstillingsColl.Add(new UDS("Flubbers Guitar", "Guitar", "Beast", "Denne guitar er super super super fed.", "", ""));
+            get
+            {
+                ObservableCollection<Category> categories = new ObservableCollection<Category>(this.categories.Categories);
+                return categories;
+            }
+
         }
+
+        public RelayCommand SaveCommand { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public void toSaveCommand()
+        {
+            UdstillingsColl.Update();
+        }
+        #endregion
+
+
+
+
+
+
 
         #region INotifyPropertyChanged implementation
 
