@@ -20,11 +20,8 @@ namespace RundvisningRagnaRock.ViewModels
 
         #region Instance fields
 
-        private ObservableCollection<string> _udstillingsGenstande = new ObservableCollection<string>();
-        private ObservableCollection<Category> categoriesCollection = new ObservableCollection<Category>();
-
-        private CategoriesCollection categories;
-        private UdsCollection UdstillingsColl;
+        private CategoriesCollection _categories;
+        private UdsCollection _udstillingsGenstande;
         private UDS _SelectedUdstillingsGenstand;
 
         #endregion
@@ -33,12 +30,11 @@ namespace RundvisningRagnaRock.ViewModels
 
         public EditViewModel()
         {
-            categories = CategoriesCollection.Instance;
-            UdstillingsColl = UdsCollection.Instance;
+            _categories = CategoriesCollection.Instance;
+            _udstillingsGenstande = UdsCollection.Instance;
 
             SaveCommand = new RelayCommand(toSaveCommand);
         }
-
         #endregion
 
         #region Properties
@@ -47,7 +43,7 @@ namespace RundvisningRagnaRock.ViewModels
         {
             get
             {
-                ObservableCollection<UDS> collection = new ObservableCollection<UDS>(UdstillingsColl.UDScollection);
+                ObservableCollection<UDS> collection = new ObservableCollection<UDS>(_udstillingsGenstande.UDScollection);
                 return collection;
             }
 
@@ -56,7 +52,7 @@ namespace RundvisningRagnaRock.ViewModels
         {
             get
             {
-                ObservableCollection<Category> categories = new ObservableCollection<Category>(this.categories.Categories);
+                ObservableCollection<Category> categories = new ObservableCollection<Category>(this._categories.Categories);
                 return categories;
             }
 
@@ -86,7 +82,9 @@ namespace RundvisningRagnaRock.ViewModels
 
         public void toSaveCommand()
         {
-            UdstillingsColl.Update(SelectedUdstillingsGenstand);
+
+            //TODO save to file
+            //UdstillingsColl.Update(SelectedUdstillingsGenstand);
         }
         #endregion
 

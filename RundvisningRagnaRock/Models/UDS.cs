@@ -79,14 +79,5 @@ namespace RundvisningRagnaRock.Models
             get { return _ID; }
         }
         #endregion
-
-        #region Methods
-        public override string ToString()
-        {
-           return Name;
-        }
-
-        #endregion
-
     }
 }
