@@ -30,7 +30,7 @@ namespace RundvisningRagnaRock
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddEditPage));
+            this.Frame.Navigate(typeof(LoginPage));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

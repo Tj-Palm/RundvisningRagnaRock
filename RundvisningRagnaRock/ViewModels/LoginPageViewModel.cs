@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    class AddEditPageViewModel
+    class LoginPageViewModel
     {
     }
 }
