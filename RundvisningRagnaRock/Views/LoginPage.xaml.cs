@@ -20,21 +20,21 @@ namespace RundvisningRagnaRock.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AddEditPage : Page
+    public sealed partial class LoginPage : Page
     {
-        public AddEditPage()
+        public LoginPage()
         {
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(GUICreate));
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(EditPage));
+            this.Frame.Navigate(typeof(EditPage));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }
