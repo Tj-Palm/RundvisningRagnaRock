@@ -11,10 +11,10 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="289" Margin="81,81,0,0" BorderBrush="Black">
             <StackPanel Height="240" Margin="40,24,40,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black">
-                <TextBox Margin="25,45,25,0" Text="" Background="{x:Null}" BorderBrush="Black" PlaceholderText="Username" TextChanged="TextBox_TextChanged"/>
+                <TextBox Margin="25,45,25,0" Text="" Background="{x:Null}" BorderBrush="Black" PlaceholderText="Username"/>
                 <PasswordBox Margin="25,15,25,0" BorderBrush="Black" Background="{x:Null}" PlaceholderText="Password"/>
                 <StackPanel HorizontalAlignment="Stretch" Height="100" Margin="0,9,0,0" VerticalAlignment="Stretch" Orientation="Horizontal">
-                    <Button Content="Login" HorizontalAlignment="Stretch" Margin="30,25,60,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click_2"/>
+                    <Button Content="Login" HorizontalAlignment="Stretch" Margin="30,25,60,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click_1"/>
                     <Button Content="Cancel" HorizontalAlignment="Stretch" Margin="-30,25,-30,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click"/>
                 </StackPanel>
             </StackPanel>
