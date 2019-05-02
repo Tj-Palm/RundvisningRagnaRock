@@ -124,7 +124,7 @@
                 <Button Style="{StaticResource ButtonStyle}"  Content="Update"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Cancel"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Save" Command="{Binding SaveCommand}"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Go to Main Meny" Click="Button_Click"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Go to Main Menu" Click="Button_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
