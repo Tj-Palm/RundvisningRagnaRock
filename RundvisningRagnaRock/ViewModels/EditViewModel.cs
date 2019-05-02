@@ -22,7 +22,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         private CategoriesCollection _categories;
         private UdsCollection _udstillingsGenstande;
-        private UDS _SelectedUdstillingsGenstand;
+        private UDS _selectedUdstillingsGenstand;
 
         #endregion
 
@@ -60,10 +60,10 @@ namespace RundvisningRagnaRock.ViewModels
 
         public UDS SelectedUdstillingsGenstand
         {
-            get { return _SelectedUdstillingsGenstand; }
+            get { return _selectedUdstillingsGenstand; }
             set
             {
-                _SelectedUdstillingsGenstand = value;
+                _selectedUdstillingsGenstand = value;
                 OnPropertyChanged();
             
             }
