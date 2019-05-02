@@ -48,6 +48,25 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
         }
+
+        private Category _selectedCategory;
+
+        public Category SelectedCategory
+        {
+            get
+            {
+                return _selectedCategory;
+            }
+            set
+            {
+               
+                _selectedCategory = value;
+                _SelectedUdstillingsGenstand.Category = value;
+                OnPropertyChanged("UdstillingsGenstande");
+            }
+        }
+
+
         public ObservableCollection<Category> Categories
         {
             get
@@ -57,14 +76,28 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
         }
-
         public UDS SelectedUdstillingsGenstand
         {
-            get { return _SelectedUdstillingsGenstand; }
+            get
+            {
+                return _SelectedUdstillingsGenstand;
+            }
             set
             {
+
                 _SelectedUdstillingsGenstand = value;
+                if (value != null)
+                {
+                    if (SelectedCategory != value.Category)
+                    {
+                        SelectedCategory = value.Category;
+                        OnPropertyChanged("SelectedCategory");
+                    }
+                }
+
                 OnPropertyChanged();
+                
+    
             
             }
         }

@@ -66,10 +66,10 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="../Assets/g1.png" />
+                            <Image Grid.Column="0" Source="{Binding Category.Icon}" />
                                 <TextBlock Grid.Column="1" Text="{Binding Name}"/>
                             </Grid>
-                  
+                        <!--"../Assets//CategoryPictures//Guitar.png"-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -94,7 +94,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
                     <TextBlock Text="Category :" Style="{StaticResource TilteStyle}"/>
-                    <ComboBox ItemsSource="{Binding Categories, Mode=TwoWay}" SelectedValue="{Binding SelectedUdstillingsGenstand.Category,Mode=TwoWay}">
+                    <ComboBox ItemsSource="{Binding Categories, Mode=TwoWay}" SelectedValue="{Binding SelectedCategory,Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}"></TextBlock>
@@ -121,7 +121,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Button Style="{StaticResource ButtonStyle}"  Content="Update"/>
+                <Button Style="{StaticResource ButtonStyle}"  Content="Add" Click="Button_Click_1"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Cancel"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Save" Command="{Binding SaveCommand}"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Go to Main Meny" Click="Button_Click"/>

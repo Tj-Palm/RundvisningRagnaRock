@@ -31,5 +31,10 @@ namespace RundvisningRagnaRock.Views
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GUICreate));
+        }
     }
 }

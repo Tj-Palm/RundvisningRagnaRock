@@ -150,6 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\g1.png" />
+    <Content Include="Assets\Gramofon.jpg" />
+    <Content Include="Assets\Guitar.png" />
+    <Content Include="Assets\Heart.png" />
+    <Content Include="Assets\Rock.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
