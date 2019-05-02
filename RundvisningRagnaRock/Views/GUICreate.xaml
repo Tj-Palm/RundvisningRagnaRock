@@ -15,11 +15,11 @@
     <Page.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="100"/>
+            <Setter Property="Width" Value="95"/>
             <Setter Property="Background" Value="#FF999999"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="CornerRadius" Value="2"/>
-            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="Margin" Value="11,10,0,0"/>
         </Style>
         <Style x:Key="TextboxStyle" TargetType="TextBox">
             <Setter Property="Height" Value="40"/>
@@ -31,6 +31,12 @@
             <Setter Property="Width" Value="100"/>
             <Setter Property="FontSize" Value="17"/>
             <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+        <Style x:Key="ComboboxStyle" TargetType="ComboBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
         </Style>
         <Style x:Key="TitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="40"/>
@@ -59,29 +65,38 @@
             <StackPanel Margin="0,15,0,0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Name:" />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Name, Mode=TwoWay}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding Name, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource TextblockStyle}" Text="Category:"  />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Category, Mode=TwoWay}"/>
+                    <ComboBox Style="{StaticResource ComboboxStyle}" ItemsSource="{Binding Category}" SelectedValue="{Binding CategoryProp, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Location:" />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Location, Mode=TwoWay}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding Location, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Description:" />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.Description, Mode=TwoWay}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding Description, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Picture:" />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.PictureDirectory, Mode=TwoWay}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding PictureDirectory, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Sound:" />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding NewUDS.SoundFileDirectory, Mode=TwoWay}"/>
+                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding SoundFileDirectory, Mode=TwoWay}"/>
                 </StackPanel>
-                <Button HorizontalAlignment="Center" Style="{StaticResource ButtonStyle}" Command="{Binding AddCommand}">Add</Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource ButtonStyle}" Command="{Binding AddCommand}">Add</Button>
+                    <Button Style="{StaticResource ButtonStyle}" Click="Button_Click">Cancel</Button>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 

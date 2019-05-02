@@ -22,7 +22,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         private CategoriesCollection _categories;
         private UdsCollection _udstillingsGenstande;
-        private UDS _SelectedUdstillingsGenstand;
+        private UDS _selectedUdstillingsGenstand;
 
         #endregion
 
