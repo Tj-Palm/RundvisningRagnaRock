@@ -13,8 +13,10 @@
             <StackPanel Height="240" Margin="40,24,40,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black">
                 <TextBox Margin="25,45,25,0" Text="" Background="{x:Null}" BorderBrush="Black" PlaceholderText="Username" TextChanged="TextBox_TextChanged"/>
                 <PasswordBox Margin="25,15,25,0" BorderBrush="Black" Background="{x:Null}" PlaceholderText="Password"/>
-                <Button Content="Login" HorizontalAlignment="Stretch" Margin="35,25,35,0" VerticalAlignment="Stretch" Width="100" Height="30" BorderBrush="Black" Background="#33000000" Click="Button_Click_1"/>
-                <Button Content="Cancel" HorizontalAlignment="Stretch" Margin="35,10,35,0" VerticalAlignment="Stretch" Width="100" Height="30" Background="#33000000" BorderBrush="Black" Click="Button_Click"/>
+                <StackPanel HorizontalAlignment="Stretch" Height="100" Margin="0,9,0,0" VerticalAlignment="Stretch" Orientation="Horizontal">
+                    <Button Content="Login" HorizontalAlignment="Stretch" Margin="30,25,60,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click_2"/>
+                    <Button Content="Cancel" HorizontalAlignment="Stretch" Margin="-30,25,-30,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

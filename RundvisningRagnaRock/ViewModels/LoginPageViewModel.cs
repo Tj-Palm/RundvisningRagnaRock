@@ -8,5 +8,6 @@ namespace RundvisningRagnaRock.ViewModels
 {
     class LoginPageViewModel
     {
+
     }
 }
