@@ -49,9 +49,6 @@ namespace RundvisningRagnaRock.Models
             get { return _icon; }
             set { _icon = value; }
         }
-
-
-
         #endregion
     }
 }

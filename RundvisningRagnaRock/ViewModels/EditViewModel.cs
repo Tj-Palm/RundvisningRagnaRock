@@ -23,7 +23,7 @@ namespace RundvisningRagnaRock.ViewModels
         private CategoriesCollection _categories;
         private UdsCollection _udstillingsGenstande;
         private UDS _selectedUdstillingsGenstand;
-
+        private Category _selectedCategory;
         #endregion
 
         #region Constructor
@@ -49,7 +49,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         }
 
-        private Category _selectedCategory;
+        
 
         public Category SelectedCategory
         {
@@ -62,7 +62,7 @@ namespace RundvisningRagnaRock.ViewModels
                
                 _selectedCategory = value;
                 _selectedUdstillingsGenstand.Category = value;
-                OnPropertyChanged("UdstillingsGenstande");
+                OnPropertyChanged(nameof(UdstillingsGenstande));
             }
         }
 
@@ -110,7 +110,6 @@ namespace RundvisningRagnaRock.ViewModels
 
         #endregion
 
-
         #region Methods
 
         public void toSaveCommand()
@@ -120,7 +119,6 @@ namespace RundvisningRagnaRock.ViewModels
             //UdstillingsColl.Update(SelectedUdstillingsGenstand);
         }
         #endregion
-
 
         #region INotifyPropertyChanged implementation
 
