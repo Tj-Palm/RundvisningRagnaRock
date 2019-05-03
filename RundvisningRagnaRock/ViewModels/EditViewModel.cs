@@ -34,6 +34,7 @@ namespace RundvisningRagnaRock.ViewModels
             _udstillingsGenstande = UdsCollection.Instance;
 
             SaveCommand = new RelayCommand(toSaveCommand);
+            DeleteCommand = new RelayCommand(toDeleteCommand);
         }
         #endregion
 
@@ -96,18 +97,18 @@ namespace RundvisningRagnaRock.ViewModels
                 }
 
                 OnPropertyChanged();
-                
     
-            
             }
         }
+
+       
 
         #endregion
 
         #region RelayCommandProperties
 
         public RelayCommand SaveCommand { get; set; }
-
+        public RelayCommand DeleteCommand { get; set; }
         #endregion
 
 
@@ -119,6 +120,14 @@ namespace RundvisningRagnaRock.ViewModels
             //TODO save to file
             //UdstillingsColl.Update(SelectedUdstillingsGenstand);
         }
+
+        public void toDeleteCommand()
+        {
+            _udstillingsGenstande.Remove(SelectedUdstillingsGenstand);
+            
+            OnPropertyChanged(nameof(UdstillingsGenstande));
+        }
+
         #endregion
 
 
