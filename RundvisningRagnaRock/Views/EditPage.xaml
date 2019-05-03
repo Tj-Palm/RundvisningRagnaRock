@@ -122,9 +122,9 @@
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Style="{StaticResource ButtonStyle}"  Content="Add" Click="Button_Click_1"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Cancel"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Delete" Command="{Binding DeleteCommand}"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Save" Command="{Binding SaveCommand}"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Go to Main Menu" Click="Button_Click"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Log Out" Click="Button_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
