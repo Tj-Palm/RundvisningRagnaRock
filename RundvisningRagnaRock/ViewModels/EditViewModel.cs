@@ -61,7 +61,7 @@ namespace RundvisningRagnaRock.ViewModels
             {
                
                 _selectedCategory = value;
-                _SelectedUdstillingsGenstand.Category = value;
+                _selectedUdstillingsGenstand.Category = value;
                 OnPropertyChanged("UdstillingsGenstande");
             }
         }
@@ -80,12 +80,12 @@ namespace RundvisningRagnaRock.ViewModels
         {
             get
             {
-                return _SelectedUdstillingsGenstand;
+                return _selectedUdstillingsGenstand;
             }
             set
             {
 
-                _SelectedUdstillingsGenstand = value;
+                _selectedUdstillingsGenstand = value;
                 if (value != null)
                 {
                     if (SelectedCategory != value.Category)

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Text.Core;
 using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
@@ -22,6 +23,8 @@ namespace RundvisningRagnaRock.ViewModels
         private string _desctiption;
         private string _pictureDirectory;
         private string _soundFileDirectory;
+        private string _messages;
+        private bool _isAddButtonEnabled = true;
 
         public GUICreateViewModel()
         {
@@ -70,9 +73,64 @@ namespace RundvisningRagnaRock.ViewModels
             set { _name = value; }
         }
 
-        public void ToAddUds()
+        public string Messages
         {
-            UdsCollection.Instance.Add(new UDS(Name, CategoryProp, Location, Description, PictureDirectory, SoundFileDirectory));
+            get { return _messages; }
+            set
+            {
+                _messages = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+        public bool IsAddButtonEnabled
+        {
+            get { return _isAddButtonEnabled; }
+            set
+            {
+                _isAddButtonEnabled = value; 
+                OnPropertyChanged();
+            }
+        }
+
+
+        public async void ToAddUds()
+        {
+            bool result = false;
+           
+            Messages = "Opretter ny udstillings genstand";
+            IsAddButtonEnabled = false;
+            try
+            {
+                result = UdsCollection.Instance.Add(new UDS(Name, CategoryProp, Location, Description, PictureDirectory, SoundFileDirectory));
+
+            }
+            catch (Exception e)
+            {
+                result = false;
+                Messages = e.Message;
+            }
+             
+           await Task.Delay(2000);
+           IsAddButtonEnabled = true;
+            if (result)
+           {
+               Messages = $"{Name} er blevet oprettet";
+
+              
+           }
+           else
+           {
+               {
+                   Messages = $"fejlede at oprette {Name}";
+                }
+           }
+           await Task.Delay(4000);
+           
+           Messages = "";
+
         }
 
         public ObservableCollection<Category> Category
