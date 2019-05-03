@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
+using Windows.Devices.Sensors;
 using RundvisningRagnaRock.Models;
+
 
 namespace RundvisningRagnaRock.Collections
 {
@@ -64,10 +69,21 @@ namespace RundvisningRagnaRock.Collections
         #region Methods
 
 
-        public void Add(UDS uds)
-        {
+        public bool Add(UDS uds)
+        {           
+
             if (uds != null)
-            UDScollection.Add(uds);
+            {                              
+                UDScollection.Add(uds);
+            }
+
+            if (UDScollection.Contains(uds))
+            {
+                return true;
+            }
+ 
+                return false;
+            
         }
 
         public void Remove(UDS uds)
