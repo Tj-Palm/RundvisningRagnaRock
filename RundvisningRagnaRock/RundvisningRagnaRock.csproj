@@ -125,6 +125,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Instrument.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />
     <Compile Include="Models\UDS.cs" />
@@ -143,6 +144,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
