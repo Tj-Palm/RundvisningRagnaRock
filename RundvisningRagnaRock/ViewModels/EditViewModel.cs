@@ -50,8 +50,6 @@ namespace RundvisningRagnaRock.ViewModels
 
         }
 
-        
-
         public Category SelectedCategory
         {
             get
@@ -67,7 +65,6 @@ namespace RundvisningRagnaRock.ViewModels
             }
         }
 
-
         public ObservableCollection<Category> Categories
         {
             get
@@ -77,6 +74,7 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
         }
+
         public UDS SelectedUdstillingsGenstand
         {
             get
@@ -97,11 +95,8 @@ namespace RundvisningRagnaRock.ViewModels
                 }
 
                 OnPropertyChanged();
-    
             }
-        }
-
-       
+        }     
 
         #endregion
 

@@ -46,7 +46,7 @@ namespace RundvisningRagnaRock.Models
 
         #region Properties
 
-   public string SoundFileDirectory
+        public string SoundFileDirectory
         {
             get { return _soundFileDirectory; }
             set { _soundFileDirectory = value; }
@@ -57,7 +57,7 @@ namespace RundvisningRagnaRock.Models
             get { return _pictureDirectory; }
         }
 
-        public string Description
+         public virtual string Description
         {
             get { return _desctiption; }
             set { _desctiption = value; }
