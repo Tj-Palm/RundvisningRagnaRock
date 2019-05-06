@@ -10,20 +10,20 @@ using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Models;
+using RundvisningRagnaRock.Views;
 
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    class EditViewModel : INotifyPropertyChanged
+    class EditViewModel : ViewModelBase
     {
-
 
         #region Instance fields
 
         private CategoriesCollection _categories;
         private UdsCollection _udstillingsGenstande;
         private UDS _selectedUdstillingsGenstand;
-
+        private Category _selectedCategory;
         #endregion
 
         #region Constructor
@@ -50,7 +50,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         }
 
-        private Category _selectedCategory;
+        
 
         public Category SelectedCategory
         {
@@ -63,7 +63,7 @@ namespace RundvisningRagnaRock.ViewModels
                
                 _selectedCategory = value;
                 _selectedUdstillingsGenstand.Category = value;
-                OnPropertyChanged("UdstillingsGenstande");
+                OnPropertyChanged(nameof(UdstillingsGenstande));
             }
         }
 
@@ -111,7 +111,6 @@ namespace RundvisningRagnaRock.ViewModels
         public RelayCommand DeleteCommand { get; set; }
         #endregion
 
-
         #region Methods
 
         public void toSaveCommand()
@@ -129,19 +128,7 @@ namespace RundvisningRagnaRock.ViewModels
         }
 
         #endregion
-
-
-        #region INotifyPropertyChanged implementation
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
+  
 
     }
 }

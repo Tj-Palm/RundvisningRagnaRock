@@ -35,7 +35,7 @@ namespace RundvisningRagnaRock.ViewModels
         public RelayCommand AddCommand { get; set; }
 
         public string SoundFileDirectory
-        {
+        { 
             get { return _soundFileDirectory; }
             set { _soundFileDirectory = value; }
         }
