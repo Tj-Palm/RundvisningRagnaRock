@@ -10,20 +10,20 @@ using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Models;
+using RundvisningRagnaRock.Views;
 
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    class EditViewModel : INotifyPropertyChanged
+    public class EditViewModel : ViewModelBase
     {
-
 
         #region Instance fields
 
         private CategoriesCollection _categories;
         private UdsCollection _udstillingsGenstande;
         private UDS _selectedUdstillingsGenstand;
-
+        private Category _selectedCategory;
         #endregion
 
         #region Constructor
@@ -34,6 +34,7 @@ namespace RundvisningRagnaRock.ViewModels
             _udstillingsGenstande = UdsCollection.Instance;
 
             SaveCommand = new RelayCommand(toSaveCommand);
+            DeleteCommand = new RelayCommand(toDeleteCommand);
         }
         #endregion
 
@@ -49,8 +50,6 @@ namespace RundvisningRagnaRock.ViewModels
 
         }
 
-        private Category _selectedCategory;
-
         public Category SelectedCategory
         {
             get
@@ -59,16 +58,12 @@ namespace RundvisningRagnaRock.ViewModels
             }
             set
             {
+               
                 _selectedCategory = value;
-                if (_selectedUdstillingsGenstand != null)
-                {
-                    _selectedUdstillingsGenstand.Category = value;
-                    OnPropertyChanged(nameof(UdstillingsGenstande));
-                }
-
+                _selectedUdstillingsGenstand.Category = value;
+                OnPropertyChanged(nameof(UdstillingsGenstande));
             }
         }
-
 
         public ObservableCollection<Category> Categories
         {
@@ -79,6 +74,7 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
         }
+
         public UDS SelectedUdstillingsGenstand
         {
             get
@@ -99,20 +95,16 @@ namespace RundvisningRagnaRock.ViewModels
                 }
 
                 OnPropertyChanged();
-                
-    
-            
             }
-        }
+        }     
 
         #endregion
 
         #region RelayCommandProperties
 
         public RelayCommand SaveCommand { get; set; }
-
+        public RelayCommand DeleteCommand { get; set; }
         #endregion
-
 
         #region Methods
 
@@ -122,20 +114,14 @@ namespace RundvisningRagnaRock.ViewModels
             //TODO save to file
             //UdstillingsColl.Update(SelectedUdstillingsGenstand);
         }
-        #endregion
 
-
-        #region INotifyPropertyChanged implementation
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public void toDeleteCommand()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            _udstillingsGenstande.Remove(SelectedUdstillingsGenstand);
+            
+            OnPropertyChanged(nameof(UdstillingsGenstande));
         }
 
         #endregion
-
     }
 }

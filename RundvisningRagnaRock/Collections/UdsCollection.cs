@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
+using Windows.Devices.Sensors;
 using RundvisningRagnaRock.Models;
+
 
 namespace RundvisningRagnaRock.Collections
 {
-    class UdsCollection
+    public class UdsCollection
     {
 
         #region Instancefields
@@ -64,10 +69,21 @@ namespace RundvisningRagnaRock.Collections
         #region Methods
 
 
-        public void Add(UDS uds)
-        {
+        public bool Add(UDS uds)
+        {           
+
             if (uds != null)
-            UDScollection.Add(uds);
+            {                              
+                UDScollection.Add(uds);
+            }
+
+            if (UDScollection.Contains(uds))
+            {
+                return true;
+            }
+ 
+                return false;
+            
         }
 
         public void Remove(UDS uds)
@@ -78,30 +94,29 @@ namespace RundvisningRagnaRock.Collections
             }
         }
 
-        public void Update(UDS uds)
-        {
-            if (uds != null)
-            {
-                int index =0;
-                bool found =false;
+        //Not in use. Data er automatisk opdateret via observerble collection i viewmodel.
 
-                foreach (var item in UDScollection)
-                {
-                    if (item.ID == uds.ID)
-                    {
-                        index = UDScollection.IndexOf(item);
-                        found = true;
-                        //UDScollection[UDScollection.IndexOf(item)] = uds;
-                    }
-                }
+        //public void Update(UDS uds)
+        //{
+        //    if (uds != null)
+        //    {
+        //        int index =0;
+        //        bool found =false;
 
-                if(found)
-                    UDScollection[index] = uds;
-            }
+        //        foreach (var item in UDScollection)
+        //        {
+        //            if (item.ID == uds.ID)
+        //            {
+        //                index = UDScollection.IndexOf(item);
+        //                found = true;
+        //                //UDScollection[UDScollection.IndexOf(item)] = uds;
+        //            }
+        //        }
 
-
-
-        }
+        //        if(found)
+        //            UDScollection[index] = uds;
+        //    }
+        //}
         #endregion
 
     }

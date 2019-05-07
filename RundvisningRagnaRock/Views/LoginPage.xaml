@@ -5,19 +5,25 @@
     xmlns:local="using:RundvisningRagnaRock.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:RundvisningRagnaRock.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="528.81" Width="432.156">
+    
+    <Page.DataContext>
+        <viewModels:LoginPageViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="289" Margin="81,81,0,0" BorderBrush="Black">
             <StackPanel Height="240" Margin="40,24,40,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black">
-                <TextBox Margin="25,45,25,0" Text="" Background="{x:Null}" BorderBrush="Black" PlaceholderText="Username"/>
-                <PasswordBox Margin="25,15,25,0" BorderBrush="Black" Background="{x:Null}" PlaceholderText="Password"/>
+                <TextBox Margin="25,45,25,0" Text="{Binding Username , Mode=TwoWay}" Background="{x:Null}" BorderBrush="Black" PlaceholderText="Username" TextChanged="TextBox_TextChanged" />
+                <PasswordBox  Password="{Binding Password, Mode=TwoWay}" Margin="25,15,25,0" BorderBrush="Black" Background="{x:Null}" PlaceholderText="Password"/>
                 <StackPanel HorizontalAlignment="Stretch" Height="100" Margin="0,9,0,0" VerticalAlignment="Stretch" Orientation="Horizontal">
-                    <Button Content="Login" HorizontalAlignment="Stretch" Margin="30,25,60,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click_1"/>
-                    <Button Content="Cancel" HorizontalAlignment="Stretch" Margin="-30,25,-30,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click"/>
+                    <Button Content="Login" HorizontalAlignment="Stretch" Margin="30,25,60,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click_1" Command="{Binding LoginCommand}"/>
+                    <Button Content="Cancel" HorizontalAlignment="Stretch" Margin="-30,25,-30,25" VerticalAlignment="Stretch" BorderBrush="Black" Click="Button_Click" Command="{Binding cancelCommand}"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
+        
     </Grid>
 </Page>
