@@ -121,11 +121,13 @@
     </Compile>
     <Compile Include="Collections\CategoriesCollection.cs" />
     <Compile Include="Collections\EmployeeCollection.cs" />
+    <Compile Include="Collections\SettingsSingleton.cs" />
     <Compile Include="Collections\UdsCollection.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Instrument.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Persistency\FilePersistency.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />

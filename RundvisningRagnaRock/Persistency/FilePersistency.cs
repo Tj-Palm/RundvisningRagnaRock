@@ -37,6 +37,7 @@ namespace Binding_MVVM.Persistency
             // Last step is to write serialized list of courses to the text file:
             await FileIO.WriteTextAsync(dataFile, dataJSON);
         }
+        
 
         public async Task<List<T>> LoadAsync()
         {

@@ -9,6 +9,7 @@ namespace RundvisningRagnaRock.ViewModels
 {
     class SettingsViewModel
     {
+        
         public SettingsViewModel()
         {
             SaveCommand = new RelayCommand(toSaveCommand);
