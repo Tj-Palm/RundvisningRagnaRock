@@ -83,6 +83,38 @@ namespace Binding_MVVM.Persistency
                 return new List<T>();
             }
         }
+
+        public async Task LoadAsync(T data)
+        {
+            try
+            {
+                /* Firstly we will use StorageFolder class from the Windows.Storage namespace
+                to get the specified file if it exists */
+                StorageFile dataFile = await _folder.GetFileAsync(FileName);
+
+                // Read serialized courses list from the file:
+                string dataJSON = await FileIO.ReadTextAsync(dataFile);
+
+                //Deserialize JSON list to the List<Course> and return it
+                //return (dataJSON != null) ?
+                //    JsonConvert.DeserializeObject<List<T>>(dataJSON)
+                //    : new List<T>();
+
+                if (dataJSON != null)
+                {
+                    return JsonConvert.DeserializeObject<T>(dataJSON);
+                }
+                else
+                {
+                    return new <T>();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                await SaveAsync(T());
+                return new <T>();
+            }
+        }
     }
 
 }
