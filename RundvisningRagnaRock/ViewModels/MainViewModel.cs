@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ using RundvisningRagnaRock.Views;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    class MainViewModel :ViewModelBase
+    class MainViewModel : ViewModelBase
     {
 
         private string _map;
@@ -26,7 +26,7 @@ namespace RundvisningRagnaRock.ViewModels
         public string Map
         {
             get { return _map; }
-            set { _map = value; OnPropertyChanged();}
+            set { _map = value; OnPropertyChanged(); }
         }
 
         public RelayCommand ChangeToMap2 { get; set; }
