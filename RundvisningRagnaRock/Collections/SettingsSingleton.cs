@@ -45,7 +45,8 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task LoadAsync()
         {
-            _settings = _fileSource.LoadAsync();
+            _settings = await _fileSource.LoadAsync();
+            return _settings;
         }
 
     }
