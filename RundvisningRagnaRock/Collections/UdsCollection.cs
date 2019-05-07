@@ -94,29 +94,28 @@ namespace RundvisningRagnaRock.Collections
             }
         }
 
-        public void Update(UDS uds)
-        {
-            if (uds != null)
-            {
-                int index =0;
-                bool found =false;
+        //Not in use. Data er automatisk opdateret via observerble collection i viewmodel.
 
-                foreach (var item in UDScollection)
-                {
-                    if (item.ID == uds.ID)
-                    {
-                        index = UDScollection.IndexOf(item);
-                        found = true;
-                        //UDScollection[UDScollection.IndexOf(item)] = uds;
-                    }
-                }
+        //public void Update(UDS uds)
+        //{
+        //    if (uds != null)
+        //    {
+        //        int index =0;
+        //        bool found =false;
 
-                if(found)
-                    UDScollection[index] = uds;
-            }
+        //        foreach (var item in UDScollection)
+        //        {
+        //            if (item.ID == uds.ID)
+        //            {
+        //                index = UDScollection.IndexOf(item);
+        //                found = true;
+        //                //UDScollection[UDScollection.IndexOf(item)] = uds;
+        //            }
+        //        }
 
-
-
+        //        if(found)
+        //            UDScollection[index] = uds;
+        //    }
         }
         #endregion
 
