@@ -21,7 +21,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         public void ToSaveCommand()
         {
-            SettingsSingleton.SaveAsync();
+            SettingsSingleton.;
         }
 
         private void Load()
