@@ -9,10 +9,36 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <StackPanel Grid.Row="0">
         <Button Content="Login" Click="Button_Click" ></Button>
         <Button Content="Edit" Click="Button_Click_1"></Button>
         <Button Content="GUICreate" Click="Button_Click_2"></Button>
         </StackPanel>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
+                <Button CornerRadius="25" Height="50" Width="50" Margin="0,0,0,10">2</Button>
+                <Button CornerRadius="25" Height="50" Width="50" Margin="0,0,0,10">3</Button>
+            </StackPanel>
+
+
+        </Grid>
+
+
+
     </Grid>
 </Page>
