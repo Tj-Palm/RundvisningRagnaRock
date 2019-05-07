@@ -12,7 +12,7 @@ using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.Collections
 {
-    class UdsCollection
+    public class UdsCollection
     {
 
         #region Instancefields

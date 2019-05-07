@@ -14,20 +14,21 @@ using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Models;
+using RundvisningRagnaRock.Views;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    public class LoginPageViewModel : INotifyPropertyChanged
+    public class LoginPageViewModel : ViewModelBase
     {
         private EmployeeCollection _employee;
-        private EmployeeCollection _EmployeeCollection;
+        private EmployeeCollection _employeeCollection;
         private string _username;
         private int _password;
         
         
-        public LoginPageViewModel(EmployeeCollection Employee)
+        public LoginPageViewModel()
         {
-            _employee = Employee;
+           // _employee = Employee;
 
             //LoginCommand = new RelayCommand(toLoginCommand);
         }
@@ -61,12 +62,6 @@ namespace RundvisningRagnaRock.ViewModels
             //inheritance base class
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+     
     }
 }

@@ -9,7 +9,7 @@ using RundvisningRagnaRock.Annotations;
 
 namespace RundvisningRagnaRock.Views
 {
-    class ViewModelBase : INotifyPropertyChanged
+   public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -15,7 +15,7 @@ using RundvisningRagnaRock.Views;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    class EditViewModel : ViewModelBase
+    public class EditViewModel : ViewModelBase
     {
 
         #region Instance fields
