@@ -19,6 +19,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*" MinHeight="300"  MaxHeight="300"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0">
             <Button Content="Login" Click="Button_Click" ></Button>
