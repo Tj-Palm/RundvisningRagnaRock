@@ -52,7 +52,7 @@ namespace Binding_MVVM.Persistency
             await FileIO.WriteTextAsync(dataFile, dataJSON);
         }
 
-        public async Task<List<T>> LoadAsync()
+        public async Task<List<T>> LoadListAsync()
         {
             try
             {
@@ -84,7 +84,7 @@ namespace Binding_MVVM.Persistency
             }
         }
 
-        public async Task LoadAsync(T data)
+        public async Task<T> LoadModelAsync()
         {
             try
             {
@@ -106,13 +106,12 @@ namespace Binding_MVVM.Persistency
                 }
                 else
                 {
-                    return new <T>();
+                    return null;
                 }
             }
             catch (FileNotFoundException)
             {
-                await SaveAsync(T());
-                return new <T>();
+                return null;
             }
         }
     }
