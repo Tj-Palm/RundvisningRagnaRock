@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 
 namespace RundvisningRagnaRock.ViewModels
@@ -12,14 +13,20 @@ namespace RundvisningRagnaRock.ViewModels
         
         public SettingsViewModel()
         {
-            SaveCommand = new RelayCommand(toSaveCommand);
+            SaveCommand = new RelayCommand(ToSaveCommand);
+            Load();
         }
 
         public RelayCommand SaveCommand { get; set; }
 
-        public void toSaveCommand()
+        public void ToSaveCommand()
         {
+            SettingsSingleton.;
+        }
 
+        private void Load()
+        {
+            SettingsSingleton.LoadAsync();
         }
     }
 }
