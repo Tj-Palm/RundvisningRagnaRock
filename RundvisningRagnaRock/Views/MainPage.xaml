@@ -17,9 +17,9 @@
 
 
         <StackPanel Grid.Row="0">
-        <Button Content="Login" Click="Button_Click" ></Button>
-        <Button Content="Edit" Click="Button_Click_1"></Button>
-        <Button Content="GUICreate" Click="Button_Click_2"></Button>
+            <Button Content="Login" Click="Button_Click" ></Button>
+            <Button Content="Edit" Click="Button_Click_1"></Button>
+            <Button Content="GUICreate" Click="Button_Click_2"></Button>
         </StackPanel>
 
 
@@ -31,13 +31,15 @@
 
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
-                <Button CornerRadius="25" Height="50" Width="50" Margin="0,0,0,10">2</Button>
-                <Button CornerRadius="25" Height="50" Width="50" Margin="0,0,0,10">3</Button>
+                <Button  Height="50" Width="50" Margin="0,0,0,10">2</Button>
+                <Button  Height="50" Width="50" Margin="0,0,0,10">3</Button>
             </StackPanel>
 
+            <Image Source="C:\Zealand\1.Semester ExamensProjekt\Ragnarock move\RundvisningRagnaRock\RundvisningRagnaRock\Assets\Kort1.jpg"></Image>
 
         </Grid>
 
+        
 
 
     </Grid>
