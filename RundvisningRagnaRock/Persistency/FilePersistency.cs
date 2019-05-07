@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -37,7 +38,19 @@ namespace Binding_MVVM.Persistency
             // Last step is to write serialized list of courses to the text file:
             await FileIO.WriteTextAsync(dataFile, dataJSON);
         }
-        
+
+        public async Task SaveAsync(T data)
+        {
+            /* Then we need to have reference to the file where we can store courses:
+            Note that if file exists we do not want to create another one: */
+            var dataFile = await _folder.CreateFileAsync(FileName, _options);
+
+            // Now we want to serialize course list to save it in the JSON format in the file:
+            string dataJSON = JsonConvert.SerializeObject(data);
+
+            // Last step is to write serialized list of courses to the text file:
+            await FileIO.WriteTextAsync(dataFile, dataJSON);
+        }
 
         public async Task<List<T>> LoadAsync()
         {
