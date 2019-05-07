@@ -31,5 +31,6 @@ namespace RundvisningRagnaRock.Views
         {
             Frame.Navigate(typeof(MainPage));
         }
+
     }
 }
