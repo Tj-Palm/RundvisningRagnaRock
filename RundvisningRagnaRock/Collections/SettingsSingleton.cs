@@ -12,8 +12,8 @@ namespace RundvisningRagnaRock.Collections
     class SettingsSingleton
     {
         private static SettingsSingleton _instance;
-        private FilePersistency<Settings> _fileSource;
-        private Settings _settings;
+        private static FilePersistency<Settings> _fileSource;
+        private static Settings _settings;
 
         public SettingsSingleton()
         {
@@ -43,7 +43,7 @@ namespace RundvisningRagnaRock.Collections
             await _fileSource.SaveAsync(_settings);
         }
 
-        public static async Task LoadAsync()
+        public static async Task<T> LoadAsync<T>()
         {
             _settings = await _fileSource.LoadModelAsync();
             return _settings;
