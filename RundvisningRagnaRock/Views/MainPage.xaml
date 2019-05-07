@@ -40,7 +40,11 @@
                 <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
             </StackPanel>
 
+            <Button  HorizontalAlignment="Left" Margin="55,137,0,0" VerticalAlignment="Top" Grid.Column="1"  ></Button>
             <Image HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
+
+           
+
         </Grid>
     </Grid>
 </Page>
