@@ -3,15 +3,21 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:RundvisningRagnaRock"
+    xmlns:ViewModel="using:RundvisningRagnaRock.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Width="700">
 
-    <Grid>
+    <Page.DataContext>
+        <ViewModel:MainViewModel></ViewModel:MainViewModel>
+    </Page.DataContext>
+
+    <Grid HorizontalAlignment="left">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MinHeight="300"  MaxHeight="300"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
@@ -23,17 +29,16 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="75"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" MaxWidth="650" MinWidth="650"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
-                <Button  Height="50" Width="50" Margin="0,0,0,10">2</Button>
-                <Button  Height="50" Width="50" Margin="0,0,0,10">3</Button>
+                <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
+                <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
             </StackPanel>
 
-            <Image Grid.Column="2" Source="../Assets/Kort1.jpg"></Image>
-
+            <Image  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
         </Grid>
     </Grid>
 </Page>

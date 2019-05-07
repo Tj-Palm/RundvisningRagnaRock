@@ -131,6 +131,7 @@
     <Compile Include="Models\UDS.cs" />
     <Compile Include="ViewModels\GUICreateViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\EditPage.xaml.cs">
       <DependentUpon>EditPage.xaml</DependentUpon>
     </Compile>
