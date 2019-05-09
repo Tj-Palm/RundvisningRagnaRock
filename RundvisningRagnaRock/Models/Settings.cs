@@ -27,9 +27,6 @@ namespace RundvisningRagnaRock.Models
         {
             myText.textSize = Textresizer.Value;
         }
-
-        MediaPlayer player = new MediaPlayer();
-        
         
     }
 
