@@ -26,6 +26,7 @@ namespace RundvisningRagnaRock.Views
     public sealed partial class SettingsPage : Page
     {
         MediaPlayer player = new MediaPlayer();
+       
         
         public SettingsPage()
         {
