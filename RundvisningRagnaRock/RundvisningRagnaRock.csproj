@@ -126,6 +126,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\AudioSource.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DynamicButton.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Instrument.cs" />
     <Compile Include="Models\Settings.cs" />
