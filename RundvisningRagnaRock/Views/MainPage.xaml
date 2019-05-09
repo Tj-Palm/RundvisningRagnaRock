@@ -8,20 +8,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    Width="700">
+    Width="650">
 
     <Page.DataContext>
         <ViewModel:MainViewModel></ViewModel:MainViewModel>
     </Page.DataContext>
 
-    <Grid HorizontalAlignment="left">
+    <Grid HorizontalAlignment="left" >
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*" MinHeight="300"  MaxHeight="300"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left">
             <Button Content="Login" Click="Button_Click" ></Button>
             <Button Content="Edit" Click="Button_Click_1"></Button>
             <Button Content="GUICreate" Click="Button_Click_2"></Button>
@@ -34,17 +34,17 @@
                 <ColumnDefinition Width="*" MaxWidth="650" MinWidth="650"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Left">
                 <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
                 <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
                 <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
             </StackPanel>
 
-            <Button  HorizontalAlignment="Left" Margin="55,137,0,0" VerticalAlignment="Top" Grid.Column="1"  ></Button>
-            <Image HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
-
-           
-
+            <Canvas Grid.Column="1"  Margin="0">
+                
+                <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
+                <Button   Height="50" Canvas.Left="51" Canvas.Top="115" Width="28" ></Button>
+            </Canvas>
         </Grid>
     </Grid>
 </Page>
