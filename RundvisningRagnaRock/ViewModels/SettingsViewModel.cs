@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
+using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.ViewModels
 {
@@ -19,14 +20,14 @@ namespace RundvisningRagnaRock.ViewModels
 
         public RelayCommand SaveCommand { get; set; }
 
-        public void ToSaveCommand()
+        public async void ToSaveCommand()
         {
-            SettingsSingleton.;
+           await SettingsSingleton.SaveAsync();
         }
 
-        private void Load()
+        private async void  Load()
         {
-            SettingsSingleton.LoadAsync();
+          await SettingsSingleton.LoadAsync<Settings>();
         }
     }
 }

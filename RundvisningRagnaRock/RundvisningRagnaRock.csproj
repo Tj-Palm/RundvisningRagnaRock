@@ -173,6 +173,7 @@
     <Content Include="Assets\Kort2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Music\[Royalty Free Music] Short Happy PeriTune.mp3" />
     <Content Include="Assets\Rock.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
