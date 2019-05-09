@@ -22,5 +22,7 @@ namespace RundvisningRagnaRock.Models
             set { _soundvolume = value; }
         }
 
+
+
     }
 }
