@@ -61,7 +61,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         }
 
-        public ObservableCollection<Button> Buttons
+        public ObservableCollection<DynamicButton> Buttons
         {
             get { return _buttons; }
             set { _buttons = value; }

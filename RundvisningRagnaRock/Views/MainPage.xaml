@@ -43,11 +43,10 @@
             <Canvas Grid.Column="1"  Margin="0">
 
                 <!--<Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>-->
-
                 <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Height="{Binding BHeight}"></Button>
+                            <Button Height="{Binding }"></Button>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                  </ItemsControl>
