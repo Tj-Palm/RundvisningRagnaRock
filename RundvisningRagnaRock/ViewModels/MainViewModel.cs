@@ -26,8 +26,8 @@ namespace RundvisningRagnaRock.ViewModels
         public MainViewModel()
         {
 
-            _buttons.Add(new DynamicButton(100,100,50,50,CategoriesCollection.Instance.Categories[0]));
-            _buttons.Add(new DynamicButton(200, 200, 50, 50, CategoriesCollection.Instance.Categories[1]));
+            //_buttons.Add(new DynamicButton(100,100,50,50,CategoriesCollection.Instance.Categories[0]));
+            //_buttons.Add(new DynamicButton(200, 200, 50, 50, CategoriesCollection.Instance.Categories[1]));
 
             Map = _map2;
 
