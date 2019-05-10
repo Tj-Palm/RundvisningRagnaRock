@@ -124,7 +124,7 @@
     <Compile Include="Collections\SettingsSingleton.cs" />
     <Compile Include="Collections\UdsCollection.cs" />
     <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Models\AudioSource.cs" />
+    <Compile Include="Models\AudioController.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DynamicButton.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -174,7 +174,7 @@
     <Content Include="Assets\Kort2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Music\MusicTest.mp3" />
+    <Content Include="Assets\MusicTest.mp3" />
     <Content Include="Assets\Rock.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
