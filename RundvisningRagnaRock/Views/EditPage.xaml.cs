@@ -36,5 +36,10 @@ namespace RundvisningRagnaRock.Views
         {
             Frame.Navigate(typeof(GUICreate));
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
