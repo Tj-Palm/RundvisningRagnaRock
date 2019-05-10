@@ -9,7 +9,7 @@ using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    class SettingsViewModel
+    public class SettingsViewModel
     {
         
         public SettingsViewModel()

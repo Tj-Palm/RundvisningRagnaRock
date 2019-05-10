@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,34 +26,50 @@ namespace RundvisningRagnaRock.Views
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
-        MediaPlayer player = new MediaPlayer();
+        //MediaPlayer player = new MediaPlayer();
+       
         
         public SettingsPage()
         {
             this.InitializeComponent();
         }
-        //public void Audio()
-        //{
-        //   player.Source = mediasource.
-        //}
+      
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        //protected async override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    base.OnNavigatedTo(e);
+
+
+        //    MediaElement PlayMusic = new MediaElement();
+        //    StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+        //    Folder = await Folder.GetFolderAsync("Assets");
+        //    StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+        //    PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+        //    PlayMusic.Play();
+        // }
+
+            MediaElement PlayMusic = new MediaElement();
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            player.Play();
+            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            Folder = await Folder.GetFolderAsync("Assets");
+            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+            PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+            PlayMusic.Play();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            player.Pause();
+            PlayMusic.Pause();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            player.IsMuted = true;
+            PlayMusic.IsMuted = true;
         }
     }
 }
