@@ -18,12 +18,12 @@ namespace RundvisningRagnaRock.Models
     {
         private double _soundvolume;
 
-        MediaElement PlayMusic = new MediaElement();
+        MediaElement MyMusic = new MediaElement();
 
-        public AudioController()
-        {
-            AudioControl();
-        }
+        //public AudioController()
+        //{
+        //    AudioControl();
+        //}
 
         public double Volume
         {
@@ -31,27 +31,31 @@ namespace RundvisningRagnaRock.Models
             set { _soundvolume = value; }
         }
 
-        public async void AudioControl()
+        //public async void AudioControl()
+        //{
+        //    StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+        //    Folder = await Folder.GetFolderAsync("Assets");
+        //    StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+        //    MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+        //}
+
+        public async void PlayAudio()
         {
             StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             Folder = await Folder.GetFolderAsync("Assets");
             StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
-            PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
-        }
-
-        public void PlayAudio()
-        {
-            PlayMusic.Play();
+            MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+            MyMusic.Play();
         }
 
         public void PauseAudio()
         {
-            PlayMusic.Pause();
+            MyMusic.Pause();
         }
         
         public void MuteAudio()
         {
-            PlayMusic.IsMuted = true;
+            MyMusic.IsMuted = true;
         }
     }
 }
