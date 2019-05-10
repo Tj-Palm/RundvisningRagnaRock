@@ -60,8 +60,12 @@ namespace RundvisningRagnaRock.ViewModels
             {
                
                 _selectedCategory = value;
-                _selectedUdstillingsGenstand.Category = value;
-                OnPropertyChanged(nameof(UdstillingsGenstande));
+
+                if (_selectedUdstillingsGenstand != null)
+                {
+                    _selectedUdstillingsGenstand.Category = value;
+                    OnPropertyChanged(nameof(UdstillingsGenstande));
+                }
             }
         }
 
