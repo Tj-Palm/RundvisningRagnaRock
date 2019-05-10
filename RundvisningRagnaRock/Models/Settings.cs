@@ -11,7 +11,7 @@ namespace RundvisningRagnaRock.Models
     class Settings
     {
         public Slider SoundVolume;
-        public AudioSource myMusic;
+        public AudioController myMusic;
 
         //Update is called once per frame.
         void UpdateMusic()

@@ -11,23 +11,48 @@ namespace RundvisningRagnaRock.ViewModels
 {
     public class SettingsViewModel
     {
-        
+        AudioController MyController = new AudioController();
+
         public SettingsViewModel()
         {
+
             SaveCommand = new RelayCommand(ToSaveCommand);
-            Load();
+            PlayCommand = new RelayCommand(ToPlayCommand);
+            PauseCommand = new RelayCommand(ToPauseCommand);
+            MuteCommand = new RelayCommand(ToMuteCommand);
+            //Load();
         }
 
         public RelayCommand SaveCommand { get; set; }
+        public RelayCommand PlayCommand { get; set; }
+        public RelayCommand PauseCommand { get; set; }
+        public RelayCommand MuteCommand { get; set; }
+
+
 
         public async void ToSaveCommand()
         {
-           await SettingsSingleton.SaveAsync();
+            await SettingsSingleton.SaveAsync();
         }
 
-        private async void  Load()
+        //private async void Load()
+        //{
+        //    await SettingsSingleton.LoadAsync<Settings>();
+        //}
+
+        public void ToPlayCommand()
         {
-          await SettingsSingleton.LoadAsync<Settings>();
+           MyController.PlayAudio();
+        }
+
+        public void ToPauseCommand()
+        {
+            MyController.PauseAudio();
+        }
+
+        public void ToMuteCommand()
+        {
+            MyController.MuteAudio();
         }
     }
 }
