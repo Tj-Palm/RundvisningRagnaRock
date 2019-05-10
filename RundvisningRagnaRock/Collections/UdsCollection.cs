@@ -66,6 +66,7 @@ namespace RundvisningRagnaRock.Collections
         }
 
         #endregion
+
         #region Methods
 
 

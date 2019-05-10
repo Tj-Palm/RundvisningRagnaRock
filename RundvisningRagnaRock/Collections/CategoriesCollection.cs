@@ -33,9 +33,11 @@ namespace RundvisningRagnaRock.Collections
 
          _categoryCollection = new Dictionary<int, Category>();
 
-         //TODO for testing. testdata
-
-
+            //TODO for testing. testdata
+            AddCategory("Gramofon", "../Assets/Gramofon.jpg");
+            AddCategory("Guitar", "../Assets/Guitar.png");
+            AddCategory("Heart", "../Assets/Heart.png");
+            AddCategory("Rock", "../Assets/Rock.jpg");
 
         }
 
