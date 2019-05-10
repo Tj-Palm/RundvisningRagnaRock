@@ -18,22 +18,18 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Settings" FontSize="40" Margin="40"></TextBlock>
             <TextBlock Text="Sound volume"></TextBlock>
-            <Slider >
-                
-            </Slider>
+            <Slider Maximum="{Binding MaxVolume}" Minimum="{Binding MinVolume}" Value="{Binding Volume, Mode=TwoWay}" />
             <TextBlock Text="Text size"></TextBlock>
-            <Slider>
-
-            </Slider>
+            <Slider Maximum="{Binding MaxSize}" Minimum="{Binding MinSize}"/>
             <TextBlock Text="Language"></TextBlock>
             <ComboBox></ComboBox>
 
             <StackPanel Orientation="Horizontal">
                 <Button Margin="10" Background="#FF999999"  Content="Return to Map" Click="Button_Click"/>
                 <Button Margin="10" Background="#FF999999" Content="Save" Command="{Binding SaveCommand}"/>
-                <Button Margin="10" Background="#FF999999" Content="Play" Click="Button_Click_1"/>
-                <Button Margin="10" Background="#FF999999" Content="Pause" Click="Button_Click_2"/>
-                <Button Margin="10" Background="#FF999999" Content="Mute" Click="Button_Click_3"/>
+                <Button Margin="10" Background="#FF999999" Content="Play" Command="{Binding PlayCommand }" />
+                <Button Margin="10" Background="#FF999999" Content="Pause" Command="{Binding PauseCommand}"/>
+                <Button Margin="10" Background="#FF999999" Content="Mute" Command="{Binding MuteCommand}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

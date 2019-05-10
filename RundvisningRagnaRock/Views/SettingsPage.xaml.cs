@@ -39,37 +39,38 @@ namespace RundvisningRagnaRock.Views
             Frame.Navigate(typeof(MainPage));
         }
 
+
         //protected async override void OnNavigatedTo(NavigationEventArgs e)
         //{
         //    base.OnNavigatedTo(e);
 
 
-        //    MediaElement PlayMusic = new MediaElement();
+        //MediaElement PlayMusic = new MediaElement();
+        //StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+        //Folder = await Folder.GetFolderAsync("Assets");
+        //StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+        //PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+        //    PlayMusic.Play();
+        // }
+
+        //MediaElement PlayMusic = new MediaElement();
+        //private async void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
         //    StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
         //    Folder = await Folder.GetFolderAsync("Assets");
         //    StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
         //    PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
         //    PlayMusic.Play();
-        // }
+        //}
 
-            MediaElement PlayMusic = new MediaElement();
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            Folder = await Folder.GetFolderAsync("Assets");
-            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
-            PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
-            PlayMusic.Play();
-        }
+        //private async void Button_Click_2(object sender, RoutedEventArgs e)
+        //{
+        //    PlayMusic.Pause();
+        //}
 
-        private async void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            PlayMusic.Pause();
-        }
-
-        private async void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            PlayMusic.IsMuted = true;
-        }
+        //private async void Button_Click_3(object sender, RoutedEventArgs e)
+        //{
+        //    PlayMusic.IsMuted = true;
+        //}
     }
 }
