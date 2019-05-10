@@ -40,16 +40,24 @@
                 <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
             </StackPanel>
 
-            <Canvas Grid.Column="1"  Margin="0">
+            <Canvas Grid.Column="1" >
 
-                <!--<Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>-->
+                <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
+                <Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33"></Button>
                 <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
+
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Height="{Binding }"></Button>
+                            <Grid>
+                                <Grid.RenderTransform>
+                                    <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
+                                </Grid.RenderTransform>
+                                <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" >
+                                </Button>
+                            </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                 </ItemsControl>
+                </ItemsControl>
             </Canvas>
         </Grid>
     </Grid>

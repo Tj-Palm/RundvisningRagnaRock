@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace RundvisningRagnaRock.Models
 {
-    class DynamicButton
+   public class DynamicButton
     {
 
         private int _yCoordinate;
@@ -15,21 +16,13 @@ namespace RundvisningRagnaRock.Models
         private int _bheight;
         private int _bwidth;
 
-        public DynamicButton(int yCoordinate, int xCoordinate, int bheight, int bwidth, Category category)
+        public DynamicButton(int yCoordinate, int xCoordinate, int bheight, int bwidth)
         {
             _yCoordinate = yCoordinate;
             _xCoordinate = xCoordinate;
             _bheight = bheight;
             _bwidth = bwidth;
-            _category = category;
-        }
 
-        private Category _category;
-
-        public Category Category
-        {
-            get { return _category; }
-            set { _category = value; }
         }
 
 
@@ -56,5 +49,7 @@ namespace RundvisningRagnaRock.Models
             get { return _bwidth; }
             set { _bwidth = value; }
         }
+
+
     }
 }
