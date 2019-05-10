@@ -17,6 +17,8 @@ namespace RundvisningRagnaRock.Models
     class AudioController
     {
         private double _soundvolume;
+        private const double _minvolume = 0;
+        private const double _maxvolume = 10;
 
         MediaElement MyMusic = new MediaElement();
 
@@ -27,8 +29,18 @@ namespace RundvisningRagnaRock.Models
 
         public double Volume
         {
-            get { return _soundvolume; }
-            set { _soundvolume = value; }
+            get { return MyMusic.Volume; }
+            set { MyMusic.Volume = value; }
+        }
+
+        public double MaxVolume
+        {
+            get { return _maxvolume; }
+        }
+
+        public double MinVolume
+        {
+            get {return _minvolume;}
         }
 
         //public async void AudioControl()
@@ -37,6 +49,11 @@ namespace RundvisningRagnaRock.Models
         //    Folder = await Folder.GetFolderAsync("Assets");
         //    StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
         //    MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+        //}
+
+        //public void SetVolume(double volume)
+        //{
+        //    MyMusic.Volume = volume;
         //}
 
         public async void PlayAudio()

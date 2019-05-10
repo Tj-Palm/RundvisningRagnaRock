@@ -18,13 +18,9 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Settings" FontSize="40" Margin="40"></TextBlock>
             <TextBlock Text="Sound volume"></TextBlock>
-            <Slider >
-                
-            </Slider>
+            <Slider Maximum="{Binding MaxVolume}" Minimum="{Binding MinVolume}" Value="{Binding Volume, Mode=TwoWay}" />
             <TextBlock Text="Text size"></TextBlock>
-            <Slider>
-
-            </Slider>
+            <Slider Maximum="{Binding MaxSize}" Minimum="{Binding MinSize}"/>
             <TextBlock Text="Language"></TextBlock>
             <ComboBox></ComboBox>
 
