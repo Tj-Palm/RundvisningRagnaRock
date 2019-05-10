@@ -11,10 +11,11 @@ using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Models;
+using RundvisningRagnaRock.Views;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    public class GUICreateViewModel : INotifyPropertyChanged
+    public class GUICreateViewModel : ViewModelBase
     {
         private CategoriesCollection _category;
         private string _name;
@@ -145,14 +146,6 @@ namespace RundvisningRagnaRock.ViewModels
 
                 return oCollection;
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
