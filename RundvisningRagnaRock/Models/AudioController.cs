@@ -37,6 +37,7 @@ namespace RundvisningRagnaRock.Models
             Folder = await Folder.GetFolderAsync("Assets");
             StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
             PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+            PlayMusic.Pause();
         }
 
         public void PlayAudio()
