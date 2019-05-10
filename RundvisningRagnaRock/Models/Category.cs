@@ -43,12 +43,20 @@ namespace RundvisningRagnaRock.Models
             set { _name = value; }
         }
 
-
         public string Icon
         {
             get { return _icon; }
             set { _icon = value; }
         }
+
+        private DynamicButton _dynButton;
+
+        public DynamicButton DynButton
+        {
+            get { return _dynButton; }
+            set { _dynButton = value; }
+        }
+
         #endregion
     }
 }

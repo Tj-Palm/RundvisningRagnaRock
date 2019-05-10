@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
@@ -25,9 +26,10 @@ namespace RundvisningRagnaRock.ViewModels
 
         public MainViewModel()
         {
-
-            _buttons.Add(new DynamicButton(100,100,50,50,CategoriesCollection.Instance.Categories[0]));
-            _buttons.Add(new DynamicButton(200, 200, 50, 50, CategoriesCollection.Instance.Categories[1]));
+           
+            _buttons = new ObservableCollection<DynamicButton>();
+            _buttons.Add(new DynamicButton(115, 50,50,30));
+            _buttons.Add(new DynamicButton(33, 123, 36, 48));
 
             Map = _map2;
 
