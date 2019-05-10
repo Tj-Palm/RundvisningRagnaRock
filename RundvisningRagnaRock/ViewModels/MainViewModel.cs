@@ -56,6 +56,12 @@ namespace RundvisningRagnaRock.ViewModels
         private void toChangeMap3()
         {
             Map = _map3;
+
+            LocationCollection lok = new LocationCollection();
+
+            lok.SaveLocations();
+
+            lok.AddLocation(new Location(new DynamicButton(30, 30, 30, 30), "test3", "test3", "test3"));
         }
 
         private void toGetUDS()
