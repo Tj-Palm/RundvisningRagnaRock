@@ -16,10 +16,8 @@ namespace RundvisningRagnaRock.Models
 {
     class AudioController
     {
-        private double _soundvolume;
         private const double _minvolume = 0;
-        private const double _maxvolume = 10;
-
+        private const double _maxvolume = 1;         
         MediaElement MyMusic = new MediaElement();
 
         //public AudioController()
