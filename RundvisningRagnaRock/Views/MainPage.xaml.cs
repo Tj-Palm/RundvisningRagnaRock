@@ -47,5 +47,10 @@ namespace RundvisningRagnaRock
         {
             Frame.Navigate(typeof(SettingsPage));
         }
+
+        private void HamburgerButton_Checked(object sender, RoutedEventArgs e)
+        {
+            this.mySplitView.IsPaneOpen = !this.mySplitView.IsPaneOpen;
+        }
     }
 }
