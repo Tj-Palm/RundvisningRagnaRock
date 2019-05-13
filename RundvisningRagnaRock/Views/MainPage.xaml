@@ -32,8 +32,6 @@
             <SplitView.Pane>
                 <StackPanel HorizontalAlignment="Center">
                     <Button Content="Login" Click="Button_Click" Width="90"/>
-                    <Button Content="Edit" Click="Button_Click_1" Width="90"/>
-                    <Button Content="GUICreate" Click="Button_Click_2" Width="90"/>
                     <Button Content="Settings" Click="Button_Click_3" Width="90"/>
                 </StackPanel>
             </SplitView.Pane>
