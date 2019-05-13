@@ -23,6 +23,8 @@ namespace RundvisningRagnaRock.ViewModels
             PlayCommand = new RelayCommand(ToPlayCommand);
             PauseCommand = new RelayCommand(ToPauseCommand);
             MuteCommand = new RelayCommand(ToMuteCommand);
+            //VolUp = new RelayCommand(VolUpCommand);
+            //VolDown = new RelayCommand(VolDownCommand);
            
             //Load();
         }
@@ -31,6 +33,8 @@ namespace RundvisningRagnaRock.ViewModels
         public RelayCommand PlayCommand { get; set; }
         public RelayCommand PauseCommand { get; set; }
         public RelayCommand MuteCommand { get; set; }
+        //public RelayCommand VolUp { get; set; }
+        //public RelayCommand VolDown { get; set; }
 
 
         public double Volume
@@ -64,10 +68,10 @@ namespace RundvisningRagnaRock.ViewModels
             await SettingsSingleton.SaveAsync();
         }
 
-        //private async void Load()
-        //{
-        //    await SettingsSingleton.LoadAsync<Settings>();
-        //}
+        private async void Load()
+        {
+            await SettingsSingleton.LoadAsync<Settings>();
+        }
 
         public void ToPlayCommand()
         {
@@ -89,5 +93,13 @@ namespace RundvisningRagnaRock.ViewModels
             //MyController.MuteAudio();
         }
 
+        //public void VolUpCommand()
+        //{
+        //    MyController.VolUp();
+        //}
+        //public void VolDownCommand()
+        //{
+        //    MyController.VolDown();
+        //}
     }
 }
