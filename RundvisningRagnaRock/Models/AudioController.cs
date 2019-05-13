@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -11,6 +12,8 @@ using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using WinRTXamlToolkit.Controls;
+
 
 namespace RundvisningRagnaRock.Models
 {
@@ -20,10 +23,10 @@ namespace RundvisningRagnaRock.Models
         private const double _maxvolume = 1;         
         MediaElement MyMusic = new MediaElement();
 
-        //public AudioController()
-        //{
-        //    AudioControl();
-        //}
+        public AudioController()
+        {
+            AudioControl();
+        }
 
         public double Volume
         {
@@ -41,13 +44,14 @@ namespace RundvisningRagnaRock.Models
             get {return _minvolume;}
         }
 
-        //public async void AudioControl()
-        //{
-        //    StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-        //    Folder = await Folder.GetFolderAsync("Assets");
-        //    StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
-        //    MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
-        //}
+        public async void AudioControl()
+        {
+            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            Folder = await Folder.GetFolderAsync("Assets");
+            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+            MyMusic.AutoPlay = false;
+            MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+        }
 
         //public void SetVolume(double volume)
         //{
@@ -56,10 +60,6 @@ namespace RundvisningRagnaRock.Models
 
         public async void PlayAudio()
         {
-            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            Folder = await Folder.GetFolderAsync("Assets");
-            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
-            MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
             MyMusic.Play();
         }
 
@@ -72,5 +72,21 @@ namespace RundvisningRagnaRock.Models
         {
             MyMusic.IsMuted = true;
         }
+
+        public void TurnUpVolume()
+        {
+            MyMusic.Volume += 0.01;
+        }
+
+        public void TurnDownVolume()
+        {
+            MyMusic.Volume -= 0.01;
+        }
+
+        //Slider Function, virker ikke
+        //private void Slider_vol_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //{
+        //    MyMusic.Volume = (double)VolumeSlider.Value;
+        //}
     }
 }

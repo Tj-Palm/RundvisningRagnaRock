@@ -79,7 +79,13 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Location:" />
-                    <TextBox Style="{StaticResource TextboxStyle}" Text="{Binding Location, Mode=TwoWay}"/>
+                    <ComboBox Style="{StaticResource ComboboxStyle}" ItemsSource="{Binding Locations}" SelectedValue="{Binding Location, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextblockStyle}" Text="Description:" />
