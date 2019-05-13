@@ -27,19 +27,31 @@ namespace RundvisningRagnaRock.Views
             this.InitializeComponent();
         }
 
+        // Login button
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
             this.Frame.Navigate(typeof(EditPage));
         }
 
+        // Cancel button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }
 
+        //Username textbox
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
         }
+
+        // PasswordBox
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        //Password box
     }
 }
