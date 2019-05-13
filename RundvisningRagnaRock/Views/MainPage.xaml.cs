@@ -45,7 +45,7 @@ namespace RundvisningRagnaRock
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SettingsPage));
+            Frame.Navigate(typeof(Form));
         }
     }
 }
