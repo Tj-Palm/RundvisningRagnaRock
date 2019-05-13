@@ -76,12 +76,17 @@ namespace RundvisningRagnaRock.ViewModels
 
         public void ToPauseCommand()
         {
-            MyController.PauseAudio();
+            //MyController.PauseAudio();
+
+            MyController.Volume = 0.7;
+
         }
 
         public void ToMuteCommand()
         {
-            MyController.MuteAudio();
+            MyController.Volume = 0.2;
+
+            //MyController.MuteAudio();
         }
 
     }

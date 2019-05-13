@@ -97,14 +97,23 @@
                     <ComboBox ItemsSource="{Binding Categories, Mode=TwoWay}" SelectedValue="{Binding SelectedCategory,Mode=TwoWay}" HorizontalAlignment="Center" Margin="0,0,0,8" VerticalAlignment="Bottom">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Category.Icon}" />
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
                     <TextBlock Text="Location :" Style="{StaticResource TilteStyle}"/>
-                    <TextBlock Text="{Binding SelectedUdstillingsGenstand.Location , Mode=TwoWay}"/>
+                    <ComboBox ItemsSource="{Binding Locations, Mode=TwoWay}" SelectedValue="{Binding SelectedLocation,Mode=TwoWay}" HorizontalAlignment="Center" Margin="0,0,0,8" VerticalAlignment="Bottom">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="150" Style="{StaticResource ListStyle}">
                     <TextBlock Text="Description :" Style="{StaticResource TilteStyle}"/>

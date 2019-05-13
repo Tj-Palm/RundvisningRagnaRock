@@ -24,14 +24,24 @@ namespace RundvisningRagnaRock.ViewModels
         private UdsCollection _udstillingsGenstande;
         private UDS _selectedUdstillingsGenstand;
         private Category _selectedCategory;
+        private LocationCollection _locationCollection;
+        private Location _selectedLocation;
+        private ObservableCollection<Location> _locations;
+
         #endregion
 
         #region Constructor
 
         public EditViewModel()
         {
+            _locationCollection = new LocationCollection();
+           
             _categories = CategoriesCollection.Instance;
             _udstillingsGenstande = UdsCollection.Instance;
+
+            Loadcollections();
+
+
 
             SaveCommand = new RelayCommand(toSaveCommand);
             DeleteCommand = new RelayCommand(toDeleteCommand);
@@ -40,12 +50,12 @@ namespace RundvisningRagnaRock.ViewModels
 
         #region Properties
 
-        public ObservableCollection<UDS> UdstillingsGenstande
+        public ObservableCollection<Category> Categories
         {
             get
             {
-                ObservableCollection<UDS> collection = new ObservableCollection<UDS>(_udstillingsGenstande.UDScollection);
-                return collection;
+                ObservableCollection<Category> categories = new ObservableCollection<Category>(this._categories.Categories);
+                return categories;
             }
 
         }
@@ -68,16 +78,7 @@ namespace RundvisningRagnaRock.ViewModels
                 }
             }
         }
-
-        public ObservableCollection<Category> Categories
-        {
-            get
-            {
-                ObservableCollection<Category> categories = new ObservableCollection<Category>(this._categories.Categories);
-                return categories;
-            }
-
-        }
+       
 
         public UDS SelectedUdstillingsGenstand
         {
@@ -94,13 +95,58 @@ namespace RundvisningRagnaRock.ViewModels
                     if (SelectedCategory != value.Category)
                     {
                         SelectedCategory = value.Category;
-                        OnPropertyChanged("SelectedCategory");
+                        OnPropertyChanged(nameof(SelectedCategory));
+                    }
+
+                    if (SelectedLocation != value.Location)
+                    {
+                        SelectedLocation = value.Location;
+                        OnPropertyChanged(nameof(SelectedLocation));
                     }
                 }
-
                 OnPropertyChanged();
+
+                
             }
-        }     
+        }
+
+        public ObservableCollection<UDS> UdstillingsGenstande
+        {
+            get
+            {
+                ObservableCollection<UDS> collection = new ObservableCollection<UDS>(_udstillingsGenstande.UDScollection);
+                return collection;
+            }
+
+        }
+
+
+        public ObservableCollection<Location> Locations
+        {
+            get
+            {              
+                ObservableCollection<Location> collection = new ObservableCollection<Location>(_locationCollection.Locations);
+                return collection;
+            }
+        }
+
+        public Location SelectedLocation
+        {
+            get
+            {
+                return _selectedLocation;
+            }
+            set
+            {
+                _selectedLocation = value;
+
+                if (_selectedUdstillingsGenstand != null)
+                {
+                    _selectedUdstillingsGenstand.Location = value;
+                    OnPropertyChanged(nameof(UdstillingsGenstande));
+                }
+            }
+        }
 
         #endregion
 
@@ -127,5 +173,15 @@ namespace RundvisningRagnaRock.ViewModels
         }
 
         #endregion
+
+        private async Task Loadcollections()
+        {
+            await _locationCollection.UpdateLocationsAsync();
+            await _udstillingsGenstande.LoadElementsAsync();
+            OnPropertyChanged(nameof(Locations));
+            OnPropertyChanged(nameof(UdstillingsGenstande));
+
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RundvisningRagnaRock.Models
 {
-    class Location
+    public class Location
     {
         public Location(DynamicButton dynamicButton, string name, string description, string iconPlacement)
         {
