@@ -19,8 +19,8 @@
             <TextBlock Text="Settings" FontSize="40" Margin="40"></TextBlock>
             <TextBlock Text="Sound volume"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <Button Margin="10" Background="#FF999999" Content="Turn Up Volume"/>
-                <Button Margin="10" Background="#FF999999" Content="Turn Down Volume"/>
+                <Button Margin="10" Background="#FF999999" Content="Turn Up Volume" Command="{Binding VolUp}"/>
+                <Button Margin="10" Background="#FF999999" Content="Turn Down Volume" Command="{Binding VolDown}"/>
             </StackPanel>
             <!--<Slider Name="VolumeSlider"  Maximum="{Binding MaxVolume}" Minimum="{Binding MinVolume}" Value="{Binding Volume, Mode=TwoWay}"/>-->
             <TextBlock Text="Text size"></TextBlock>
