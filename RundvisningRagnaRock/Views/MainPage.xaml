@@ -38,42 +38,54 @@
 
 
             <SplitView.Content>
-                <Grid Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*" MaxWidth="650" MinWidth="650"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="1">
+                        <ListView Margin="0,10,0,0" ItemsSource="{Binding UdstillingsGenstande}" SelectedValue="{Binding SelectedUdstillingsGenstand , Mode=TwoWay}" SelectionChanged="ListView_SelectionChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="40" Margin="0,0,0,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Source="{Binding Category.Icon}" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="center">
+                        <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
+                        <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
+                        <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
+                    </StackPanel>
 
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75"/>
-                    <ColumnDefinition Width="*" MaxWidth="650" MinWidth="650"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <StackPanel Grid.Row="1" HorizontalAlignment="center">
-                    <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
-                    <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
-                    <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
-                </StackPanel>
-
-                <Canvas Grid.Row="1" Grid.Column="1" >
-                    <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
-                    <Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33"></Button>
-                    <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
-
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RenderTransform>
-                                        <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
-                                    </Grid.RenderTransform>
-                                    <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" />
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Canvas>
-            </Grid>
+                    <Canvas Grid.Row="1" Grid.Column="1" >
+                        <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
+                        <Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33"></Button>
+                        <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RenderTransform>
+                                            <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
+                                        </Grid.RenderTransform>
+                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Canvas>
+                </Grid>
             </SplitView.Content>
         </SplitView>
     </Grid>
