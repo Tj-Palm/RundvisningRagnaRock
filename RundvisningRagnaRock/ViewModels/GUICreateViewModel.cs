@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Services.Maps.LocalSearch;
 using Windows.UI.Text.Core;
 using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
@@ -20,15 +21,18 @@ namespace RundvisningRagnaRock.ViewModels
         private CategoriesCollection _category;
         private string _name;
         private Category _categoryProp;
-        private string _location;
+        private Location _location;
         private string _desctiption;
         private string _pictureDirectory;
         private string _soundFileDirectory;
         private string _messages;
         private bool _isAddButtonEnabled = true;
+        private List<Location> _locations;
 
         public GUICreateViewModel()
         {
+            LocationCollection lokcol = new LocationCollection();
+            _locations = lokcol.Locations;
             _category = CategoriesCollection.Instance;
             AddCommand = new RelayCommand(ToAddUds);
         }
@@ -62,10 +66,16 @@ namespace RundvisningRagnaRock.ViewModels
             set { _desctiption = value; }
         }
 
-        public string Location
+        public List<Location> Locations
         {
-            get { return _location; }
-            set { _location = value; }
+            get { return _locations; }
+            set { _locations = value; }
+        }
+
+        public Location Location
+        {
+            get { return _location;}
+            set { _location = value; OnPropertyChanged(); }
         }
 
         public string Name

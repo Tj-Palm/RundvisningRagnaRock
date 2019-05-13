@@ -28,9 +28,8 @@ namespace RundvisningRagnaRock.ViewModels
         
         public LoginPageViewModel()
         {
-           // _employee = Employee;
 
-            //LoginCommand = new RelayCommand(toLoginCommand);
+            LoginCommand = new RelayCommand(toLoginCommand);
         }
 
         public string Username
@@ -44,24 +43,15 @@ namespace RundvisningRagnaRock.ViewModels
             get { return _password; }
             set { _password = value; }
         }
-
-        //public RelayCommand LoginCommand
-        //{
-        //    get { return _EmployeeCollection.containsKey(); }
-        //    set { _EmployeeCollection = value; }
-        //}
+        public RelayCommand LoginCommand { get; set; }
 
         public void toLoginCommand()
         {
-            
-            //Todo - Input find key in dictionary - EmployeeCollection
-            //If key is found - Login
-            //Else Error message
+            _employee.RequestLogin(Username, Password);
 
             //Binding properties til box i GUI
-            //inheritance base class
         }
-
+        
      
     }
 }

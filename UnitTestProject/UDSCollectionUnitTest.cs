@@ -19,7 +19,8 @@ namespace UnitTestProject
 
         public UDS GetTestUDS()
         {
-            return new UDS("test", CategoriesCollection.Instance.Categories[0], "tests", "test", "test", "test");
+            var lok = new LocationCollection();
+            return new UDS("test", CategoriesCollection.Instance.Categories[0], lok.Locations[0], "test", "test", "test");
         }
 
         [TestMethod]
