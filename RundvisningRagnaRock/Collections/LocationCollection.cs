@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Binding_MVVM.Persistency;
+using RundvisningRagnaRock.Enums;
 using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.Collections
@@ -42,10 +43,10 @@ namespace RundvisningRagnaRock.Collections
 
         public async void SaveLocations()
         {
-            _locations.Add(new Location(new DynamicButton(10, 10, 10, 10), "test1", "test1", "test1"));
-            _locations.Add(new Location(new DynamicButton(20, 20, 20, 20), "test2", "test2", "test2"));
-            _locations.Add(new Location(new DynamicButton(30, 30, 30, 30), "test3", "test3", "test3"));
-
+            _locations.Add(new Location(10, 10, 10, 10, Etage.Three, "test1", "test1","test"));
+            _locations.Add(new Location(20, 20, 20, 20, Etage.Three, "test2", "test2","test"));
+            _locations.Add(new Location(30, 30, 30, 30, Etage.Two, "test3", "test3","test"));
+            _locations.Add(new Location(40, 40, 40, 40, Etage.Two, "test4", "test4", "test"));
             await file.SaveAsync(_locations);
         }
 

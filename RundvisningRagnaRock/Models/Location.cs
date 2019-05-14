@@ -3,27 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RundvisningRagnaRock.Enums;
 
 namespace RundvisningRagnaRock.Models
 {
     public class Location
     {
-        public Location(DynamicButton dynamicButton, string name, string description, string iconPlacement)
-        {
-            _dynamicButton = dynamicButton;
-            _name = name;
-            _description = description;
-            _iconPlacement = iconPlacement;
-        }
-
-        private DynamicButton _dynamicButton;
+        private int _yCoordinate;
+        private int _xCoordinate;
+        private int _bheight;
+        private int _bwidth;
+        private Etage _etage;
         private string _name;
         private string _description;
+        private string _icon;
+        private static int _LastID;
+        private int _id;
 
-        public DynamicButton DynamicButton
+        public Location(int yCoordinate, int xCoordinate, int bheight, int bwidth, Etage etage, string name, string description, string icon)
         {
-            get { return _dynamicButton; }
-            set { _dynamicButton = value; }
+            _id = _LastID++;
+            _LastID++;
+
+            _yCoordinate = yCoordinate;
+            _xCoordinate = xCoordinate;
+            _bheight = bheight;
+            _bwidth = bwidth;
+            _etage = etage;
+            _name = name;
+            _description = description;
+            _icon = icon;
+        }
+
+        
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
         public string Name
@@ -38,12 +55,40 @@ namespace RundvisningRagnaRock.Models
             set { _description = value; }
         }
 
-        private string _iconPlacement;
-
-        public string IconPlacement
+        public string Icon
         {
-            get { return _iconPlacement; }
-            set { _iconPlacement = value; }
+            get { return _icon; }
+            set { _icon = value; }
+        }
+
+        public Etage Etage
+        {
+            get { return _etage; }
+            set { _etage = value; }
+        }
+
+        public int yCoordinate
+        {
+            get { return _yCoordinate; }
+            set { _yCoordinate = value; }
+        }
+
+        public int xCoordinate
+        {
+            get { return _xCoordinate; }
+            set { _xCoordinate = value; }
+        }
+
+        public int BHeight
+        {
+            get { return _bheight; }
+            set { _bheight = value; }
+        }
+
+        public int BWidth
+        {
+            get { return _bwidth; }
+            set { _bwidth = value; }
         }
 
     }

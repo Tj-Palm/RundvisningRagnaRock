@@ -14,6 +14,7 @@
         <ViewModel:MainViewModel></ViewModel:MainViewModel>
     </Page.DataContext>
 
+
     <Grid  >
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -71,7 +72,7 @@
 
                 <Canvas Grid.Row="1" Grid.Column="1" >
                     <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
-                    <!--<Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33"></Button>-->
+                    <Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33" Command="{Binding GetUDS}"></Button>
                         <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
                             <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -79,7 +80,7 @@
                                     <Grid.RenderTransform>
                                         <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
                                     </Grid.RenderTransform>
-                                    <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" />
+                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

@@ -125,9 +125,9 @@
     <Compile Include="Collections\SettingsSingleton.cs" />
     <Compile Include="Collections\UdsCollection.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Enums\Etage.cs" />
     <Compile Include="Models\AudioController.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\DynamicButton.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Instrument.cs" />
     <Compile Include="Models\Location.cs" />
@@ -140,6 +140,7 @@
     <Compile Include="ViewModels\GUICreateViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Exceptions\MissingLocationException.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\EditPage.xaml.cs">
       <DependentUpon>EditPage.xaml</DependentUpon>
