@@ -48,7 +48,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="1">
-                        <ListView Margin="0,10,0,0" ItemsSource="{Binding UdstillingsGenstande}" SelectedValue="{Binding SelectedUdstillingsGenstand , Mode=TwoWay}" SelectionChanged="ListView_SelectionChanged">
+                        <ListView>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Height="40" Margin="0,0,0,5">
