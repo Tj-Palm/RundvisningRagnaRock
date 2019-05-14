@@ -9,19 +9,50 @@ namespace RundvisningRagnaRock.Collections
 {
     public class EmployeeCollection
     {
+        private string _name;
+        private int _password;
 
         private EmployeeCollection()
         {
 
-        _employeeCollection = new Dictionary<int, Employee>();
-        
-        _employeeCollection.Add(1, new Employee("Daniel", 12345));
-        _employeeCollection.Add(2, new Employee("Nikolaj", 12345));
-        _employeeCollection.Add(3, new Employee("Sarah", 12345));
-        _employeeCollection.Add(4, new Employee("Benjamin", 12345));
+            Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
+            Employees.Add(1, new Employee("Nikolaj", 12345));
+            Employees.Add(2, new Employee("Sarah", 12345));
+            Employees.Add(3, new Employee("Benjamin", 12345));
+            Employees.Add(4, new Employee("Daniel", 12345));
+
         }
+        public Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
 
-        private Dictionary<int, Employee> _employeeCollection;
-
+        public bool RequestLogin(string Username, int Password)
+        {
+            foreach (var item in Employees) // Dictionary
+            {
+                if (Employees.ContainsKey(1))
+                {
+                    return true;
+                }
+                else if (Employees.ContainsKey(2))
+                {
+                    return true;
+                }
+                else if (Employees.ContainsKey(3))
+                {
+                    return true;
+                }
+                else if (Employees.ContainsKey(4))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+            //Todo - Input find key in dictionary - EmployeeCollection
+            //If key is found - Login
+            //Else Error message
+        }
     }
 }
