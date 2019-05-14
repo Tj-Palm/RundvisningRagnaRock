@@ -26,16 +26,27 @@ namespace RundvisningRagnaRock.Collections
 
         private UdsCollection()
         {
-        _udsCollection = new List<UDS>();
-
-
-        //TODO for testing. delete
-        _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], "Fortet", "Denne guitar er super fed.", "", ""));
-        _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], "Settet", "Denne guitar er super super fed.", "", ""));
-        _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], "Beast", "Denne guitar er super super super fed.", "", ""));
+            _udsCollection = new List<UDS>();
         }
 
         #endregion
+
+        public async Task LoadElementsAsync()
+        {
+            if (_udsCollection.Count == 0)
+            {
+                LocationCollection lok = new LocationCollection();
+                await lok.UpdateLocationsAsync();
+
+                //TODO for testing. delete
+                _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], lok.Locations[0],
+                    "Denne guitar er super fed.", "", ""));
+                _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], lok.Locations[1],
+                    "Denne guitar er super super fed.", "", ""));
+                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0],lok.Locations[2],
+                    "Denne guitar er super super super fed.", "", ""));
+            }
+        }
 
         #region Singeltonprop
 

@@ -13,7 +13,7 @@ namespace RundvisningRagnaRock.Models
 
         private string _kunstner;
 
-        public Instrument(string name, Category category, string location, string desctiption, string pictureDirectory, string soundFileDirectory) : base(name, category, location, desctiption, pictureDirectory, soundFileDirectory)
+        public Instrument(string name, Category category, Location location, string desctiption, string pictureDirectory, string soundFileDirectory) : base(name, category, location, desctiption, pictureDirectory, soundFileDirectory)
         {
 
         }
