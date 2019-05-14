@@ -65,7 +65,7 @@ namespace RundvisningRagnaRock.Collections
             await _fileSourceText.SaveAsync(_textChange);
         }
 
-        public async Task<AudioController> LoadAsync<T>()
+        public async Task<AudioController> LoadAudioAsync<T>()
         {
             _audioControl = await _fileSourceAudio.LoadModelAsync();
             return _audioControl;

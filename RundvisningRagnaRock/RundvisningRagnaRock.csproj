@@ -136,15 +136,15 @@
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />
     <Compile Include="Models\UDS.cs" />
-    <Compile Include="ViewModels\GUICreateViewModel.cs" />
+    <Compile Include="ViewModels\CreateViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\EditPage.xaml.cs">
       <DependentUpon>EditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GUICreate.xaml.cs">
-      <DependentUpon>GUICreate.xaml</DependentUpon>
+    <Compile Include="Views\CreatePage.xaml.cs">
+      <DependentUpon>CreatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -195,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GUICreate.xaml">
+    <Page Include="Views\CreatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,7 +16,7 @@ using RundvisningRagnaRock.Views;
 
 namespace RundvisningRagnaRock.ViewModels
 {
-    public class GUICreateViewModel : ViewModelBase
+    public class CreateViewModel : ViewModelBase
     {
         private CategoriesCollection _category;
         private string _name;
@@ -29,7 +29,7 @@ namespace RundvisningRagnaRock.ViewModels
         private bool _isAddButtonEnabled = true;
         private List<Location> _locations;
 
-        public GUICreateViewModel()
+        public CreateViewModel()
         {
             LocationCollection lokcol = new LocationCollection();
             _locations = lokcol.Locations;
