@@ -177,8 +177,9 @@ namespace RundvisningRagnaRock.ViewModels
         private async Task Loadcollections()
         {
             await _locationCollection.UpdateLocationsAsync();
-            await _udstillingsGenstande.LoadElementsAsync();
             OnPropertyChanged(nameof(Locations));
+
+            await _udstillingsGenstande.LoadElementsAsync();
             OnPropertyChanged(nameof(UdstillingsGenstande));
 
         }

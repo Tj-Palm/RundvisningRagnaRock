@@ -14,7 +14,7 @@ namespace RundvisningRagnaRock.Models
         private int _ID;
         private string _name;
         private Category _category;
-        private string _location;
+        private Location _location;
         private string _desctiption;
         private string _pictureDirectory;
         private string _soundFileDirectory;
@@ -22,10 +22,10 @@ namespace RundvisningRagnaRock.Models
 
         #region Constructor
 
-         public UDS( string name, Category category, string location, string desctiption, string pictureDirectory, string soundFileDirectory)
+         public UDS( string name, Category category, Location location, string desctiption, string pictureDirectory, string soundFileDirectory)
         {
 
-            if (name == null || category == null || location == null || name == "" || location == "")
+            if (name == null || category == null || location == null || name == "")
             {
                 throw  new ArgumentException("Unstilling genstand skal have navn, categori og lokation");
             }
@@ -63,7 +63,7 @@ namespace RundvisningRagnaRock.Models
             set { _desctiption = value; }
         }
 
-        public string Location
+        public Location Location
         {
             get { return _location; }
             set { _location = value; }

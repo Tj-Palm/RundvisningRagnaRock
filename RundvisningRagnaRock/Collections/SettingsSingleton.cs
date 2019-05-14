@@ -17,7 +17,7 @@ namespace RundvisningRagnaRock.Collections
 
         public SettingsSingleton()
         {
-            _fileSource = new FilePersistency<Settings>();
+            _fileSource = new FilePersistency<Settings>("Settings");
             _settings = new Settings();
         }
 

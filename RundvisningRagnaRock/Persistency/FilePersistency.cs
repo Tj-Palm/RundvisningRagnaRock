@@ -13,14 +13,17 @@ namespace Binding_MVVM.Persistency
 {
     public class FilePersistency<T> where T : class
     {
-        private const string FileName = "test.json";
+        private string _filename;
         private CreationCollisionOption _options;
         private StorageFolder _folder;
 
-        public FilePersistency()
+        public FilePersistency(string fileName)
         {
+            _filename = $"{fileName}.json";
+            
             _options = CreationCollisionOption.OpenIfExists;
 
+            
             /* Firstly we will use StorageFolder class from the Windows.Storage namespace
             to get path to the LocalFolder for our application: */
             _folder = ApplicationData.Current.LocalFolder;
@@ -30,7 +33,7 @@ namespace Binding_MVVM.Persistency
         {
             /* Then we need to have reference to the file where we can store courses:
              Note that if file exists we do not want to create another one: */
-            var dataFile = await _folder.CreateFileAsync(FileName, _options);
+            var dataFile = await _folder.CreateFileAsync(_filename, _options);
 
             // Now we want to serialize course list to save it in the JSON format in the file:
             string dataJSON = JsonConvert.SerializeObject(data);
@@ -43,7 +46,7 @@ namespace Binding_MVVM.Persistency
         {
             /* Then we need to have reference to the file where we can store courses:
             Note that if file exists we do not want to create another one: */
-            var dataFile = await _folder.CreateFileAsync(FileName, _options);
+            var dataFile = await _folder.CreateFileAsync(_filename, _options);
 
             // Now we want to serialize course list to save it in the JSON format in the file:
             string dataJSON = JsonConvert.SerializeObject(data);
@@ -58,7 +61,7 @@ namespace Binding_MVVM.Persistency
             {
                 /* Firstly we will use StorageFolder class from the Windows.Storage namespace
                 to get the specified file if it exists */
-                StorageFile dataFile = await _folder.GetFileAsync(FileName);
+                StorageFile dataFile = await _folder.GetFileAsync(_filename);
 
                 // Read serialized courses list from the file:
                 string dataJSON = await FileIO.ReadTextAsync(dataFile);
@@ -90,7 +93,7 @@ namespace Binding_MVVM.Persistency
             {
                 /* Firstly we will use StorageFolder class from the Windows.Storage namespace
                 to get the specified file if it exists */
-                StorageFile dataFile = await _folder.GetFileAsync(FileName);
+                StorageFile dataFile = await _folder.GetFileAsync(_filename);
 
                 // Read serialized courses list from the file:
                 string dataJSON = await FileIO.ReadTextAsync(dataFile);

@@ -18,8 +18,7 @@ namespace RundvisningRagnaRock.Collections
         public LocationCollection()
         {
             _locations = new List<Location>();
-            file = new FilePersistency<List<Location>>();
-            
+            file = new FilePersistency<List<Location>>("Locations");           
         }
 
         public List<Location> Locations
@@ -30,6 +29,7 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task UpdateLocationsAsync()
         {
+          
             _locations = await file.LoadModelAsync();
         }
 

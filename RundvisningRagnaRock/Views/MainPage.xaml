@@ -60,10 +60,9 @@
 
                 <Canvas Grid.Row="1" Grid.Column="1" >
                     <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
-                    <Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33"></Button>
-                    <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
-
-                        <ItemsControl.ItemTemplate>
+                    <!--<Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33"></Button>-->
+                        <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
+                            <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
                                     <Grid.RenderTransform>
