@@ -131,7 +131,6 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Instrument.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\TextChanger.cs" />
     <Compile Include="Persistency\FilePersistency.cs" />
     <Compile Include="Properties\Annotations1.cs" />
