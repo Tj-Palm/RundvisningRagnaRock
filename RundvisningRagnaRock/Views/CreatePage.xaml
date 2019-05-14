@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
     <Page.DataContext>
-        <local:GUICreateViewModel/>
+        <local:CreateViewModel/>
     </Page.DataContext>
 
     <Page.Resources>
