@@ -24,9 +24,9 @@ namespace RundvisningRagnaRock.Collections
 
         public SettingsSingleton()
         {
-            _fileSourceAudio = new FilePersistency<AudioController>();
+            _fileSourceAudio = new FilePersistency<AudioController>("AudioSource");
             _audioControl = new AudioController();
-            _fileSourceText = new FilePersistency<TextChanger>();
+            _fileSourceText = new FilePersistency<TextChanger>("TextSource");
             _textChange = new TextChanger();
         }
 
