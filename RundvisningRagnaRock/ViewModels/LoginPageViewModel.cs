@@ -28,7 +28,7 @@ namespace RundvisningRagnaRock.ViewModels
         
         public LoginPageViewModel()
         {
-
+            _employee = new EmployeeCollection();
             LoginCommand = new RelayCommand(toLoginCommand);
         }
 
