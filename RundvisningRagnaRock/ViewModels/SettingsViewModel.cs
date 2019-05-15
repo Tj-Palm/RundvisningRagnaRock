@@ -65,12 +65,17 @@ namespace RundvisningRagnaRock.ViewModels
 
         public async void ToSaveCommand()
         {
-            await SettingsSingleton.SaveAsync();
+            await SettingsSingleton.Instance.SaveAsync();
         }
 
-        private async void Load()
+        private async void LoadAudioAsync()
         {
-            await SettingsSingleton.LoadAsync<Settings>();
+            await SettingsSingleton.Instance.LoadAudioAsync();
+        }
+
+        private async void LoadTextAsync()
+        {
+            await SettingsSingleton.Instance.LoadTextAsync();
         }
 
         public void ToPlayCommand()
@@ -80,17 +85,17 @@ namespace RundvisningRagnaRock.ViewModels
 
         public void ToPauseCommand()
         {
-            //MyController.PauseAudio();
+            MyController.PauseAudio();
 
-            MyController.Volume = 0.7;
+            //MyController.Volume = 0.7;
 
         }
 
         public void ToMuteCommand()
         {
-            MyController.Volume = 0.2;
+            //MyController.Volume = 0.2;
 
-            //MyController.MuteAudio();
+            MyController.MuteAudio();
         }
 
         public void VolUpCommand()
