@@ -71,12 +71,6 @@ namespace RundvisningRagnaRock.Views
             PlayMusic.Volume = (double) volumeSlider.Value;
         }
 
-        void InitializePropertyValues()
-        {
-            // Set the media's starting Volume and SpeedRatio to the current value of the
-            // their respective slider controls.
-            PlayMusic.Volume = (double) volumeSlider.Value;
-        }
     }
 
 }
