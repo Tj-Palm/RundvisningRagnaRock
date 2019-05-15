@@ -26,6 +26,7 @@ namespace RundvisningRagnaRock.Common
         {
         }
 
+   
         /// <summary>
         /// Creates a new command.
         /// </summary>

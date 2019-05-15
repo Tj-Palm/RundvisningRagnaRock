@@ -31,6 +31,7 @@ namespace RundvisningRagnaRock.Collections
         }
 
 
+
         public static SettingsSingleton Instance
         {
             get
@@ -65,13 +66,13 @@ namespace RundvisningRagnaRock.Collections
             await _fileSourceText.SaveAsync(_textChange);
         }
 
-        public async Task<AudioController> LoadAudioAsync<T>()
+        public async Task<AudioController> LoadAudioAsync()
         {
             _audioControl = await _fileSourceAudio.LoadModelAsync();
             return _audioControl;
         }
 
-        public async Task<TextChanger> LoadTextAsync<T>()
+        public async Task<TextChanger> LoadTextAsync()
         {
             _textChange = await _fileSourceText.LoadModelAsync();
             return _textChange;
