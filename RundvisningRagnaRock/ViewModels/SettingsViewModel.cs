@@ -12,13 +12,15 @@ namespace RundvisningRagnaRock.ViewModels
 {
     public class SettingsViewModel : ViewModelBase
     {
+        
         AudioController MyController = new AudioController();
         TextChanger MyTextChanger = new TextChanger();
+        
 
 
         public SettingsViewModel()
         {
-
+           
             SaveCommand = new RelayCommand(ToSaveCommand);
             PlayCommand = new RelayCommand(ToPlayCommand);
             PauseCommand = new RelayCommand(ToPauseCommand);
@@ -70,12 +72,12 @@ namespace RundvisningRagnaRock.ViewModels
 
         private async void LoadAudioAsync()
         {
-            await SettingsSingleton.Instance.LoadAudioAsync();
+           MyController = await SettingsSingleton.Instance.LoadAudioAsync();
         }
 
         private async void LoadTextAsync()
         {
-            await SettingsSingleton.Instance.LoadTextAsync();
+            MyTextChanger = await SettingsSingleton.Instance.LoadTextAsync();
         }
 
         public void ToPlayCommand()

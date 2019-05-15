@@ -27,6 +27,9 @@ namespace RundvisningRagnaRock.ViewModels
         private List<Location> _etage2Locations;
         private List<Location> _etage3Locations;
         private List<Location> _allLocations;
+        private List<UDS> _allUds;
+        private ObservableCollection<UDS> _observableUdsCollection;
+        
         #endregion
 
         #region Constructor
@@ -37,7 +40,7 @@ namespace RundvisningRagnaRock.ViewModels
             _etage3Locations = new List<Location>();
             _allLocations = new List<Location>();
             _buttons = new ObservableCollection<Location>();
-
+            _allUds = UdsCollection.Instance.UDScollection;
             //_buttons.Add(new DynamicButton(115, 50,50,30));
             //_buttons.Add(new DynamicButton(33, 123, 36, 48));
 
@@ -48,7 +51,7 @@ namespace RundvisningRagnaRock.ViewModels
 
             ChangeToMap2 = new RelayCommand(toChangeMap2);
             ChangeToMap3 = new RelayCommand(toChangeMap3);
-            GetUDS = new RelayCommand(toGetUDS);
+            GetUDS = new RelayCommandWithParamitter(toGetUDS,true);
         }
 
         #endregion
@@ -84,7 +87,16 @@ namespace RundvisningRagnaRock.ViewModels
                 OnPropertyChanged();
             }
         }
+        //public List<UDS> UdstillingsGenstande
+        //{
+        //    get
+        //    {
+        //        _observableUdsCollection
 
+        //        return _observableUdsCollection;
+        //    }
+
+        //}
 
         #endregion
 
@@ -92,12 +104,12 @@ namespace RundvisningRagnaRock.ViewModels
 
         public RelayCommand ChangeToMap2 { get; set; }
         public RelayCommand ChangeToMap3 { get; set; }
-        public RelayCommand GetUDS { get; set; }
+        public RelayCommandWithParamitter GetUDS { get; set; }
 
         #endregion
 
         #region CommandMethods
-
+        
         private void toChangeMap2()
         {
             Map = _map2;
@@ -111,10 +123,33 @@ namespace RundvisningRagnaRock.ViewModels
             Buttons = new ObservableCollection<Location>(_etage3Locations);
         }
 
-        private void toGetUDS()
+
+        private int id;
+
+        public int ID
         {
-            //LocationCollection locations = new LocationCollection();
-            //locations.SaveLocations();
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private void toGetUDS(object id)
+        {
+
+
+            int ID = Convert.ToInt16(id);
+
+            foreach (Location location in _allLocations)
+            {
+                if (location.Id == ID)
+                {
+                    SelectedLocation = location;
+                }
+            }
         }
 
         #endregion

@@ -125,6 +125,7 @@
     <Compile Include="Collections\SettingsSingleton.cs" />
     <Compile Include="Collections\UdsCollection.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\RelayCommandWithParamitter.cs" />
     <Compile Include="Enums\Etage.cs" />
     <Compile Include="Models\AudioController.cs" />
     <Compile Include="Models\Category.cs" />
