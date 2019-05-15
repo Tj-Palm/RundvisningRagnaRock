@@ -24,7 +24,8 @@
             </StackPanel>-->
             <Slider Name="volumeSlider" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"/>
             <TextBlock Text="Text size"></TextBlock>
-            <Slider Maximum="{Binding MaxSize}" Minimum="{Binding MinSize}"/>
+            <TextBlock Name="TestMessage" Text="Test Message"  FontSize="{Binding ElementName=slidertextsize, Path=Value}"></TextBlock>
+            <Slider x:Name="slidertextsize" TickFrequency="5" Maximum="{Binding MaxSize}" Minimum="{Binding MinSize}" Value="{Binding TextValue, Mode=TwoWay}"/>
             <TextBlock Text="Language"></TextBlock>
             <ComboBox></ComboBox>
 

@@ -70,7 +70,6 @@ namespace RundvisningRagnaRock.Views
         {
             PlayMusic.Volume = (double) volumeSlider.Value;
         }
-
     }
 
 }

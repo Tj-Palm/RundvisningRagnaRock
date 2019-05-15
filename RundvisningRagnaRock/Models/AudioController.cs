@@ -21,7 +21,7 @@ namespace RundvisningRagnaRock.Models
     public partial class AudioController : Page
     {
         private const double _minvolume = 0;
-        private const double _maxvolume = 1;
+        private const double _maxvolume = 100;
         MediaElement MyMusic = new MediaElement();
 
         public AudioController()
@@ -74,14 +74,14 @@ namespace RundvisningRagnaRock.Models
             MyMusic.IsMuted = true;
         }
 
-        public void TurnUpVolume()
-        {
-            MyMusic.Volume += 0.01;
-        }
+        //public void TurnUpVolume()
+        //{
+        //    MyMusic.Volume += 0.01;
+        //}
 
-        public void TurnDownVolume()
-        {
-            MyMusic.Volume -= 0.01;
-        }
+        //public void TurnDownVolume()
+        //{
+        //    MyMusic.Volume -= 0.01;
+        //}
     }
 }
