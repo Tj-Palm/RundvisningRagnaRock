@@ -13,7 +13,10 @@
     <Page.DataContext >
         <ViewModel:MainViewModel></ViewModel:MainViewModel>
     </Page.DataContext>
-
+    <Page.Resources>
+        <ViewModel:MainViewModel x:Key="MainViewModelInstance" />
+    </Page.Resources>
+   
 
     <Grid  >
         <Grid.RowDefinitions>
@@ -80,7 +83,7 @@
                                     <Grid.RenderTransform>
                                         <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
                                     </Grid.RenderTransform>
-                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}"/>
+                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=GetUDS}" CommandParameter="{Binding Id}"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
