@@ -49,7 +49,7 @@ namespace RundvisningRagnaRock.Models
         {
             StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             Folder = await Folder.GetFolderAsync("Assets");
-            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+            StorageFile sf = await Folder.GetFileAsync("TestMusic.mp3");
             MyMusic.AutoPlay = false;
             MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
         }
@@ -61,17 +61,24 @@ namespace RundvisningRagnaRock.Models
 
         public async void PlayAudio()
         {
-            MyMusic.Play();
+            if (MyMusic.Source != null /*|| /*MyMusic.CanPause = true*/)
+            {
+                MyMusic.Play();
+            }
         }
 
         public void PauseAudio()
         {
-            MyMusic.Pause();
+                if (MyMusic.CanPause)
+                {
+                   MyMusic.Pause();
+                }
         }
 
         public void MuteAudio()
         {
-            MyMusic.IsMuted = true;
+            MyMusic.IsMuted = !MyMusic.IsMuted;
+           
         }
 
         //public void TurnUpVolume()
