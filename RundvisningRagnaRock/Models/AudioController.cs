@@ -15,12 +15,13 @@ using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls;
 
 
+
 namespace RundvisningRagnaRock.Models
 {
-    class AudioController
+    public partial class AudioController : Page
     {
         private const double _minvolume = 0;
-        private const double _maxvolume = 1;         
+        private const double _maxvolume = 1;
         MediaElement MyMusic = new MediaElement();
 
         public AudioController()
@@ -41,7 +42,7 @@ namespace RundvisningRagnaRock.Models
 
         public double MinVolume
         {
-            get {return _minvolume;}
+            get { return _minvolume; }
         }
 
         public async void AudioControl()
@@ -67,7 +68,7 @@ namespace RundvisningRagnaRock.Models
         {
             MyMusic.Pause();
         }
-        
+
         public void MuteAudio()
         {
             MyMusic.IsMuted = true;
@@ -82,11 +83,5 @@ namespace RundvisningRagnaRock.Models
         {
             MyMusic.Volume -= 0.01;
         }
-
-        //Slider Function, virker ikke
-        //private void Slider_vol_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        //{
-        //    MyMusic.Volume = (double)VolumeSlider.Value;
-        //}
     }
 }

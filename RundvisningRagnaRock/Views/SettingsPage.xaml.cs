@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Core;
@@ -27,10 +28,10 @@ namespace RundvisningRagnaRock.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Form : Page
+    public partial class Form : Page
     {
-        //MediaPlayer mediaPlayer = new MediaPlayer();
-        
+        MediaElement myMediaElement = new MediaElement();
+
         public Form()
         {
             this.InitializeComponent();
@@ -43,29 +44,39 @@ namespace RundvisningRagnaRock.Views
         }
 
 
-        //protected async override void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    base.OnNavigatedTo(e);
+        MediaElement PlayMusic = new MediaElement();
 
-        //MediaElement PlayMusic = new MediaElement();
-        //private async void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-        //    Folder = await Folder.GetFolderAsync("Assets");
-        //    StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
-        //    PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
-        //    PlayMusic.Play();
-        //}
 
-        //private async void Button_Click_2(object sender, RoutedEventArgs e)
-        //{
-        //    PlayMusic.Pause();
-        //}
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            Folder = await Folder.GetFolderAsync("Assets");
+            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+            PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+            PlayMusic.Play();
+        }
 
-        //private async void Button_Click_3(object sender, RoutedEventArgs e)
-        //{
-        //    PlayMusic.IsMuted = true;
-        //}
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+             PlayMusic.Pause();
+        }
 
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            PlayMusic.IsMuted = true;
+        }
+
+        private void ChangeMediaVolume(object sender, RangeBaseValueChangedEventArgs rangeBaseValueChangedEventArgs)
+        {
+            PlayMusic.Volume = (double) volumeSlider.Value;
+        }
+
+        void InitializePropertyValues()
+        {
+            // Set the media's starting Volume and SpeedRatio to the current value of the
+            // their respective slider controls.
+            PlayMusic.Volume = (double) volumeSlider.Value;
+        }
     }
+
 }
