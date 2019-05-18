@@ -35,7 +35,6 @@ namespace RundvisningRagnaRock.ViewModels
         public EditViewModel()
         {
             _locationCollection = new LocationCollection();
-           
             _categories = CategoriesCollection.Instance;
             _udstillingsGenstande = UdsCollection.Instance;
 

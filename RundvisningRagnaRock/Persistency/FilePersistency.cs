@@ -29,6 +29,10 @@ namespace Binding_MVVM.Persistency
             _folder = ApplicationData.Current.LocalFolder;
         }
 
+        public StorageFolder Folder
+        {
+            get { return _folder; }
+        }
         public async Task SaveAsync(List<T> data)
         {
             /* Then we need to have reference to the file where we can store courses:
@@ -114,6 +118,7 @@ namespace Binding_MVVM.Persistency
             }
             catch (FileNotFoundException)
             {
+
                 return null;
             }
         }

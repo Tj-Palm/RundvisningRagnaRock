@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -28,8 +29,9 @@ namespace RundvisningRagnaRock.ViewModels
         private List<Location> _etage3Locations;
         private List<Location> _allLocations;
         private List<UDS> _allUds;
-        private ObservableCollection<UDS> _observableUdsCollection;
-        
+        private ObservableCollection<UDS> _selectedUdsByLocation;
+        private UDS _selectedUdstillingsGenstand;
+
         #endregion
 
         #region Constructor
@@ -41,6 +43,7 @@ namespace RundvisningRagnaRock.ViewModels
             _allLocations = new List<Location>();
             _buttons = new ObservableCollection<Location>();
             _allUds = UdsCollection.Instance.UDScollection;
+            _selectedUdsByLocation = new ObservableCollection<UDS>(); 
             //_buttons.Add(new DynamicButton(115, 50,50,30));
             //_buttons.Add(new DynamicButton(33, 123, 36, 48));
 
@@ -57,6 +60,11 @@ namespace RundvisningRagnaRock.ViewModels
         #endregion
 
         #region Properties
+
+        public UDS SelectedUdstillingsGenstand
+        {
+            get { return _selectedUdstillingsGenstand; }
+        }
 
         public string Map
         {
@@ -87,16 +95,21 @@ namespace RundvisningRagnaRock.ViewModels
                 OnPropertyChanged();
             }
         }
-        //public List<UDS> UdstillingsGenstande
-        //{
-        //    get
-        //    {
-        //        _observableUdsCollection
+        public ObservableCollection<UDS> SelectedUdsByLocation 
+        {
+            get
+            {
+                foreach (UDS Uds in _allUds)
+                {
+                    if (SelectedLocation.Id == Uds.Location.Id)
+                    {
+                        _selectedUdsByLocation.Add(Uds);
+                    }
+                }
+                return _selectedUdsByLocation;
+            }
 
-        //        return _observableUdsCollection;
-        //    }
-
-        //}
+        }
 
         #endregion
 
