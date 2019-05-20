@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Security;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Cryptography.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -12,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using RundvisningRagnaRock.Collections;
+using RundvisningRagnaRock.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,7 +34,6 @@ namespace RundvisningRagnaRock.Views
         // Login button
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //Check RequestLogin/toLoginCommand if Textbox + PasswordBox == Dictionary.Value
             this.Frame.Navigate(typeof(EditPage));
         }
 
@@ -39,20 +42,15 @@ namespace RundvisningRagnaRock.Views
         {
             this.Frame.Navigate(typeof(MainPage));
         }
-
-        //Username textbox
+        
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
-            //Check dictionary name = Match
+
         }
 
-        // PasswordBox
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            //Check dictionary password = Match
-        }
 
-        //Password box
+        }
     }
 }

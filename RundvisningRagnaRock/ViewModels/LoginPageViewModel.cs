@@ -48,8 +48,6 @@ namespace RundvisningRagnaRock.ViewModels
         public void toLoginCommand()
         {
             _employee.RequestLogin(Username, Password);
-
-            //Binding properties til box i GUI
         }
         
      
