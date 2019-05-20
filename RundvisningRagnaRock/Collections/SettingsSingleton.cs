@@ -10,8 +10,9 @@ using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.Collections
 {
-    class SettingsSingleton
+    public class SettingsSingleton
     {
+        #region Instancefields
         private static SettingsSingleton _instance;
         private static FilePersistency<AudioController> _fileSourceAudio;
         private static AudioController _audioControl;
@@ -21,17 +22,19 @@ namespace RundvisningRagnaRock.Collections
         public AudioController myMusic;
         public Slider Textresizer;
         public TextChanger myText;
+        #endregion
 
-        public SettingsSingleton()
-        {
+        #region Constructor
+          public SettingsSingleton()
+          {
             _fileSourceAudio = new FilePersistency<AudioController>("AudioSource");
             _audioControl = new AudioController();
             _fileSourceText = new FilePersistency<TextChanger>("TextSource");
             _textChange = new TextChanger();
-        }
+          }
+        #endregion
 
-
-
+        #region Singleton
         public static SettingsSingleton Instance
         {
             get
@@ -47,8 +50,10 @@ namespace RundvisningRagnaRock.Collections
                 }
             }
         }
+        #endregion
 
-        //Update is called once per frame.
+        #region Methods
+           //Update is called once per frame.
         void UpdateMusic()
         {
             myMusic.Volume = SoundVolume.Value;
@@ -77,5 +82,7 @@ namespace RundvisningRagnaRock.Collections
             _textChange = await _fileSourceText.LoadModelAsync();
             return _textChange;
         }
+        #endregion
+
     }
 }
