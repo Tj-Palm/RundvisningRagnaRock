@@ -52,7 +52,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="1">
-                        <ListView ItemsSource="{Binding SelectedUdsByLocation}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
+                        <ListView ItemsSource="{Binding SelectedUdsByLocation, Mode=TwoWay}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Height="40" Margin="0,0,0,5">
