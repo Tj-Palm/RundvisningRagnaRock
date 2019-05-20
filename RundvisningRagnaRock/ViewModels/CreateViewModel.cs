@@ -31,8 +31,10 @@ namespace RundvisningRagnaRock.ViewModels
 
         public CreateViewModel()
         {
-            LocationCollection _locations = new LocationCollection();
+            _locations = new LocationCollection();
           
+            LoadResources();
+
             _category = CategoriesCollection.Instance;
             AddCommand = new RelayCommand(ToAddUds);
         }

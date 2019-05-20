@@ -45,7 +45,7 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task UpdateLocationsAsync()
         {
-            if (!File.Exists(file.Folder.Path + "Locations.json"))
+            if (!File.Exists(file.Folder.Path + "\\Locations.json"))
             {
                 await SaveLocations();
             }
