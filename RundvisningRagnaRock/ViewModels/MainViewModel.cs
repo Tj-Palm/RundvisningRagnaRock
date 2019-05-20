@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using RundvisningRagnaRock.Collections;
@@ -29,6 +30,11 @@ namespace RundvisningRagnaRock.ViewModels
         private List<Location> _allLocations;
         #endregion
 
+        public string maps
+        {
+            get { return _map2; }
+        }
+
         #region Constructor
 
         public MainViewModel()
@@ -48,7 +54,7 @@ namespace RundvisningRagnaRock.ViewModels
 
             ChangeToMap2 = new RelayCommand(toChangeMap2);
             ChangeToMap3 = new RelayCommand(toChangeMap3);
-            GetUDS = new RelayCommandWithParamitter(toGetUDS,true);
+            SetLocation = new RelayCommandWithParamitter(toSetLocation,true);
         }
 
         #endregion
@@ -92,7 +98,7 @@ namespace RundvisningRagnaRock.ViewModels
 
         public RelayCommand ChangeToMap2 { get; set; }
         public RelayCommand ChangeToMap3 { get; set; }
-        public RelayCommandWithParamitter GetUDS { get; set; }
+        public RelayCommandWithParamitter SetLocation { get; set; }
 
         #endregion
 
@@ -112,20 +118,20 @@ namespace RundvisningRagnaRock.ViewModels
         }
 
 
-        private int id;
+        //private int id;
 
-        public int ID
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyChanged();
-            }
-        }
+        //public int ID
+        //{
+        //    get { return id; }
+        //    set
+        //    {
+        //        id = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
 
-        private void toGetUDS(object id)
+        private void toSetLocation(object id)
         {
 
 

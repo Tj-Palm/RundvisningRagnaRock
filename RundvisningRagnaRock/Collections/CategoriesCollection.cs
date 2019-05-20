@@ -9,6 +9,7 @@ namespace RundvisningRagnaRock.Collections
 {
    public class CategoriesCollection
     {
+        private Dictionary<int, Category> _categoryCollection;
 
         #region Singleton
         private static CategoriesCollection _instance;
@@ -40,8 +41,6 @@ namespace RundvisningRagnaRock.Collections
             AddCategory("Rock", "../Assets/Rock.jpg");
 
         }
-
-        private Dictionary<int,Category> _categoryCollection;
 
         public List<Category> Categories
         {

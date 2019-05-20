@@ -20,7 +20,9 @@ namespace UnitTestProject
         public UDS GetTestUDS()
         {
             var lok = new LocationCollection();
-            return new UDS("test", CategoriesCollection.Instance.Categories[0], lok.Locations[0], "test", "test", "test");
+            //return new UDS("test", CategoriesCollection.Instance.Categories[0], lok.Locations[0], "test", "test", "test");
+            return new UDS("Test Guitar", CategoriesCollection.Instance.Categories[0], lok.Locations[0],
+                "Slet denne udstillings genstand hvis den er der. denne er kun til test.", "", "");
         }
 
         [TestMethod]
@@ -55,6 +57,28 @@ namespace UnitTestProject
 
             //Assert
             Assert.AreEqual(startvalue - 1, collection.UDScollection.Count);         
+        }
+
+        [TestMethod]
+        public void TestAddNull()
+        {
+            //Arrange
+            Arrange();
+
+            //Act/Assert
+            Assert.IsFalse(collection.Add(null));
+
+        }
+
+        [TestMethod]
+        public void TestAddLocationNull()
+        {
+            //Arrange
+            Arrange();
+
+            //Act/Assert
+            Assert.IsFalse(collection.Add(null));
+
         }
     }
 }
