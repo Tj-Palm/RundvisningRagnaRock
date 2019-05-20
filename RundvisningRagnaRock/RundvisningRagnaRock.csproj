@@ -128,6 +128,7 @@
     <Compile Include="Common\RelayCommandWithParamitter.cs" />
     <Compile Include="Enums\Etage.cs" />
     <Compile Include="Models\AudioController.cs" />
+    <Compile Include="Models\AudioProperties.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Instrument.cs" />

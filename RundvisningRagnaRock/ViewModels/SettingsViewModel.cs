@@ -15,8 +15,6 @@ namespace RundvisningRagnaRock.ViewModels
         
         AudioController MyController = new AudioController();
         TextChanger MyTextChanger = new TextChanger();
-        
-
 
         public SettingsViewModel()
         {
@@ -30,7 +28,6 @@ namespace RundvisningRagnaRock.ViewModels
             
         }
 
-        
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand PlayCommand { get; set; }
         public RelayCommand PauseCommand { get; set; }
@@ -46,8 +43,8 @@ namespace RundvisningRagnaRock.ViewModels
 
         public double Volume
         {
-           get {return MyController.Volume;}
-           set { MyController.Volume = value; OnPropertyChanged();}
+           get {return MyController.Properties.Volume;}
+           set { MyController.Properties.Volume = value; OnPropertyChanged();}
         }
 
         public double MaxSize
@@ -62,12 +59,12 @@ namespace RundvisningRagnaRock.ViewModels
 
         public double MaxVolume
         {
-            get { return MyController.MaxVolume; }
+            get { return MyController.MaxVolumeControl; }
         }
 
         public double MinVolume
         {
-            get { return MyController.MinVolume; }
+            get { return MyController.MinVolumeControl; }
         }
 
         public async void ToSaveCommand()

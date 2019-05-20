@@ -14,8 +14,8 @@ namespace RundvisningRagnaRock.Collections
     {
         #region Instancefields
         private static SettingsSingleton _instance;
-        private static FilePersistency<AudioController> _fileSourceAudio;
-        private static AudioController _audioControl;
+        private static FilePersistency<AudioProperties> _fileSourceAudio;
+        private static AudioProperties _audioProperties;
         private static FilePersistency<TextChanger> _fileSourceText;
         private static TextChanger _textChange;
         public Slider SoundVolume;
@@ -27,8 +27,8 @@ namespace RundvisningRagnaRock.Collections
         #region Constructor
           public SettingsSingleton()
           {
-            _fileSourceAudio = new FilePersistency<AudioController>("AudioSource");
-            _audioControl = new AudioController();
+            _fileSourceAudio = new FilePersistency<AudioProperties>("AudioSource");
+            _audioProperties = new AudioProperties();
             _fileSourceText = new FilePersistency<TextChanger>("TextSource");
             _textChange = new TextChanger();
           }
@@ -56,7 +56,7 @@ namespace RundvisningRagnaRock.Collections
            //Update is called once per frame.
         void UpdateMusic()
         {
-            myMusic.Volume = SoundVolume.Value;
+            myMusic.Properties.Volume = SoundVolume.Value;
         }
 
         //Update is called once per frame.
@@ -67,14 +67,14 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task SaveAsync()
         {
-            await _fileSourceAudio.SaveAsync(_audioControl);
+            await _fileSourceAudio.SaveAsync(_audioProperties);
             await _fileSourceText.SaveAsync(_textChange);
         }
 
-        public async Task<AudioController> LoadAudioAsync()
+        public async Task<AudioProperties> LoadAudioAsync()
         {
-            _audioControl = await _fileSourceAudio.LoadModelAsync();
-            return _audioControl;
+            _audioProperties = await _fileSourceAudio.LoadModelAsync();
+            return _audioProperties;
         }
 
         public async Task<TextChanger> LoadTextAsync()

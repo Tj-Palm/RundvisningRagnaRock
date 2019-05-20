@@ -14,35 +14,21 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls;
 
-
-
 namespace RundvisningRagnaRock.Models
 {
-    public partial class AudioController : Page
+    public partial class AudioController
     {
-        private const double _minvolume = 0;
-        private const double _maxvolume = 100;
-        MediaElement MyMusic = new MediaElement();
+        
+        public MediaElement MyMusic = new MediaElement();
 
         public AudioController()
         {
             AudioControl();
         }
 
-        public double Volume
+        public AudioProperties Properties
         {
-            get { return MyMusic.Volume; }
-            set { MyMusic.Volume = value; }
-        }
-
-        public double MaxVolume
-        {
-            get { return _maxvolume; }
-        }
-
-        public double MinVolume
-        {
-            get { return _minvolume; }
+            get { return new AudioProperties();}
         }
 
         public async void AudioControl()
@@ -54,10 +40,21 @@ namespace RundvisningRagnaRock.Models
             MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
         }
 
-        //public void SetVolume(double volume)
-        //{
-        //    MyMusic.Volume = volume;
-        //}
+        public double MaxVolumeControl
+        {
+            get { return Properties.MaxVolume; }
+        }
+
+        public double MinVolumeControl
+        {
+            get { return Properties.MinVolume; }
+        }
+
+        public void SetVolume(double volume)
+        {
+            MyMusic.Volume = volume;
+            Properties.Volume = volume;
+        }
 
         public async void PlayAudio()
         {
@@ -79,6 +76,11 @@ namespace RundvisningRagnaRock.Models
         {
             MyMusic.IsMuted = !MyMusic.IsMuted;
            
+        }
+
+        public static implicit operator AudioController(AudioProperties v)
+        {
+            throw new NotImplementedException();
         }
 
         //public void TurnUpVolume()
