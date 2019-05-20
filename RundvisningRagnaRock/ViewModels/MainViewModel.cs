@@ -82,7 +82,6 @@ namespace RundvisningRagnaRock.ViewModels
         {
             get
             {
-                ;
                 return _buttons;
             }
             set
@@ -143,17 +142,17 @@ namespace RundvisningRagnaRock.ViewModels
         }
 
 
-        //private int id;
+        private int id;
 
-        //public int ID
-        //{
-        //    get { return id; }
-        //    set
-        //    {
-        //        id = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public int ID
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         private void toSetLocation(object id)
