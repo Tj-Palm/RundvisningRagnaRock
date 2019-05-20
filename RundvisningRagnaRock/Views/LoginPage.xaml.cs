@@ -35,7 +35,6 @@ namespace RundvisningRagnaRock.Views
 
            
         }
-
         // Cancel button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -46,15 +45,11 @@ namespace RundvisningRagnaRock.Views
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
-            //Check dictionary name = Match
         }
 
         // PasswordBox
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            //Check dictionary password = Match
         }
-
-        //Password box
     }
 }
