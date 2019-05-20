@@ -16,6 +16,10 @@ using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.Collections
 {
+
+    /// <summary>
+    /// LocationCollection 
+    /// </summary>
     public class LocationCollection
     {
         private List<Location> _locations;

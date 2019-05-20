@@ -31,7 +31,9 @@ namespace RundvisningRagnaRock.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Check RequestLogin/toLoginCommand if Textbox + PasswordBox == Dictionary.Value
-            this.Frame.Navigate(typeof(EditPage));
+            //this.Frame.Navigate(typeof(EditPage));
+
+           
         }
 
         // Cancel button

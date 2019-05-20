@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.UI.ApplicationSettings;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
@@ -48,6 +49,12 @@ namespace RundvisningRagnaRock.ViewModels
         public void toLoginCommand()
         {
             _employee.RequestLogin(Username, Password);
+
+            var frame = new Frame();
+            frame.Navigate(typeof(EditPage));
+
+            Window.Current.Content = frame;
+            Window.Current.Activate();
 
             //Binding properties til box i GUI
         }
