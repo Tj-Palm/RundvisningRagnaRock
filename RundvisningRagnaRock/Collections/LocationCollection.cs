@@ -5,10 +5,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 using Binding_MVVM.Persistency;
 using RundvisningRagnaRock.Enums;
 using RundvisningRagnaRock.Models;
+
 
 namespace RundvisningRagnaRock.Collections
 {
@@ -25,7 +29,15 @@ namespace RundvisningRagnaRock.Collections
 
         public List<Location> Locations
         {
-            get { return _locations; }
+            get
+            {
+                if (_locations != null)
+                {
+                    return _locations;
+                }
+
+                return new List<Location>();
+            }
             set { _locations = value; }
         }
 
@@ -53,6 +65,5 @@ namespace RundvisningRagnaRock.Collections
             _locations.Add(new Location(40, 40, 40, 40, Etage.Two, "test4", "test4", "test"));
             await file.SaveAsync(_locations);
         }
-
     }
 }

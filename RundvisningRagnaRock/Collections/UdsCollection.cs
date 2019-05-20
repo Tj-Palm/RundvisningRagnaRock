@@ -19,7 +19,7 @@ namespace RundvisningRagnaRock.Collections
 
         private List<UDS> _udsCollection;
         private static UdsCollection _instance;
-
+        private LocationCollection lokocations;
         #endregion
 
         #region Constructor
@@ -35,15 +35,15 @@ namespace RundvisningRagnaRock.Collections
         {
             if (_udsCollection.Count == 0)
             {
-                LocationCollection lok = new LocationCollection();
-                await lok.UpdateLocationsAsync();
+                lokocations = new LocationCollection();
+                await lokocations.UpdateLocationsAsync();
 
                 //TODO for testing. delete
-                _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], lok.Locations[0],
+                _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], lokocations.Locations[0],
                     "Denne guitar er super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], lok.Locations[1],
+                _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], lokocations.Locations[1],
                     "Denne guitar er super super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0],lok.Locations[2],
+                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], llokocationsok.Locations[2],
                     "Denne guitar er super super super fed.", "", ""));
             }
         }
@@ -84,16 +84,20 @@ namespace RundvisningRagnaRock.Collections
         public bool Add(UDS uds)
         {           
 
-            if (uds != null)
+            if (uds != null && lokocations.Locations.Contains(uds.Location) && CategoriesCollection.Instance.Categories.Contains(uds.Category))
             {                              
-                UDScollection.Add(uds);
+                 UDScollection.Add(uds);
+
+                if (UDScollection.Contains(uds))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
-            if (UDScollection.Contains(uds))
-            {
-                return true;
-            }
- 
                 return false;
             
         }
