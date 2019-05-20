@@ -43,7 +43,10 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task UpdateLocationsAsync()
         {
-          
+            if (!File.Exists(file.Folder.Path))
+            {
+                await SaveLocations();
+            }
             _locations = await file.LoadModelAsync();
         }
 
@@ -54,7 +57,7 @@ namespace RundvisningRagnaRock.Collections
             await file.SaveAsync(_locations);
         }
 
-        public async void SaveLocations()
+        public async Task SaveLocations()
         {
             _locations.Add(new Location(10, 10, 10, 10, Etage.Three, "test1", "test1","test"));
             _locations.Add(new Location(20, 20, 20, 20, Etage.Three, "test2", "test2","test"));

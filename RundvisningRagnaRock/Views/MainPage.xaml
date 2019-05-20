@@ -52,7 +52,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="1">
-                        <ListView>
+                        <ListView ItemsSource="{Binding SelectedUdsByLocation}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Height="40" Margin="0,0,0,5">
@@ -74,8 +74,8 @@
                     </StackPanel>
 
                 <Canvas Grid.Row="1" Grid.Column="1" >
-                        <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding maps, Mode=TwoWay}"  ></Image>
-                    <!--<Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33" Command="{Binding SetLocation}"></Button>-->
+                    <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
+                    <!--<Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33" Command="{Binding GetUDS}"></Button>-->
                         <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
                             <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -83,7 +83,7 @@
                                     <Grid.RenderTransform>
                                         <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
                                     </Grid.RenderTransform>
-                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=SetLocation}" CommandParameter="{Binding Id}"/>
+                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=GetUDS}" CommandParameter="{Binding Id}"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

@@ -9,8 +9,8 @@ namespace RundvisningRagnaRock.Models
     class TextChanger
     {
         private double _textsize;
-        private const double _maxsize = 10;
-        private const double _minsize = 0;
+        private const double _maxsize = 50;
+        private const double _minsize = 10;
 
         public double textSize
         {

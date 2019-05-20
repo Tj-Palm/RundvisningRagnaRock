@@ -18,22 +18,23 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Settings" FontSize="40" Margin="40"></TextBlock>
             <TextBlock Text="Sound volume"></TextBlock>
-            <StackPanel Orientation="Horizontal">
+            <!--<--><!--StackPanel Orientation="Horizontal">
                 <Button Margin="10" Background="#FF999999" Content="Turn Up Volume" Command="{Binding VolUp}"/>
                 <Button Margin="10" Background="#FF999999" Content="Turn Down Volume" Command="{Binding VolDown}"/>
-            </StackPanel>
-            <!--<Slider Name="VolumeSlider"  Maximum="{Binding MaxVolume}" Minimum="{Binding MinVolume}" Value="{Binding Volume, Mode=TwoWay}"/>-->
+            </StackPanel>-->
+            <Slider Name="volumeSlider" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"/>
             <TextBlock Text="Text size"></TextBlock>
-            <Slider Maximum="{Binding MaxSize}" Minimum="{Binding MinSize}"/>
+            <TextBlock Name="TestMessage" Text="Test Message"  FontSize="{Binding ElementName=slidertextsize, Path=Value}"></TextBlock>
+            <Slider x:Name="slidertextsize" TickFrequency="5" Maximum="{Binding MaxSize}" Minimum="{Binding MinSize}" Value="{Binding TextValue, Mode=TwoWay}"/>
             <TextBlock Text="Language"></TextBlock>
             <ComboBox></ComboBox>
 
             <StackPanel Orientation="Horizontal">
                 <Button Margin="10" Background="#FF999999"  Content="Return to Map" Click="Button_Click"/>
-                <Button Margin="10" Background="#FF999999" Content="Save" Command="{Binding SaveCommand}"/>
-                <Button Margin="10" Background="#FF999999" Content="Play" Command="{Binding PlayCommand }" />
-                <Button Margin="10" Background="#FF999999" Content="Pause" Command="{Binding PauseCommand}"/>
-                <Button Margin="10" Background="#FF999999" Content="Mute" Command="{Binding MuteCommand}"/>
+                <Button Margin="10" Background="#FF999999" Content="Save" Command ="{Binding SaveCommand}"/>
+                <Button Margin="10" Background="#FF999999" Content="Play" Click="Button_Click_1"  />
+                <Button Margin="10" Background="#FF999999" Content="Pause" Click="Button_Click_2" />
+                <Button Margin="10" Background="#FF999999" Content="Mute" Click="Button_Click_3" />
             </StackPanel>
         </StackPanel>
     </Grid>

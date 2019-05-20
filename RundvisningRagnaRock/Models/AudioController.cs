@@ -15,12 +15,13 @@ using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls;
 
 
+
 namespace RundvisningRagnaRock.Models
 {
-    class AudioController
+    public partial class AudioController : Page
     {
         private const double _minvolume = 0;
-        private const double _maxvolume = 1;         
+        private const double _maxvolume = 100;
         MediaElement MyMusic = new MediaElement();
 
         public AudioController()
@@ -41,14 +42,14 @@ namespace RundvisningRagnaRock.Models
 
         public double MinVolume
         {
-            get {return _minvolume;}
+            get { return _minvolume; }
         }
 
         public async void AudioControl()
         {
             StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             Folder = await Folder.GetFolderAsync("Assets");
-            StorageFile sf = await Folder.GetFileAsync("MusicTest.mp3");
+            StorageFile sf = await Folder.GetFileAsync("TestMusic.mp3");
             MyMusic.AutoPlay = false;
             MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
         }
@@ -60,33 +61,34 @@ namespace RundvisningRagnaRock.Models
 
         public async void PlayAudio()
         {
-            MyMusic.Play();
+            if (MyMusic.Source != null /*|| /*MyMusic.CanPause = true*/)
+            {
+                MyMusic.Play();
+            }
         }
 
         public void PauseAudio()
         {
-            MyMusic.Pause();
+                if (MyMusic.CanPause)
+                {
+                   MyMusic.Pause();
+                }
         }
-        
+
         public void MuteAudio()
         {
-            MyMusic.IsMuted = true;
+            MyMusic.IsMuted = !MyMusic.IsMuted;
+           
         }
 
-        public void TurnUpVolume()
-        {
-            MyMusic.Volume += 0.01;
-        }
-
-        public void TurnDownVolume()
-        {
-            MyMusic.Volume -= 0.01;
-        }
-
-        //Slider Function, virker ikke
-        //private void Slider_vol_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //public void TurnUpVolume()
         //{
-        //    MyMusic.Volume = (double)VolumeSlider.Value;
+        //    MyMusic.Volume += 0.01;
+        //}
+
+        //public void TurnDownVolume()
+        //{
+        //    MyMusic.Volume -= 0.01;
         //}
     }
 }
