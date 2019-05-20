@@ -25,11 +25,11 @@ namespace RundvisningRagnaRock.ViewModels
         private readonly string _map2 = "../Assets/Kort1.jpg";
         private readonly string _map3 = "../Assets/Kort2.jpg";
         private ObservableCollection<Location> _buttons;
-        private Location SelectedLocation;
+        private Location _selectedLocation;
         private List<Location> _etage2Locations;
         private List<Location> _etage3Locations;
         private List<Location> _allLocations;
-        private List<UDS> _allUds;
+        private UdsCollection _allUds;
         private ObservableCollection<UDS> _selectedUdsByLocation;
         private UDS _selectedUdstillingsGenstand;
 
@@ -48,8 +48,9 @@ namespace RundvisningRagnaRock.ViewModels
             _etage3Locations = new List<Location>();
             _allLocations = new List<Location>();
             _buttons = new ObservableCollection<Location>();
-            _allUds = UdsCollection.Instance.UDScollection;
-            _selectedUdsByLocation = new ObservableCollection<UDS>(_allUds); 
+            _allUds = UdsCollection.Instance;
+            _selectedUdsByLocation = new ObservableCollection<UDS>(); 
+
             //_buttons.Add(new DynamicButton(115, 50,50,30));
             //_buttons.Add(new DynamicButton(33, 123, 36, 48));
 
@@ -91,28 +92,47 @@ namespace RundvisningRagnaRock.ViewModels
             }
         }
 
-        public Location _selectedLocation
+        public Location SelectedLocation
         {
-            get { return SelectedLocation; }
+            get
+            { return _selectedLocation; }
             set
             {
-                SelectedLocation = value;
+                _selectedLocation = value;
                 OnPropertyChanged();
+                //OnPropertyChanged(nameof(SelectedUdsByLocation));
+                if (SelectedLocation != null)
+                {
+                    _selectedUdsByLocation.Clear();
+                    foreach (UDS Uds in _allUds.UDScollection)
+                    {
+                        if (SelectedLocation.Id == Uds.Location.Id)
+                        {
+                            SelectedUdsByLocation.Add(Uds);
+                        }
+                    }
+                }
+                OnPropertyChanged(nameof(SelectedUdsByLocation));
             }
         }
         public ObservableCollection<UDS> SelectedUdsByLocation 
         {
             get
             {
-                foreach (UDS Uds in _allUds)
-                {
-                    if (SelectedLocation.Id == Uds.Location.Id)
-                    {
-                        _selectedUdsByLocation.Add(Uds);
-                    }
-                }
+                //if (SelectedLocation != null)
+                //{
+                //    _selectedUdsByLocation.Clear();
+                //    foreach (UDS Uds in _allUds.UDScollection)
+                //    {
+                //        if (SelectedLocation.Id == Uds.Location.Id)
+                //        {
+                //            _selectedUdsByLocation.Add(Uds);
+                //        }
+                //    }
+                //}
                 return _selectedUdsByLocation;
             }
+            set { _selectedUdsByLocation = value; }
         }
 
         #endregion
@@ -141,17 +161,17 @@ namespace RundvisningRagnaRock.ViewModels
         }
 
 
-        private int id;
+        //private int id;
 
-        public int ID
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyChanged();
-            }
-        }
+        //public int ID
+        //{
+        //    get { return id; }
+        //    set
+        //    {
+        //        id = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
 
         private void toSetLocation(object id)
@@ -199,6 +219,9 @@ namespace RundvisningRagnaRock.ViewModels
                 }
             }
 
+            await _allUds.LoadElementsAsync();
+            //_selectedUdsByLocation = new ObservableCollection<UDS>(_allUds.UDScollection);
+            OnPropertyChanged(nameof(SelectedUdsByLocation));
         }
 
         #endregion

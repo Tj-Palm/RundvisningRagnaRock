@@ -31,9 +31,10 @@ namespace RundvisningRagnaRock.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Check RequestLogin/toLoginCommand if Textbox + PasswordBox == Dictionary.Value
-            this.Frame.Navigate(typeof(EditPage));
-        }
+            //this.Frame.Navigate(typeof(EditPage));
 
+           
+        }
         // Cancel button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -44,15 +45,11 @@ namespace RundvisningRagnaRock.Views
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
-            //Check dictionary name = Match
         }
 
         // PasswordBox
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            //Check dictionary password = Match
         }
-
-        //Password box
     }
 }
