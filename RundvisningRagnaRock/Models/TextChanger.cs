@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RundvisningRagnaRock.Models
 {
-    class TextChanger
+    public class TextChanger
     {
         private double _textsize;
         private const double _maxsize = 50;
