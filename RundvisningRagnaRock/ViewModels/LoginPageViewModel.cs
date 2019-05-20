@@ -50,13 +50,14 @@ namespace RundvisningRagnaRock.ViewModels
         {
             _employee.RequestLogin(Username, Password);
 
-            var frame = new Frame();
-            frame.Navigate(typeof(EditPage));
+            if (_employee.RequestLogin(Username, Password))
+            {
+                var frame = new Frame();
+                frame.Navigate(typeof(EditPage));
 
-            Window.Current.Content = frame;
-            Window.Current.Activate();
-
-            //Binding properties til box i GUI
+                Window.Current.Content = frame;
+                Window.Current.Activate();
+            }
         }
         
      
