@@ -125,6 +125,7 @@
       <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
     <Compile Include="UDSCollectionUnitTest.cs" />
+    <Compile Include="UnitTestSettingsSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="UnitTestApp.xaml">
