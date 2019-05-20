@@ -24,7 +24,9 @@ namespace RundvisningRagnaRock.Collections
         public LocationCollection()
         {
             _locations = new List<Location>();
-            file = new FilePersistency<List<Location>>("Locations");           
+            file = new FilePersistency<List<Location>>("Locations");   
+            
+            
         }
 
         public List<Location> Locations
@@ -43,7 +45,7 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task UpdateLocationsAsync()
         {
-            if (!File.Exists(file.Folder.Path))
+            if (!File.Exists(file.Folder.Path + "\\Locations.json"))
             {
                 await SaveLocations();
             }

@@ -49,10 +49,9 @@ namespace RundvisningRagnaRock.ViewModels
             _allLocations = new List<Location>();
             _buttons = new ObservableCollection<Location>();
             _allUds = UdsCollection.Instance.UDScollection;
-            _selectedUdsByLocation = new ObservableCollection<UDS>(); 
+            _selectedUdsByLocation = new ObservableCollection<UDS>(_allUds); 
             //_buttons.Add(new DynamicButton(115, 50,50,30));
             //_buttons.Add(new DynamicButton(33, 123, 36, 48));
-
 
             LoadResourcesAsync();
 
@@ -70,6 +69,7 @@ namespace RundvisningRagnaRock.ViewModels
         public UDS SelectedUdstillingsGenstand
         {
             get { return _selectedUdstillingsGenstand; }
+            set { _selectedUdstillingsGenstand = value; OnPropertyChanged(); }
         }
 
         public string Map
@@ -82,7 +82,6 @@ namespace RundvisningRagnaRock.ViewModels
         {
             get
             {
-                ;
                 return _buttons;
             }
             set
@@ -114,7 +113,6 @@ namespace RundvisningRagnaRock.ViewModels
                 }
                 return _selectedUdsByLocation;
             }
-
         }
 
         #endregion
@@ -143,17 +141,17 @@ namespace RundvisningRagnaRock.ViewModels
         }
 
 
-        //private int id;
+        private int id;
 
-        //public int ID
-        //{
-        //    get { return id; }
-        //    set
-        //    {
-        //        id = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public int ID
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         private void toSetLocation(object id)

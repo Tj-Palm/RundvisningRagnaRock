@@ -27,12 +27,14 @@ namespace RundvisningRagnaRock.ViewModels
         private string _soundFileDirectory;
         private string _messages;
         private bool _isAddButtonEnabled = true;
-        private List<Location> _locations;
+        private LocationCollection _locations;
 
         public CreateViewModel()
         {
-            LocationCollection lokcol = new LocationCollection();
-            _locations = lokcol.Locations;
+            _locations = new LocationCollection();
+          
+            LoadResources();
+
             _category = CategoriesCollection.Instance;
             AddCommand = new RelayCommand(ToAddUds);
         }
@@ -66,10 +68,9 @@ namespace RundvisningRagnaRock.ViewModels
             set { _desctiption = value; }
         }
 
-        public List<Location> Locations
+        public ObservableCollection<Location> Locations
         {
-            get { return _locations; }
-            set { _locations = value; }
+            get { return new ObservableCollection<Location>(_locations.Locations); }
         }
 
         public Location Location
@@ -94,8 +95,6 @@ namespace RundvisningRagnaRock.ViewModels
             }
         }
 
-
-
         public bool IsAddButtonEnabled
         {
             get { return _isAddButtonEnabled; }
@@ -105,7 +104,6 @@ namespace RundvisningRagnaRock.ViewModels
                 OnPropertyChanged();
             }
         }
-
 
         public async void ToAddUds()
         {
@@ -156,6 +154,12 @@ namespace RundvisningRagnaRock.ViewModels
 
                 return oCollection;
             }
+        }
+
+        public async void LoadResources()
+        {
+            _locations.UpdateLocationsAsync();
+            OnPropertyChanged(nameof(Locations));
         }
     }
 }
