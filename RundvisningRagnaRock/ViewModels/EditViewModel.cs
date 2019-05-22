@@ -27,6 +27,10 @@ namespace RundvisningRagnaRock.ViewModels
         private LocationCollection _locationCollection;
         private Location _selectedLocation;
         private ObservableCollection<Location> _locations;
+        private bool _visibillitytype;
+        private bool _visibillitykunstner;
+        private string _instrumentType;
+        private string _kunstner;
 
         #endregion
 
@@ -78,7 +82,6 @@ namespace RundvisningRagnaRock.ViewModels
             }
         }
        
-
         public UDS SelectedUdstillingsGenstand
         {
             get
@@ -102,10 +105,26 @@ namespace RundvisningRagnaRock.ViewModels
                         SelectedLocation = value.Location;
                         OnPropertyChanged(nameof(SelectedLocation));
                     }
-                }
-                OnPropertyChanged();
 
-                
+                    if (value.GetType() == typeof(Instrument))
+                    {
+                        Instrument ins = (Instrument)value;
+
+                        _kunstner = ins.Kunstner;
+                        _instrumentType = ins.Type;
+
+                        VisibillityKunstner = true;
+                        VisibillityType = true;
+                    }
+                    else
+                    {
+                        VisibillityKunstner = false;
+                        VisibillityType = false;
+
+                    }
+
+                }
+                OnPropertyChanged();               
             }
         }
 
@@ -118,7 +137,6 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
         }
-
 
         public ObservableCollection<Location> Locations
         {
@@ -146,6 +164,42 @@ namespace RundvisningRagnaRock.ViewModels
                 }
             }
         }
+
+        public string SelectedType { get; set; }
+
+        public ObservableCollection<string> Types
+        {
+            get
+            {
+                var collection = new ObservableCollection<string>(_udstillingsGenstande.UdsTypeList);
+                return collection;
+            }
+        }
+
+        public string Kunstner
+        {
+            get { return _kunstner; }
+            set { _kunstner = value; OnPropertyChanged();}
+        }
+
+        public string InstrumentType
+        {
+            get { return _instrumentType; }
+            set { _instrumentType = value;OnPropertyChanged(); }
+        } 
+
+        public bool VisibillityKunstner
+        {
+            get { return _visibillitykunstner; }
+            set { _visibillitykunstner = value;OnPropertyChanged(); }
+        }
+
+        public bool VisibillityType
+        {
+            get { return _visibillitytype; }
+            set { _visibillitytype = value; OnPropertyChanged();}
+        }
+
 
         #endregion
 

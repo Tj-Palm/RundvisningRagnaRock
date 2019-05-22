@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using RundvisningRagnaRock.Annotations;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Enums;
@@ -32,6 +35,7 @@ namespace RundvisningRagnaRock.ViewModels
         private UdsCollection _allUds;
         private ObservableCollection<UDS> _selectedUdsByLocation;
         private UDS _selectedUdstillingsGenstand;
+        private List<UDS> _selectedUdsListByLocation;
 
         #endregion
 
@@ -47,6 +51,7 @@ namespace RundvisningRagnaRock.ViewModels
             _etage2Locations = new List<Location>();
             _etage3Locations = new List<Location>();
             _allLocations = new List<Location>();
+            _selectedUdsListByLocation = new List<UDS>();
             _buttons = new ObservableCollection<Location>();
             _allUds = UdsCollection.Instance;
             _selectedUdsByLocation = new ObservableCollection<UDS>(); 
@@ -95,45 +100,53 @@ namespace RundvisningRagnaRock.ViewModels
         public Location SelectedLocation
         {
             get
-            { return _selectedLocation; }
+            {
+                return _selectedLocation;
+            }
             set
             {
                 _selectedLocation = value;
                 OnPropertyChanged();
-                //OnPropertyChanged(nameof(SelectedUdsByLocation));
-                if (SelectedLocation != null)
-                {
-                    _selectedUdsByLocation.Clear();
-                    foreach (UDS Uds in _allUds.UDScollection)
-                    {
-                        if (SelectedLocation.Id == Uds.Location.Id)
-                        {
-                            SelectedUdsByLocation.Add(Uds);
-                        }
-                    }
-                }
-                OnPropertyChanged(nameof(SelectedUdsByLocation));
             }
         }
-        public ObservableCollection<UDS> SelectedUdsByLocation 
+
+        public ObservableCollection<UDS> SelectedUdsByLocation
         {
             get
             {
-                //if (SelectedLocation != null)
-                //{
-                //    _selectedUdsByLocation.Clear();
-                //    foreach (UDS Uds in _allUds.UDScollection)
-                //    {
-                //        if (SelectedLocation.Id == Uds.Location.Id)
-                //        {
-                //            _selectedUdsByLocation.Add(Uds);
-                //        }
-                //    }
-                //}
-                return _selectedUdsByLocation;
+         return _selectedUdsByLocation;
+
             }
-            set { _selectedUdsByLocation = value; }
+
+            //set
+            //{
+            //    _selectedUdsByLocation = value;
+            //     OnPropertyChanged();
+            //}
+
         }
+
+        //public ObservableCollection<UDS> SelectedUdsByLocation 
+        //{
+        //    get
+        //    {      ObservableCollection<UDS> col = new ObservableCollection<UDS>(_allUds.UDScollection);
+        //        return col;
+
+        //        //if (SelectedLocation != null)
+        //        //{
+        //        //    _selectedUdsByLocation.Clear();
+        //        //    foreach (UDS Uds in _allUds.UDScollection)
+        //        //    {
+        //        //        if (SelectedLocation.Id == Uds.Location.Id)
+        //        //        {
+        //        //            _selectedUdsByLocation.Add(Uds);
+        //        //        }
+        //        //    }
+        //        //}
+        //        //return _selectedUdsByLocation;
+        //    }
+
+        //}
 
         #endregion
 
@@ -153,26 +166,11 @@ namespace RundvisningRagnaRock.ViewModels
             Buttons = new ObservableCollection<Location>(_etage2Locations);
         }
 
-
         private void toChangeMap3()
         {
             Map = _map3;
             Buttons = new ObservableCollection<Location>(_etage3Locations);
         }
-
-
-        //private int id;
-
-        //public int ID
-        //{
-        //    get { return id; }
-        //    set
-        //    {
-        //        id = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
 
         private void toSetLocation(object id)
         {
@@ -186,6 +184,21 @@ namespace RundvisningRagnaRock.ViewModels
                 {
                     SelectedLocation = location;
                 }
+            }
+
+            if (SelectedLocation != null)
+            {
+                //SelectedUdsByLocation.Clear();
+                foreach (UDS Uds in _allUds.UDScollection)
+                {
+                    if (SelectedLocation.Id == Uds.Location.Id)
+                    {
+                        _selectedUdsListByLocation.Add(Uds);
+                    }
+                }
+                //SelectedUdsByLocation = new ObservableCollection<UDS>(_selectedUdsListByLocation);
+              
+                
             }
         }
 
@@ -220,10 +233,12 @@ namespace RundvisningRagnaRock.ViewModels
             }
 
             await _allUds.LoadElementsAsync();
-            //_selectedUdsByLocation = new ObservableCollection<UDS>(_allUds.UDScollection);
+            //_selectedUdsListByLocation = new List<UDS>(_allUds.UDScollection);
             OnPropertyChanged(nameof(SelectedUdsByLocation));
         }
 
         #endregion
+
+    
     }
 }

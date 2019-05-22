@@ -114,6 +114,24 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource ListStyle}">
+                    <TextBlock Text="Type :" Style="{StaticResource TilteStyle}"/>
+                    <ComboBox ItemsSource="{Binding Types, Mode=TwoWay}" SelectedValue="{Binding SelectedType}"  HorizontalAlignment="Center" Margin="0,0,0,8" VerticalAlignment="Bottom">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Style="{StaticResource ListStyle}" Visibility="{Binding VisibillityType}">
+                    <TextBlock Text="Kunstner :" Style="{StaticResource TilteStyle}"/>
+                    <TextBlock Text="{Binding Kunstner, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Style="{StaticResource ListStyle}" Visibility="{Binding VisibillityType}">
+                    <TextBlock Text="Instrument Type :" Style="{StaticResource TilteStyle}"/>
+                    <TextBlock Text="{Binding InstrumentType, Mode=TwoWay}"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="150" Style="{StaticResource ListStyle}">
                     <TextBlock Text="Description :" Style="{StaticResource TilteStyle}"/>
                     <TextBox Text="{Binding SelectedUdstillingsGenstand.Description, Mode=TwoWay}" Width="800" Height="150"/>

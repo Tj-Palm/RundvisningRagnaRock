@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.Devices.Sensors;
+using Windows.Gaming.Input;
 using RundvisningRagnaRock.Models;
 
 
@@ -19,7 +22,7 @@ namespace RundvisningRagnaRock.Collections
 
         private List<UDS> _udsCollection;
         private static UdsCollection _instance;
-        private LocationCollection lokocations;
+        private LocationCollection locations;
         #endregion
 
         #region Constructor
@@ -27,7 +30,12 @@ namespace RundvisningRagnaRock.Collections
         private UdsCollection()
         {
             _udsCollection = new List<UDS>();
+
+          
         }
+
+
+        
 
         #endregion
 
@@ -35,20 +43,36 @@ namespace RundvisningRagnaRock.Collections
         {
             if (_udsCollection.Count == 0)
             {
-                lokocations = new LocationCollection();
-                await lokocations.UpdateLocationsAsync();
+                locations = new LocationCollection();
+                await locations.UpdateLocationsAsync();
 
                 //TODO for testing. delete
-                _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], lokocations.Locations[0],
+                _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], locations.Locations[0],
                     "Denne guitar er super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], lokocations.Locations[1],
+                _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], locations.Locations[1],
                     "Denne guitar er super super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], lokocations.Locations[2],
+                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], locations.Locations[2],
                     "Denne guitar er super super super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[3], lokocations.Locations[3],
+                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[3], locations.Locations[3],
                     "Denne guitar er super super super fed.", "", ""));
+                _udsCollection.Add(new Instrument("instrument Guitar", CategoriesCollection.Instance.Categories[3], locations.Locations[3],
+                    "Frank", "Guitar","",""));
             }
         }
+
+        private List<string> _udsTypesList;
+
+        public List<string> UdsTypeList
+        {
+            get
+            {
+                List<string> collection = new List<string>();
+                collection.Add(typeof(Instrument).Name);
+
+                return collection;
+            }          
+        }
+
 
         #region Singeltonprop
 
@@ -86,7 +110,7 @@ namespace RundvisningRagnaRock.Collections
         public bool Add(UDS uds)
         {           
 
-            if (uds != null && lokocations.Locations.Contains(uds.Location) && CategoriesCollection.Instance.Categories.Contains(uds.Category))
+            if (uds != null && locations.Locations.Contains(uds.Location) && CategoriesCollection.Instance.Categories.Contains(uds.Category))
             {                              
                  UDScollection.Add(uds);
 
@@ -112,29 +136,7 @@ namespace RundvisningRagnaRock.Collections
             }
         }
 
-        //Not in use. Data er automatisk opdateret via observerble collection i viewmodel.
 
-        //public void Update(UDS uds)
-        //{
-        //    if (uds != null)
-        //    {
-        //        int index =0;
-        //        bool found =false;
-
-        //        foreach (var item in UDScollection)
-        //        {
-        //            if (item.ID == uds.ID)
-        //            {
-        //                index = UDScollection.IndexOf(item);
-        //                found = true;
-        //                //UDScollection[UDScollection.IndexOf(item)] = uds;
-        //            }
-        //        }
-
-        //        if(found)
-        //            UDScollection[index] = uds;
-        //    }
-        //}
         #endregion
 
     }
