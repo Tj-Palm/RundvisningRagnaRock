@@ -84,8 +84,7 @@ namespace RundvisningRagnaRock.Collections
 
 
         public bool Add(UDS uds)
-        {           
-
+        {
             if (uds != null && lokocations.Locations.Contains(uds.Location) && CategoriesCollection.Instance.Categories.Contains(uds.Category))
             {                              
                  UDScollection.Add(uds);
