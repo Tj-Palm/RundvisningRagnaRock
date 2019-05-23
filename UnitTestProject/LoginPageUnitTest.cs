@@ -7,9 +7,14 @@ using RundvisningRagnaRock.Models;
 namespace UnitTestProject
 {
     [TestClass]
-    class LoginPageUnitTest
+    public class LoginPageUnitTest
     {
         private EmployeeCollection employeeCollection;
+
+        public void Arrange()
+        {
+            employeeCollection = new EmployeeCollection();
+        }
 
         public EmployeeCollection GetTestEmployeeCollection()
         {
@@ -17,59 +22,62 @@ namespace UnitTestProject
         }
 
         [TestMethod] //#1
-        private void TestCorrectLogin()
+        public void TestCorrectLogin()
         {
             //Arrange
-            GetTestEmployeeCollection().Employees = new Dictionary<int, Employee>();
+            Arrange();
 
             //Act
-            bool correctLoginResult = employeeCollection.RequestLogin("Daniel", 12345);
+            bool correctLoginResult = GetTestEmployeeCollection().RequestLogin("Daniel", 12345);
 
             //Assert
             Assert.IsTrue(correctLoginResult);
         }
         [TestMethod] //#2
-        private void TestFalseLogin()
+        public void TestNullInput()
         {
             //Arrange
-
+            Arrange();
             //Act
-
-            //Assert
-        }
-        [TestMethod] //#3
-        private void TestNullInput()
-        {
-            //Arrange
-
-            //Act
-            bool NullResult = employeeCollection.RequestLogin("", int.Parse(""));
+            bool NullResult = GetTestEmployeeCollection().RequestLogin("", int.Parse(""));
 
             //Assert
             Assert.IsNull(NullResult);
         }
-        [TestMethod] //#4
-        private void TestNotLogin()
+        [TestMethod] //#3
+        public void TestNotLogin()
         {
             //Arrange
-            GetTestEmployeeCollection().Employees = new Dictionary<int, Employee>();
+            Arrange();
+
             //Act
-            bool notLoginResult = employeeCollection.RequestLogin("Mohammed", 12345);
+            bool notLoginResult = GetTestEmployeeCollection().RequestLogin("Mohammed", 12345);
             //Assert
             Assert.IsFalse(notLoginResult);
         }
-        [TestMethod] //#5
-        private void TestUppercaseLetter()
+        [TestMethod] //#4
+        public void TestUppercaseLetter()
         {
             //Arrange
 
             //Act
 
             //Assert
+        }
+
+        [TestMethod] //#5
+        public void TestLowercaseLetter()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+
         }
 
         [TestMethod] //#6
-        private void TestLowercaseLetter()
+        public void TestPasswordLetters()
         {
             //Arrange
 
@@ -79,19 +87,8 @@ namespace UnitTestProject
 
         }
 
-        [TestMethod] //#7
-        private void TestPasswordLetters()
-        {
-            //Arrange
-
-            //Act
-
-            //Assert
-
-        }
-
-        [TestMethod] //#8
-        private void TestUsernameNumbers()
+        [TestMethod] //#9
+        public void TestUsernameNumbers()
         {
             //Arrange
 
