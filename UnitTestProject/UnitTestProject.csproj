@@ -119,14 +119,15 @@
     <SDKReference Include="TestPlatform.Universal, Version=$(UnitTestPlatformVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriesCollectionUnittest.cs" />
-    <Compile Include="EditMainViewUnitTest.cs" />
+    <Compile Include="Collections\CategoriesCollectionUnittest.cs" />
+    <Compile Include="Viewmodels\CreateViewUnitTest.cs" />
+    <Compile Include="Viewmodels\EditMainViewUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestApp.xaml.cs">
       <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UDSCollectionUnitTest.cs" />
-    <Compile Include="UnitTestSettingsSingleton.cs" />
+    <Compile Include="Collections\UDSCollectionUnitTest.cs" />
+    <Compile Include="Collections\UnitTestSettingsSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="UnitTestApp.xaml">

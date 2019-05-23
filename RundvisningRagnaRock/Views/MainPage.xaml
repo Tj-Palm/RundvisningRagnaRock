@@ -18,7 +18,7 @@
     </Page.Resources>
    
 
-    <Grid  >
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="2*"/>
@@ -51,22 +51,31 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Column="1">
-                        <ListView ItemsSource="{Binding SelectedUdsByLocation, Mode=TwoWay}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Height="40" Margin="0,0,0,5">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Image Grid.Column="0" Source="{Binding Category.Icon}" />
-                                        <TextBlock Grid.Column="1" Text="{Binding Name}"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <ListView ItemsSource="{Binding SelectedUdsByLocation, Mode=TwoWay}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="40" Margin="0,0,0,5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="{Binding Category.Icon}" />
+                                            <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+
+                        </StackPanel>
+                    </Grid>
                     <StackPanel Grid.Row="1" HorizontalAlignment="center">
                         <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
                         <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
