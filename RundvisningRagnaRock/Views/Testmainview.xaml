@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="RundvisningRagnaRock.Views.Testmainview"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RundvisningRagnaRock.Views"
+    xmlns:vm="using:RundvisningRagnaRock.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext >
+        <vm:MainViewModel></vm:MainViewModel>
+    </Page.DataContext>
+    <Page.Resources>
+        <vm:MainViewModel x:Key="MainViewModelInstance" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="*" MaxWidth="650" MinWidth="650"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1">
+            <ListView ItemsSource="{Binding SelectedUdsByLocation, Mode=TwoWay}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="40" Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding Category.Icon}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="center">
+            <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
+            <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
+            <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
+        </StackPanel>
+
+        <Canvas Grid.Row="1" Grid.Column="1" >
+            <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="../Assets/Kort1.jpg"  ></Image>
+            <!--<Button HorizontalAlignment="Left" Height="29" Margin="0,0,0,0" VerticalAlignment="Center" Width="45" Canvas.Left="295" Canvas.Top="240" Command="{Binding GetUDS}"></Button>-->
+            <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RenderTransform>
+                                <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
+                            </Grid.RenderTransform>
+                            <Button Content="{Binding Name}" Height="{Binding BoxHeight}" Width="{Binding BoxWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=SetLocation}" CommandParameter="{Binding Id}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Canvas>
+      
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Area:"></TextBlock>
+                <TextBlock Text="{Binding SelectedUdstillingsGenstand.Name, Mode=TwoWay}"></TextBlock>
+            </StackPanel>  
+            <!--<StackPanel Orientation="Horizontal">
+                <TextBlock Text="Height:"></TextBlock>
+                <TextBlock Text="{Binding SelectedLocation, Mode=TwoWay}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Width:"></TextBlock>
+                <TextBlock Text="{Binding BoxWidth,Mode=TwoWay}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="x:"></TextBlock>
+                <TextBlock Text="{Binding xCoordinate,Mode=TwoWay}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="y:"></TextBlock>
+                <TextBlock Text="{Binding yCoordinate,Mode=TwoWay}"></TextBlock>
+            </StackPanel>-->
+      
+    </Grid>
+ 
+</Page>

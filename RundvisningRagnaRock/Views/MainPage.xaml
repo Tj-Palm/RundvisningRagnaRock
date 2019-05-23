@@ -16,7 +16,7 @@
     <Page.Resources>
         <ViewModel:MainViewModel x:Key="MainViewModelInstance" />
     </Page.Resources>
-   
+
 
     <Grid  >
         <Grid.RowDefinitions>
@@ -27,7 +27,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        
+
         <RelativePanel>
             <ToggleButton Background="Transparent"  Margin="10,0,0,0" FontFamily="Segoe MDL2 Assets" Content="&#xE71D;" Checked="HamburgerButton_Checked" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85"></ToggleButton>
         </RelativePanel>
@@ -37,6 +37,7 @@
                 <StackPanel HorizontalAlignment="Center">
                     <Button Content="Login" Click="Button_Click" Width="90"/>
                     <Button Content="Settings" Click="Button_Click_3" Width="90"/>
+                    <Button Content="test"  Width="90" Click="Button_Click_4"/>
                 </StackPanel>
             </SplitView.Pane>
 
@@ -46,9 +47,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="75"/>
                         <ColumnDefinition Width="*" MaxWidth="650" MinWidth="650"/>
+                        
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="1">
@@ -73,23 +76,47 @@
                         <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
                     </StackPanel>
 
-                <Canvas Grid.Row="1" Grid.Column="1" >
-                    <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
-                    <!--<Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33" Command="{Binding GetUDS}"></Button>-->
+                    <Canvas Grid.Row="1" Grid.Column="1" >
+                        <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="../Assets/Kort1.jpg"  ></Image>
+                        <!--<Button HorizontalAlignment="Left" Height="29" Margin="0,0,0,0" VerticalAlignment="Center" Width="45" Canvas.Left="295" Canvas.Top="240" Command="{Binding GetUDS}"></Button>-->
                         <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
                             <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RenderTransform>
-                                        <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
-                                    </Grid.RenderTransform>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RenderTransform>
+                                            <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
+                                        </Grid.RenderTransform>
                                         <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=SetLocation}" CommandParameter="{Binding Id}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Canvas>
-            </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </Canvas>
+
+                    <StackPanel Grid.Column="1" Grid.Row="2">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Area:"></TextBlock>
+                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.Name, Mode=TwoWay}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Height:"></TextBlock>
+                            <TextBlock Text="{Binding SelectedLocation.BHeight, Mode=TwoWay}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Width:"></TextBlock>
+                            <TextBlock Text="{Binding SelectedLocation.BWidth,Mode=TwoWay}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="x:"></TextBlock>
+                            <TextBlock Text="{Binding SelectedLocation.xCoordinate,Mode=TwoWay}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="y:"></TextBlock>
+                            <TextBlock Text="{Binding SelectedLocation.yCoordinate,Mode=TwoWay}"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
             </SplitView.Content>
         </SplitView>
     </Grid>

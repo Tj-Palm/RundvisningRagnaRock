@@ -8,6 +8,7 @@ namespace RundvisningRagnaRock.Enums
 {
     public enum Etage
     {
+        One,
         Two,
         Three
     }
