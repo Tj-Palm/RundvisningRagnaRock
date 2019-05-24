@@ -1,4 +1,5 @@
 ﻿<Page
+    x:Name="Page"
     x:Class="RundvisningRagnaRock.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -92,7 +93,7 @@
                                     <Grid.RenderTransform>
                                         <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
                                     </Grid.RenderTransform>
-                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=SetLocation}" CommandParameter="{Binding Id}"/>
+                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding DataContext.SetLocation, ElementName=Page}" CommandParameter="{Binding Id}"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
