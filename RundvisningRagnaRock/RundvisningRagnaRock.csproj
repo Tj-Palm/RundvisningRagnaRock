@@ -122,6 +122,7 @@
     <Compile Include="Collections\CategoriesCollection.cs" />
     <Compile Include="Collections\EmployeeCollection.cs" />
     <Compile Include="Collections\LocationCollection.cs" />
+    <Compile Include="Collections\LocationCollectionNew.cs" />
     <Compile Include="Collections\SettingsSingleton.cs" />
     <Compile Include="Collections\UdsCollection.cs" />
     <Compile Include="Common\RelayCommand.cs" />

@@ -1,4 +1,5 @@
 ﻿<Page
+    x:Name="ParrentPage"
     x:Class="RundvisningRagnaRock.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -76,32 +77,31 @@
                         <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
                     </StackPanel>
 
-                    <Canvas Grid.Row="1" Grid.Column="1" >
+                    <Canvas Grid.Row="1" Grid.Column="1">
                         <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="../Assets/Kort1.jpg"  ></Image>
-                        <!--<Button HorizontalAlignment="Left" Height="29" Margin="0,0,0,0" VerticalAlignment="Center" Width="45" Canvas.Left="295" Canvas.Top="240" Command="{Binding GetUDS}"></Button>-->
-                        <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
+                        <!--<Button HorizontalAlignment="Left" Height="29" Margin="0,0,0,0" VerticalAlignment="Center" Width="45" Canvas.Left="295" Canvas.Top="240" Command="{Binding SetLocation}" CommandParameter="{Binding }"></Button>-->
+                            <ItemsControl ItemsSource="{Binding Buttons, Mode=TwoWay}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.RenderTransform>
                                             <CompositeTransform TranslateX="{Binding xCoordinate}" TranslateY="{Binding yCoordinate}"></CompositeTransform>
                                         </Grid.RenderTransform>
-                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding Source={StaticResource MainViewModelInstance}, Path=SetLocation}" CommandParameter="{Binding Id}"/>
+                                        <Button Content="{Binding Name}" Height="{Binding BHeight}" Width="{Binding BWidth}" Command="{Binding DataContext.SetLocation, ElementName=ParrentPage}" CommandParameter="{Binding Id}"/>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-
                     </Canvas>
 
                     <StackPanel Grid.Column="1" Grid.Row="2">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Area:"></TextBlock>
-                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.Name, Mode=TwoWay}"></TextBlock>
+                            <TextBlock Text="{Binding SelectedLocation.Name, Mode=TwoWay}"></TextBlock>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Height:"></TextBlock>
-                            <TextBlock Text="{Binding SelectedLocation.BHeight, Mode=TwoWay}"></TextBlock>
+                            <TextBlock Text="{Binding BHeight, Mode=TwoWay}"></TextBlock>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Width:"></TextBlock>

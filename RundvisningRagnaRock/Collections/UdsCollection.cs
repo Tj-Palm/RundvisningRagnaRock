@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -23,6 +24,7 @@ namespace RundvisningRagnaRock.Collections
         private List<UDS> _udsCollection;
         private static UdsCollection _instance;
         private LocationCollection locations;
+        private List<UDS> _selectedUdsListByLocation;
         #endregion
 
         #region Constructor
@@ -46,17 +48,19 @@ namespace RundvisningRagnaRock.Collections
                 locations = new LocationCollection();
                 await locations.UpdateLocationsAsync();
 
-                //TODO for testing. delete
-                _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], locations.Locations[0],
-                    "Denne guitar er super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], locations.Locations[1],
-                    "Denne guitar er super super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], locations.Locations[2],
-                    "Denne guitar er super super super fed.", "", ""));
-                _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[3], locations.Locations[3],
-                    "Denne guitar er super super super fed.", "", ""));
-                _udsCollection.Add(new Instrument("instrument Guitar", CategoriesCollection.Instance.Categories[3], locations.Locations[3],
-                    "Frank", "Guitar","",""));
+                _selectedUdsListByLocation = new List<UDS>();
+
+                ////TODO for testing. delete
+                //_udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], locations.Locations[0],
+                //    "Denne guitar er super fed.", "", ""));
+                //_udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], locations.Locations[1],
+                //    "Denne guitar er super super fed.", "", ""));
+                //_udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], locations.Locations[2],
+                //    "Denne guitar er super super super fed.", "", ""));
+                //_udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[3], locations.Locations[3],
+                //    "Denne guitar er super super super fed.", "", ""));
+                //_udsCollection.Add(new Instrument("instrument Guitar", CategoriesCollection.Instance.Categories[3], locations.Locations[3],
+                //    "Frank", "Guitar","",""));
             }
         }
 
@@ -101,6 +105,15 @@ namespace RundvisningRagnaRock.Collections
             get { return _udsCollection; }
             private set { _udsCollection = value; }
         }
+
+   
+
+        public List<UDS> SelectedUdsListByLocation
+        {
+            get { return _selectedUdsListByLocation; }
+            set { _selectedUdsListByLocation = value; }
+        }
+
 
         #endregion
 

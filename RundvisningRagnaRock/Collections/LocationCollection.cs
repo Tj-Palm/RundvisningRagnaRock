@@ -65,11 +65,13 @@ namespace RundvisningRagnaRock.Collections
 
         public async Task SaveLocations()
         {
-            _locations.Add(new Location(10, 10, 10, 10, Etage.Three, "test1", "test1","test"));
-            _locations.Add(new Location(20, 20, 20, 20, Etage.Three, "test2", "test2","test"));
-            _locations.Add(new Location(30, 30, 30, 30, Etage.Two, "test3", "test3","test"));
-            _locations.Add(new Location(40, 40, 40, 40, Etage.Two, "test4", "test4", "test"));
+            _locations.Add(new Location(10, 10, 10, 10, 3, "test1", "test1","test"));
+            _locations.Add(new Location(20, 20, 20, 20, 3, "test2", "test2","test"));
+            _locations.Add(new Location(30, 30, 30, 30, 2, "test3", "test3","test"));
+            _locations.Add(new Location(40, 40, 40, 40, 2, "test4", "test4", "test"));
             await _file.SaveAsync(_locations);
         }
+
+
     }
 }
