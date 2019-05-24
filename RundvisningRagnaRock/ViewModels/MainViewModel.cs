@@ -56,6 +56,7 @@ namespace RundvisningRagnaRock.ViewModels
 
             LoadResourcesAsync();
 
+            
             Map = _map2;
 
             ChangeToMap2 = new RelayCommand(toChangeMap2);
@@ -218,6 +219,8 @@ namespace RundvisningRagnaRock.ViewModels
                    throw new MissingLocationException($"{location.Name} location does not exist");
                 }
             }
+            
+            Buttons = new ObservableCollection<Location>(_etage2Locations);
 
             await _allUds.LoadElementsAsync();
             //_selectedUdsByLocation = new ObservableCollection<UDS>(_allUds.UDScollection);

@@ -104,7 +104,7 @@
                 </Canvas>
                     <StackPanel Grid.Column="2" Grid.Row="2">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Area:"></TextBlock>
+                            <TextBlock Text="Area: "></TextBlock>
                             <TextBlock Text="{Binding SelectedLocation.Name, Mode=TwoWay}"></TextBlock>
                         </StackPanel>
                      </StackPanel>
