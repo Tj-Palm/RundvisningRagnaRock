@@ -18,26 +18,23 @@ namespace RundvisningRagnaRock.Models
 {
     public partial class AudioController
     {
-        
+        #region MediaElement
+
         public MediaElement MyMusic = new MediaElement();
 
+        #endregion
+ 
+        #region Constructor
         public AudioController()
         {
-            AudioControl();
+            //SetSound();
         }
-
+        #endregion
+        
+        #region Properties
         public AudioProperties Properties
         {
             get { return new AudioProperties();}
-        }
-
-        public async void AudioControl()
-        {
-            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            Folder = await Folder.GetFolderAsync("Assets");
-            StorageFile sf = await Folder.GetFileAsync("TestMusic.mp3");
-            MyMusic.AutoPlay = false;
-            MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
         }
 
         public double MaxVolumeControl
@@ -56,12 +53,21 @@ namespace RundvisningRagnaRock.Models
             Properties.Volume = volume;
         }
 
+        #endregion
+
+        #region Methods
+          public async void SetSound(string mp3)
+          {
+            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            Folder = await Folder.GetFolderAsync("Assets");
+            StorageFile sf = await Folder.GetFileAsync(mp3);
+            MyMusic.AutoPlay = false;
+            MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+          }
+
         public async void PlayAudio()
         {
-            if (MyMusic.Source != null /*|| /*MyMusic.CanPause = true*/)
-            {
-                MyMusic.Play();
-            }
+                MyMusic.Play();   
         }
 
         public void PauseAudio()
@@ -92,5 +98,8 @@ namespace RundvisningRagnaRock.Models
         //{
         //    MyMusic.Volume -= 0.01;
         //}
+
+        #endregion
+      
     }
 }

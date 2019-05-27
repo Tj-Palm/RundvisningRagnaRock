@@ -19,6 +19,8 @@ namespace RundvisningRagnaRock.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
+        AudioController MyController = new AudioController();
+        TextChanger MyTextChanger = new TextChanger();
 
         #region InstanceFields
         private string _map;
@@ -44,7 +46,10 @@ namespace RundvisningRagnaRock.ViewModels
             _allLocations = new List<Location>();
             _buttons = new ObservableCollection<Location>();
             _allUds = UdsCollection.Instance;
-            _selectedUdsByLocation = new ObservableCollection<UDS>(); 
+            _selectedUdsByLocation = new ObservableCollection<UDS>();
+            PlayCommand = new RelayCommand(ToPlayCommand);
+            PauseCommand = new RelayCommand(ToPauseCommand);
+            MuteCommand = new RelayCommand(ToMuteCommand);
 
             //_buttons.Add(new DynamicButton(115, 50,50,30));
             //_buttons.Add(new DynamicButton(33, 123, 36, 48));
@@ -66,7 +71,16 @@ namespace RundvisningRagnaRock.ViewModels
         public UDS SelectedUdstillingsGenstand
         {
             get { return _selectedUdstillingsGenstand; }
-            set { _selectedUdstillingsGenstand = value; OnPropertyChanged(); }
+            set
+            {
+                if (value != null)
+                {
+                    MyController.SetSound(value.SoundFileName);
+                    _selectedUdstillingsGenstand = value;
+                    OnPropertyChanged();
+                }
+               
+            }
         }
 
         public string Map
@@ -138,11 +152,14 @@ namespace RundvisningRagnaRock.ViewModels
         public RelayCommand ChangeToMap2 { get; set; }
         public RelayCommand ChangeToMap3 { get; set; }
         public RelayCommandWithParamitter SetLocation { get; set; }
+        public RelayCommand PlayCommand { get; set; }
+        public RelayCommand PauseCommand { get; set; }
+        public RelayCommand MuteCommand { get; set; }
 
         #endregion
 
         #region CommandMethods
-        
+
         private void toChangeMap2()
         {
             Map = _map2;
@@ -168,6 +185,26 @@ namespace RundvisningRagnaRock.ViewModels
                     SelectedLocation = location;
                 }
             }
+        }
+
+        public void ToPlayCommand()
+        {
+            MyController.PlayAudio();
+        }
+
+        public void ToPauseCommand()
+        {
+            MyController.PauseAudio();
+
+            //MyController.Volume = 0.7;
+
+        }
+
+        public void ToMuteCommand()
+        {
+            //MyController.Volume = 0.2;
+
+            MyController.MuteAudio();
         }
 
         #endregion
