@@ -34,17 +34,6 @@ namespace UnitTestProject
             Assert.IsTrue(correctLoginResult);
         }
         [TestMethod] //#2
-        public void TestNullInput()
-        {
-            //Arrange
-            Arrange();
-            //Act
-            bool NullResult = GetTestEmployeeCollection().RequestLogin("", int.Parse(""));
-
-            //Assert
-            Assert.IsNull(NullResult);
-        }
-        [TestMethod] //#3
         public void TestNotLogin()
         {
             //Arrange
@@ -55,45 +44,57 @@ namespace UnitTestProject
             //Assert
             Assert.IsFalse(notLoginResult);
         }
+
+        [TestMethod] //#3
+        public void TestNoInputUsername()
+        {
+            //Arrange
+            Arrange();
+            //Act
+            bool noInputUsername = GetTestEmployeeCollection().RequestLogin("", 1);
+            //Assert
+            Assert.IsFalse(noInputUsername);
+        }
+
         [TestMethod] //#4
         public void TestUppercaseLetter()
         {
             //Arrange
-
+            Arrange();
             //Act
-
+            bool isUpperCaseLetter = GetTestEmployeeCollection().RequestLogin("Daniel", 123);
             //Assert
         }
 
-        [TestMethod] //#5
+        [TestMethod] //#4
         public void TestLowercaseLetter()
         {
             //Arrange
-
+            Arrange();
             //Act
+            bool isLowerCaseLetter = GetTestEmployeeCollection().RequestLogin("daniel", 123);
+            //Assert
 
+        }
+
+        [TestMethod] //#5
+        public void TestPasswordLetters()
+        {
+            //Arrange
+            Arrange();
+            //Act
+            bool isPasswordLetters = GetTestEmployeeCollection().RequestLogin("Daniel", int.Parse("Daniel"));
             //Assert
 
         }
 
         [TestMethod] //#6
-        public void TestPasswordLetters()
-        {
-            //Arrange
-
-            //Act
-
-            //Assert
-
-        }
-
-        [TestMethod] //#9
         public void TestUsernameNumbers()
         {
-            //Arrange
-
-            //Act
-
+            ////Arrange
+            //Arrange();
+            ////Act
+            //bool isUsernameNumbers = GetTestEmployeeCollection().RequestLogin(string. 123, 12345);
             //Assert
         }
     }
