@@ -31,6 +31,8 @@ namespace RundvisningRagnaRock.Collections
             _audioProperties = new AudioProperties();
             _fileSourceText = new FilePersistency<TextChanger>("TextSource");
             _textChange = new TextChanger();
+
+            _folder = _fileSourceAudio.Folder.Path;
           }
         #endregion
 
@@ -58,6 +60,17 @@ namespace RundvisningRagnaRock.Collections
         {
             myMusic.Properties.Volume = SoundVolume.Value;
         }
+
+        public string folder { get; set; }
+
+        private string _folder;
+
+        public string Folder
+        {
+            get { return _folder; }
+            set { _folder = value; }
+        }
+
 
         //Update is called once per frame.
         void UpdateText()

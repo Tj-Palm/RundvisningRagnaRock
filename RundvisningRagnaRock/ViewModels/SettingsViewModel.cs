@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Binding_MVVM.Persistency;
+using Newtonsoft.Json.Linq;
 using RundvisningRagnaRock.Collections;
 using RundvisningRagnaRock.Common;
 using RundvisningRagnaRock.Models;
@@ -18,7 +20,8 @@ namespace RundvisningRagnaRock.ViewModels
 
         public SettingsViewModel()
         {
-           
+            
+
             SaveCommand = new RelayCommand(ToSaveCommand);
             PlayCommand = new RelayCommand(ToPlayCommand);
             PauseCommand = new RelayCommand(ToPauseCommand);
@@ -34,6 +37,14 @@ namespace RundvisningRagnaRock.ViewModels
         public RelayCommand MuteCommand { get; set; }
         public RelayCommand VolUp { get; set; }
         public RelayCommand VolDown { get; set; }
+
+
+        public string JsonFolder
+        {
+            get { return SettingsSingleton.Instance.Folder; }
+          
+        }
+
 
         public double TextValue
         {
