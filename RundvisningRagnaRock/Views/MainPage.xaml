@@ -75,7 +75,11 @@
                             </ListView>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-
+                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.Name}"/>
+                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.PictureDirectory}"/>
+                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.Category}"/>
+                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.Description}"/>
+                            <TextBlock Text="{Binding SelectedUdstillingsGenstand.SoundFileDirectory}"/>
                         </StackPanel>
                     </Grid>
                     <StackPanel Grid.Row="1" HorizontalAlignment="center">
