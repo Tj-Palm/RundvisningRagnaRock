@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\CategoriesCollectionUnittest.cs" />
+    <Compile Include="Viewmodels\LoginPageUnitTest.cs" />
     <Compile Include="Viewmodels\CreateViewUnitTest.cs" />
     <Compile Include="Viewmodels\EditMainViewUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
