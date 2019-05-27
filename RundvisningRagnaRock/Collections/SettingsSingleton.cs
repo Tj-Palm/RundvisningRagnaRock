@@ -53,17 +53,17 @@ namespace RundvisningRagnaRock.Collections
         #endregion
 
         #region Methods
-           //Update is called once per frame.
-        void UpdateMusic()
-        {
-            myMusic.Properties.Volume = SoundVolume.Value;
-        }
+        //   //Update is called once per frame.
+        //void UpdateMusic()
+        //{
+        //    myMusic.Properties.Volume = SoundVolume.Value;
+        //}
 
-        //Update is called once per frame.
-        void UpdateText()
-        {
-            myText.textSize = Textresizer.Value;
-        }
+        ////Update is called once per frame.
+        //void UpdateText()
+        //{
+        //    myText.textSize = Textresizer.Value;
+        //}
 
         public async Task SaveAsync()
         {
