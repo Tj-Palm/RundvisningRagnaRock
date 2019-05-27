@@ -35,11 +35,6 @@ namespace RundvisningRagnaRock.ViewModels
 
         #endregion
 
-        public string maps
-        {
-            get { return _map2; }
-        }
-
         #region Constructor
 
         public MainViewModel()
@@ -154,30 +149,15 @@ namespace RundvisningRagnaRock.ViewModels
             Buttons = new ObservableCollection<Location>(_etage2Locations);
         }
 
-
         private void toChangeMap3()
         {
             Map = _map3;
             Buttons = new ObservableCollection<Location>(_etage3Locations);
         }
 
-
-        //private int id;
-
-        //public int ID
-        //{
-        //    get { return id; }
-        //    set
-        //    {
-        //        id = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-
         private void toSetLocation(object id)
         {
-
+            
 
             int ID = Convert.ToInt16(id);
 
