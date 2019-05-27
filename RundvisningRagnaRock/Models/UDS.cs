@@ -22,7 +22,7 @@ namespace RundvisningRagnaRock.Models
         private Location _location;
         private string _desctiption;
         private string _pictureDirectory;
-        private string _soundFileDirectory;
+        private string _soundFileName;
         #endregion
 
         #region Constructor
@@ -37,7 +37,7 @@ namespace RundvisningRagnaRock.Models
         /// <param name="location"></param>
         /// <param name="desctiption"></param>
         /// <param name="pictureDirectory"></param>
-        /// <param name="soundFileDirectory"></param>
+        /// <param name="soundFileName"></param>
 
         public UDS( string name, Category category, Location location, string desctiption = null, string pictureDirectory = null, string soundFileDirectory = null)
         {
@@ -56,7 +56,7 @@ namespace RundvisningRagnaRock.Models
             _location = location;
             _desctiption = desctiption;
             _pictureDirectory = pictureDirectory;
-            _soundFileDirectory = soundFileDirectory;
+            _soundFileName = soundFileDirectory;
 
         }
 
@@ -68,10 +68,10 @@ namespace RundvisningRagnaRock.Models
         /// Den placering på computeren hvor lydfilen ligger.
         /// </summary>
 
-        public string SoundFileDirectory
+        public string SoundFileName
         {
-            get { return _soundFileDirectory; }
-            set { _soundFileDirectory = value; }
+            get { return _soundFileName; }
+            set { _soundFileName = value; }
         }
 
 

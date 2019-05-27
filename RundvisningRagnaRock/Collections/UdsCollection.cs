@@ -40,13 +40,13 @@ namespace RundvisningRagnaRock.Collections
 
                 //TODO for testing. delete
                 _udsCollection.Add(new UDS("Lemmings Guitar", CategoriesCollection.Instance.Categories[1], lokocations.Locations[0],
-                    "Denne guitar er super fed.", "", ""));
+                    "Denne guitar er super fed.", "", "TestMusic3.mp3"));
                 _udsCollection.Add(new UDS("Flemmings Guitar", CategoriesCollection.Instance.Categories[2], lokocations.Locations[1],
-                    "Denne guitar er super super fed.", "", ""));
+                    "Denne guitar er super super fed.", "", "TestMusic2.mp3"));
                 _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[0], lokocations.Locations[2],
-                    "Denne guitar er super super super fed.", "", ""));
+                    "Denne guitar er super super super fed.", "", "TestMusic1.mp3"));
                 _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[3], lokocations.Locations[3],
-                    "Denne guitar er super super super fed.", "", ""));
+                    "Denne guitar er super super super fed.", "", "TestMusic.mp3"));
             }
         }
 

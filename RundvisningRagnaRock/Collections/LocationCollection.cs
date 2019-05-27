@@ -18,21 +18,38 @@ namespace RundvisningRagnaRock.Collections
 {
 
     /// <summary>
-    /// LocationCollection 
+    /// LocationCollection en collection af Locations
     /// </summary>
     public class LocationCollection
     {
-        private List<Location> _locations;
-        private FilePersistency<List<Location>> file;
 
+        #region Instance fields
+        /// <summary>
+        /// locations list
+        /// filepersistency
+        /// </summary>
+        private List<Location> _locations;
+        private FilePersistency<List<Location>> _file;
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// initialisere _location og _file
+        /// </summary>      
         public LocationCollection()
         {
             _locations = new List<Location>();
-            file = new FilePersistency<List<Location>>("Locations");   
+            _file = new FilePersistency<List<Location>>("Locations");   
             
             
         }
+        #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// retunere en liste af locations
+        /// </summary>
         public List<Location> Locations
         {
             get
@@ -46,30 +63,46 @@ namespace RundvisningRagnaRock.Collections
             }
             set { _locations = value; }
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// henter locations fra Locations.json
+        /// </summary>
+        /// <returns></returns>
         public async Task UpdateLocationsAsync()
         {
-            if (!File.Exists(file.Folder.Path + "\\Locations.json"))
+            if (!File.Exists(_file.Folder.Path + "\\Locations.json"))
             {
                 await SaveLocations();
             }
-            _locations = await file.LoadModelAsync();
+            _locations = await _file.LoadModelAsync();
         }
 
+
+        /// <summary>
+        /// tilføjer en location 
+        /// </summary>
+        /// <param name="location"></param>
         public async void AddLocation(Location location)
         {
-            _locations = await file.LoadModelAsync();
+            _locations = await _file.LoadModelAsync();
             _locations.Add(location);
-            await file.SaveAsync(_locations);
+            await _file.SaveAsync(_locations);
         }
 
+        /// <summary>
+        /// hvis location er tom opretter den dette testdatai en json fil.
+        /// </summary>
+        /// <returns></returns>
         public async Task SaveLocations()
         {
             _locations.Add(new Location(10, 10, 10, 10, Etage.Three, "test1", "test1","test"));
             _locations.Add(new Location(20, 20, 20, 20, Etage.Three, "test2", "test2","test"));
             _locations.Add(new Location(30, 30, 30, 30, Etage.Two, "test3", "test3","test"));
             _locations.Add(new Location(40, 40, 40, 40, Etage.Two, "test4", "test4", "test"));
-            await file.SaveAsync(_locations);
+            await _file.SaveAsync(_locations);
         }
+        #endregion
     }
 }

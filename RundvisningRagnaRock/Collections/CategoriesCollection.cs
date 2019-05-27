@@ -7,11 +7,24 @@ using RundvisningRagnaRock.Models;
 
 namespace RundvisningRagnaRock.Collections
 {
+
+    /// <summary>
+    /// En collection af kategorier.
+    /// </summary>
    public class CategoriesCollection
     {
+        /// <summary>
+        /// En dictionary som indeholder kategorier.
+        /// key er en int id.
+        /// </summary>
         private Dictionary<int, Category> _categoryCollection;
 
+
         #region Singleton
+
+        /// <summary>
+        /// singleton inplemantation
+        /// </summary>
         private static CategoriesCollection _instance;
 
         public static CategoriesCollection Instance
@@ -29,6 +42,12 @@ namespace RundvisningRagnaRock.Collections
         }
         #endregion
 
+        #region Constructor
+
+        /// <summary>
+        /// constructor som initialisere en dictionry
+        /// tilføjer test data.
+        /// </summary>
         private CategoriesCollection()
         {
 
@@ -41,7 +60,15 @@ namespace RundvisningRagnaRock.Collections
             AddCategory("Rock", "../Assets/Rock.jpg");
 
         }
+        #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Retunere en liste af Categories
+        /// </summary>
+
+        
         public List<Category> Categories
         {
             get
@@ -49,6 +76,15 @@ namespace RundvisningRagnaRock.Collections
                 return _categoryCollection.Values.ToList();
             } 
         }
+        #endregion
+
+        #region Methods    
+        /// <summary>
+        /// tilføjer en kategori til dictionary
+        /// man skal angive 2 parametre.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="icon"></param>     
 
         public void AddCategory(string name, string icon)
         {
@@ -64,7 +100,7 @@ namespace RundvisningRagnaRock.Collections
             }
         }
 
-
+        #endregion
 
     }
 }
