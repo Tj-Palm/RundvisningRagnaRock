@@ -47,6 +47,11 @@ namespace RundvisningRagnaRock.Collections
                     "Denne guitar er super super super fed.", "", "TestMusic1.mp3"));
                 _udsCollection.Add(new UDS("Flubbers Guitar", CategoriesCollection.Instance.Categories[3], lokocations.Locations[3],
                     "Denne guitar er super super super fed.", "", "TestMusic.mp3"));
+                _udsCollection.Add(new UDS("Tubbers Guitar", CategoriesCollection.Instance.Categories[3], lokocations.Locations[3],
+                    "Denne guitar er super super super fed.", ""));
+                _udsCollection.Add(new UDS("Flibbers Guitar", CategoriesCollection.Instance.Categories[3],
+                    lokocations.Locations[3],
+                    "Denne guitar er super super super fed.", "", "fef"));
             }
         }
 

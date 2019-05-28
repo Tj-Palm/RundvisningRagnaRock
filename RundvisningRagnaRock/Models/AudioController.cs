@@ -13,6 +13,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls;
+using WinRTXamlToolkit.IO.Extensions;
 
 namespace RundvisningRagnaRock.Models
 {
@@ -56,14 +57,23 @@ namespace RundvisningRagnaRock.Models
         #endregion
 
         #region Methods
-          public async void SetSound(string mp3)
-          {
-            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            Folder = await Folder.GetFolderAsync("Assets");
-            StorageFile sf = await Folder.GetFileAsync(mp3);
-            MyMusic.AutoPlay = false;
-            MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
-          }
+        public async void SetSound(string mp3)
+        {
+            if (mp3 != null)
+            {
+                StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+
+                Folder = await Folder.GetFolderAsync("Assets");
+                bool containsFile = await Folder.ContainsFileAsync(mp3);
+
+                if (containsFile)
+                {
+                    StorageFile sf = await Folder.GetFileAsync(mp3);
+                    MyMusic.AutoPlay = false;
+                    MyMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
+                }
+            }
+        }
 
         public async void PlayAudio()
         {

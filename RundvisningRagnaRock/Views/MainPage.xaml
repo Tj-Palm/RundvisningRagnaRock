@@ -59,6 +59,12 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Area: "></TextBlock>
+                                    <TextBlock Text="{Binding SelectedLocation.Name, Mode=TwoWay}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
                             <ListView ItemsSource="{Binding SelectedUdsByLocation, Mode=TwoWay}" SelectedValue="{Binding SelectedUdstillingsGenstand, Mode=TwoWay}" >
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -81,20 +87,20 @@
                             <TextBlock Text="{Binding SelectedUdstillingsGenstand.Description}"/>
                             <TextBlock Text="{Binding SelectedUdstillingsGenstand.SoundFileDirectory}"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                             <Button Margin="10" Background="#FF999999" Content="Play" Command="{Binding PlayCommand}"  />
                             <Button Margin="10" Background="#FF999999" Content="Stop" Command="{Binding PauseCommand}"  />
                             <Button Margin="10" Background="#FF999999" Content="Mute" Command="{Binding MuteCommand}" />
                         </StackPanel>
                     </Grid>
-                    <StackPanel Grid.Row="1" HorizontalAlignment="center">
+                    <StackPanel Grid.Row="1" HorizontalAlignment="center" >
                         <TextBlock HorizontalAlignment="Center" Text="Etage" Margin="0,0,0,10"></TextBlock>
                         <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap2}">2</Button>
                         <Button  Height="50" Width="50" Margin="0,0,0,10" Command="{Binding ChangeToMap3}">3</Button>
                     </StackPanel>
 
-                <Canvas Grid.Row="1" Grid.Column="1" >
-                    <Image  Height="300" HorizontalAlignment="Left"  Grid.Column="2" Source="{Binding Map, Mode=TwoWay}"  ></Image>
+                <Canvas Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom">
+                    <Image  Height="300" HorizontalAlignment="Left"  Source="{Binding Map, Mode=TwoWay}"  ></Image>
                     <!--<Button HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" VerticalAlignment="Top" Width="48" Canvas.Left="123" Canvas.Top="33" Command="{Binding GetUDS}"></Button>-->
                         
                     
@@ -111,12 +117,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </Canvas>
-                    <StackPanel Grid.Column="2" Grid.Row="2">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Area: "></TextBlock>
-                            <TextBlock Text="{Binding SelectedLocation.Name, Mode=TwoWay}"></TextBlock>
-                        </StackPanel>
-                     </StackPanel>
+                   
                 </Grid>
             </SplitView.Content>
         </SplitView>
