@@ -74,7 +74,10 @@ namespace RundvisningRagnaRock.Collections
 
         public List<UDS> UDScollection
         {
-            get { return _udsCollection; }
+            get
+            {
+                return _udsCollection;
+            }
             private set { _udsCollection = value; }
         }
 
