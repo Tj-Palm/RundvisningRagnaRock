@@ -97,10 +97,17 @@ namespace RundvisningRagnaRock.Collections
         /// <returns></returns>
         public async Task SaveLocations()
         {
-            _locations.Add(new Location(10, 10, 10, 10, Etage.Three, "test1", "test1","test"));
-            _locations.Add(new Location(20, 20, 20, 20, Etage.Three, "test2", "test2","test"));
-            _locations.Add(new Location(30, 30, 30, 30, Etage.Two, "test3", "test3","test"));
-            _locations.Add(new Location(40, 40, 40, 40, Etage.Two, "test4", "test4", "test"));
+            _locations.Add(new Location(25, 196, 39, 37, Etage.Three, "Blikfang", "",""));
+            _locations.Add(new Location(50, 158, 45, 45, Etage.Three, "Skaelv", "",""));
+            _locations.Add(new Location(34, 283, 60, 37, Etage.Three, "Musikkens strømme", "",""));
+            _locations.Add(new Location(-5, 10, 45, 45, Etage.Two, "Dansefeber", "", ""));
+            _locations.Add(new Location(-35, 137, 45, 45, Etage.Three, "Lad der blive lys", "", ""));
+            _locations.Add(new Location(33, 123, 36, 48, Etage.Two, "Demoteket", "", ""));
+            _locations.Add(new Location(18, 290, 32, 50, Etage.Two, "Elektrisk intimitet", "", ""));
+            _locations.Add(new Location(45, 50, 50, 31, Etage.Two, "Jagten på den fede lyd", "", ""));
+            _locations.Add(new Location(8, 454, 58, 36, Etage.Two, "Fandrenge, Fanpiger", "", ""));
+            _locations.Add(new Location(-40, 197, 36, 54, Etage.Two, "Rotation", "", ""));
+            _locations.Add(new Location(30, 293, 29, 59, Etage.Two, "Den røde tråd", "", ""));
             await _file.SaveAsync(_locations);
         }
         #endregion
