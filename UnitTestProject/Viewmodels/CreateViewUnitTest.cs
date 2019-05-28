@@ -15,12 +15,10 @@ namespace UnitTestProject.Viewmodels
     {
         private CreateViewModel createViewModel;
         private LocationCollection _locationcol;
+
         public void Arrange()
         {
             createViewModel = new CreateViewModel();
-
-            _locationcol.UpdateLocationsAsync();
-            Task.Delay(2000);
         }
 
         public UDS GetTestUDS()
@@ -29,7 +27,7 @@ namespace UnitTestProject.Viewmodels
         }
 
         [TestMethod]
-        public void Testadd()
+        public async void Testadd()
         {
             //Arrange
             Arrange();
@@ -37,7 +35,7 @@ namespace UnitTestProject.Viewmodels
             UDS item = GetTestUDS();
 
             //Act
-            createViewModel.ToAddUds();
+            UdsCollection.Instance.Add(item);
 
             //Assert
             Assert.AreEqual(startvalue + 1, UdsCollection.Instance.UDScollection.Count);
